@@ -13,8 +13,8 @@
 		4C067B4124319A4B00654077 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C067B4024319A4B00654077 /* MyCoursesViewController.swift */; };
 		4C067B4424319A4B00654077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B4224319A4B00654077 /* Main.storyboard */; };
 		4C067B4924319A4C00654077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B4724319A4C00654077 /* LaunchScreen.storyboard */; };
-		4C067B5124319AD400654077 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B5024319AD400654077 /* GoogleService-Info.plist */; };
 		4C205E732459FEBE00C1E5B5 /* CourseTodosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C205E722459FEBE00C1E5B5 /* CourseTodosViewController.swift */; };
+		4C351556249C6A8400BAF650 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C351555249C6A8400BAF650 /* GoogleService-Info.plist */; };
 		4C3C9AC4246132100030A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B4524319A4C00654077 /* Assets.xcassets */; };
 		4C4E70D02432BF3D005AB60C /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70CF2432BF3D005AB60C /* CreateAccountViewController.swift */; };
 		4C4E70D224330CB6005AB60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70D124330CB6005AB60C /* LoginViewController.swift */; };
@@ -60,9 +60,9 @@
 		4C067B4524319A4C00654077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C067B4824319A4C00654077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C067B4A24319A4C00654077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C067B5024319AD400654077 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C205E712459CB6C00C1E5B5 /* School Load.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "School Load.entitlements"; sourceTree = "<group>"; };
 		4C205E722459FEBE00C1E5B5 /* CourseTodosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTodosViewController.swift; sourceTree = "<group>"; };
+		4C351555249C6A8400BAF650 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C3C9AD02463C5960030A363 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4C4E70CF2432BF3D005AB60C /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		4C4E70D124330CB6005AB60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -150,9 +150,9 @@
 				4C866D1E247E157A0090A0BB /* EditEmailViewController.swift */,
 				4C866D22247E25810090A0BB /* ReauthenticatePswdViewController.swift */,
 				4C866D24247E293E0090A0BB /* EditPasswordViewController.swift */,
-				4C067B5024319AD400654077 /* GoogleService-Info.plist */,
 				4C067B3A24319A4B00654077 /* AppDelegate.swift */,
 				4C067B3C24319A4B00654077 /* SceneDelegate.swift */,
+				4C351555249C6A8400BAF650 /* GoogleService-Info.plist */,
 				4C067B4A24319A4C00654077 /* Info.plist */,
 				4C205E712459CB6C00C1E5B5 /* School Load.entitlements */,
 			);
@@ -230,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C067B4924319A4C00654077 /* LaunchScreen.storyboard in Resources */,
-				4C067B5124319AD400654077 /* GoogleService-Info.plist in Resources */,
+				4C351556249C6A8400BAF650 /* GoogleService-Info.plist in Resources */,
 				4C3C9AC4246132100030A363 /* Assets.xcassets in Resources */,
 				4C067B4424319A4B00654077 /* Main.storyboard in Resources */,
 			);

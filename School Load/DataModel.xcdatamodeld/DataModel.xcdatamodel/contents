@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Assignment" representedClassName="Assignment" syncable="YES" codeGenerationType="class">
+        <attribute name="course" optional="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="newRelationship" inverseEntity="Course"/>
+    </entity>
+    <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
+        <attribute name="assignments" optional="YES"/>
+        <attribute name="color" optional="YES"/>
+        <attribute name="instructor" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Assignment" inverseName="newRelationship" inverseEntity="Assignment"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-270.9296875" positionY="-25.6640625" width="128" height="103"/>
+        <element name="Assignment" positionX="-54" positionY="9" width="128" height="88"/>
+    </elements>
+</model>

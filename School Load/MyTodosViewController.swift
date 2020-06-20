@@ -172,18 +172,25 @@ class MyTodosViewController: UIViewController {
 					if (diff.type == .removed) {
 						
 						// REMOVED*********************************************************************
-						
-						let data = diff.document.data()
-						
+												
 						user.todos.removeAll(where: {$0.ID == diff.document.documentID})
 						
 						for c in user.courses {
-							if c.ID == data["courseID"] as! String {
-								c.numTodos -= 1
-								db.collection("users").document(user.ID).collection("courses").document(data["courseID"] as! String).updateData([
-									"numTodos" : c.numTodos
-								])
+							c.numTodos = 0
+						}
+						
+						for c in user.courses {
+							for t in user.todos {
+								if c.ID == t.course {
+									c.numTodos += 1
+								}
 							}
+						}
+						
+						for c in user.courses {
+							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
+								"numTodos" : c.numTodos
+							])
 						}
 												
 					}

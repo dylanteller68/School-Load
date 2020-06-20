@@ -55,38 +55,91 @@ class MyCoursesViewController: UIViewController {
 
 					let button = UIButton(type: .system)
 					button.setAttributedTitle(title, for: .normal)
-					button.titleLabel?.numberOfLines = 2
-					button.titleLabel?.textAlignment = .center
-					button.backgroundColor = .systemGray5
-					button.translatesAutoresizingMaskIntoConstraints = false
-					button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-					if numTodos == 1 {
-						if courseName.count < 28 {
-							cNameLen = courseName.count
-							title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-						} else {
-							var tmpName = courseName
-							tmpName.removeLast(courseName.count-28)
-							tmpName.append("...")
-							cNameLen = tmpName.count
-							title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-
-						}
-					} else {
-						if courseName.count < 28 {
-							cNameLen = courseName.count
-							title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-						} else {
-							var tmpName = courseName
-							tmpName.removeLast(courseName.count-28)
-							tmpName.append("...")
-							cNameLen = tmpName.count
-							title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-						}
-					}
 					
-					title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
-					title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+					switch UIDevice().model {
+					case "iPad":
+						button.titleLabel?.numberOfLines = 7
+						button.titleLabel?.textAlignment = .center
+						button.backgroundColor = .systemGray5
+						button.translatesAutoresizingMaskIntoConstraints = false
+						button.heightAnchor.constraint(equalToConstant: 230).isActive = true
+						if numTodos == 1 {
+							if courseName.count < 28 {
+								cNameLen = courseName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							} else {
+								var tmpName = courseName
+								tmpName.removeLast(courseName.count-28)
+								tmpName.append("...")
+								cNameLen = tmpName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+
+							}
+						} else {
+							if courseName.count < 28 {
+								cNameLen = courseName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							} else {
+								var tmpName = courseName
+								tmpName.removeLast(courseName.count-28)
+								tmpName.append("...")
+								cNameLen = tmpName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							}
+						}
+						
+						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+						
+						var i = 0
+						
+						for t in user.todos {
+							if t.course == courseID {
+								title.append(NSAttributedString(string: "\n\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
+								i += 1
+							}
+							if i == 5 {
+								if course.numTodos > 5 {
+									title.append(NSAttributedString(string: "\n...", attributes: [NSAttributedString.Key.foregroundColor: user.colors[courseColor], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .bold)]))
+								}
+								break
+							}
+						}
+						break
+					default:
+						button.titleLabel?.numberOfLines = 2
+						button.titleLabel?.textAlignment = .center
+						button.backgroundColor = .systemGray5
+						button.translatesAutoresizingMaskIntoConstraints = false
+						button.heightAnchor.constraint(equalToConstant: 90).isActive = true
+						if numTodos == 1 {
+							if courseName.count < 28 {
+								cNameLen = courseName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							} else {
+								var tmpName = courseName
+								tmpName.removeLast(courseName.count-28)
+								tmpName.append("...")
+								cNameLen = tmpName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+
+							}
+						} else {
+							if courseName.count < 28 {
+								cNameLen = courseName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							} else {
+								var tmpName = courseName
+								tmpName.removeLast(courseName.count-28)
+								tmpName.append("...")
+								cNameLen = tmpName.count
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							}
+						}
+						
+						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
+						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+						break
+					}
 
 					button.layer.cornerRadius = 25
 					button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -133,33 +186,90 @@ class MyCoursesViewController: UIViewController {
 
 							var cNameLen = 0
 
-							if numTodos == 1 {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+							switch UIDevice().model {
+							case "iPad":
+								button.titleLabel?.numberOfLines = 7
+								button.titleLabel?.textAlignment = .center
+								button.backgroundColor = .systemGray5
+								button.translatesAutoresizingMaskIntoConstraints = false
+								button.heightAnchor.constraint(equalToConstant: 230).isActive = true
+								if numTodos == 1 {
+									if courseName.count < 28 {
+										cNameLen = courseName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									} else {
+										var tmpName = courseName
+										tmpName.removeLast(courseName.count-28)
+										tmpName.append("...")
+										cNameLen = tmpName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 
-								}
-							} else {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									}
 								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									if courseName.count < 28 {
+										cNameLen = courseName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									} else {
+										var tmpName = courseName
+										tmpName.removeLast(courseName.count-28)
+										tmpName.append("...")
+										cNameLen = tmpName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									}
 								}
+								
+								title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+								
+								var i = 0
+								
+								for t in user.todos {
+									if t.course == diff.document.documentID {
+										title.append(NSAttributedString(string: "\n\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
+										i += 1
+									}
+									if i == 5 {
+										if numTodos > 5 {
+											title.append(NSAttributedString(string: "\n...", attributes: [NSAttributedString.Key.foregroundColor: user.colors[courseColor], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .bold)]))
+										}
+										break
+									}
+								}
+								break
+							default:
+								button.titleLabel?.numberOfLines = 2
+								button.titleLabel?.textAlignment = .center
+								button.backgroundColor = .systemGray5
+								button.translatesAutoresizingMaskIntoConstraints = false
+								button.heightAnchor.constraint(equalToConstant: 90).isActive = true
+								if numTodos == 1 {
+									if courseName.count < 28 {
+										cNameLen = courseName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									} else {
+										var tmpName = courseName
+										tmpName.removeLast(courseName.count-28)
+										tmpName.append("...")
+										cNameLen = tmpName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+
+									}
+								} else {
+									if courseName.count < 28 {
+										cNameLen = courseName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									} else {
+										var tmpName = courseName
+										tmpName.removeLast(courseName.count-28)
+										tmpName.append("...")
+										cNameLen = tmpName.count
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+									}
+								}
+								
+								title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
+								title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+								break
 							}
-
-							title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
-							title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
 
 							button.setAttributedTitle(title, for: .normal)
 							

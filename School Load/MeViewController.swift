@@ -36,8 +36,54 @@ class MeViewController: UIViewController {
 		let name = "\(user.fname) \(user.lname)"
 		let email = Auth.auth().currentUser!.email!
 		
-		self.name_btn.setTitle("Name: \(name)", for: .normal)
-		self.email_btn.setTitle("Email: \(email)", for: .normal)
+		switch UIDevice().model {
+		case "iPad":
+			switch UIDevice().orientation {
+			case .landscapeLeft:
+				name_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				email_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				change_password_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				notifications_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				contact_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				help_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				rate_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				logout_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				break
+			case .landscapeRight:
+				name_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				email_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				change_password_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				notifications_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				contact_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				help_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				rate_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				logout_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
+				break
+			default:
+				name_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				email_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				change_password_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				notifications_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				contact_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				help_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				rate_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				logout_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+				break
+			}
+		default:
+			name_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			email_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			change_password_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			notifications_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			contact_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			help_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			rate_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			logout_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+			break
+		}
+		
+		name_btn.setTitle("Name: \(name)", for: .normal)
+		email_btn.setTitle("Email: \(email)", for: .normal)
 		
 		name_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 		email_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -46,10 +92,10 @@ class MeViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		let name = "\(user.fname) \(user.lname)"
-		self.name_btn.setTitle("Name: \(name)", for: .normal)
+		name_btn.setTitle("Name: \(name)", for: .normal)
 		
 		let email = Auth.auth().currentUser!.email!
-		self.email_btn.setTitle("Email: \(email)", for: .normal)
+		email_btn.setTitle("Email: \(email)", for: .normal)
 	}
 	
 	@IBAction func logout_tapped(_ sender: Any) {

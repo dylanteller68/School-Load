@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="MyTodosViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-tY-a3f">
-                                <rect key="frame" x="10" y="59" width="394" height="30"/>
+                                <rect key="frame" x="10" y="15" width="394" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-uV-0IZ">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
@@ -27,9 +27,7 @@
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" backgroundImage="text.badge.checkmark" catalog="system"/>
                                         <connections>
-                                            <segue destination="0o3-co-BLj" kind="popoverPresentation" popoverAnchorView="0qb-uV-0IZ" id="8Qa-da-N0c">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="0o3-co-BLj" kind="show" id="wy5-0C-Qz0"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdE-BF-2Z9" userLabel="school load lbl SV">
@@ -64,24 +62,24 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wq-nv-E4P">
-                                <rect key="frame" x="0.0" y="109" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Z1j-0v-vNm"/>
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No to-dos yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-TB-Mku">
-                                <rect key="frame" x="123" y="430" width="168" height="36"/>
+                                <rect key="frame" x="123" y="403" width="168" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UMq-ba-zhu">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                                 <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjU-Gq-uuj">
-                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="66" width="414" height="693"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quj-gH-xLr">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -163,11 +161,11 @@
             <objects>
                 <viewController title="my courses" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="8rJ-Kc-sve" customClass="MyCoursesViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVr-jr-mVL">
-                                <rect key="frame" x="0.0" y="109" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OGO-Ii-1zf"/>
@@ -175,7 +173,7 @@
                                 <viewLayoutGuide key="safeArea" id="F0t-Ja-Mjc"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-VG-HC8">
-                                <rect key="frame" x="10" y="59" width="394" height="30"/>
+                                <rect key="frame" x="10" y="15" width="394" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-z6-MbP">
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
@@ -219,17 +217,17 @@
                                 <viewLayoutGuide key="safeArea" id="xC4-l9-O0P"/>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No courses yet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-t1-vaH">
-                                <rect key="frame" x="115.5" y="430" width="183.5" height="36"/>
+                                <rect key="frame" x="115.5" y="403" width="183.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-ZI-198">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="411" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-XQ-Drl">
-                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="66" width="414" height="693"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVd-Rg-r84">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -372,9 +370,7 @@
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PVp-hx-dGp" kind="popoverPresentation" popoverAnchorView="LKG-DG-QsR" id="qQq-fv-xBw">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="PVp-hx-dGp" kind="show" id="qQq-fv-xBw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvo-6V-B9n">
@@ -701,13 +697,13 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="LF0-5d-wwE">
             <objects>
-                <viewController id="PVp-hx-dGp" customClass="ForgotPasswordViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="PVp-hx-dGp" customClass="ForgotPasswordViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ttc-Y9-Zev">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-VD-8fE" userLabel="create account SV">
-                                <rect key="frame" x="30" y="396" width="354" height="50"/>
+                                <rect key="frame" x="30" y="423" width="354" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0QJ-9M-wH8">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
@@ -736,7 +732,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-kT-0od">
-                                <rect key="frame" x="30" y="476" width="354" height="50"/>
+                                <rect key="frame" x="30" y="503" width="354" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="w6F-b8-YTj"/>
@@ -752,7 +748,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cm0-ma-fh5">
-                                <rect key="frame" x="20" y="10" width="58" height="36"/>
+                                <rect key="frame" x="20" y="54" width="58" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -762,7 +758,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VmC-L7-2ig" userLabel="school load lbl SV">
-                                <rect key="frame" x="93.5" y="312" width="227" height="54"/>
+                                <rect key="frame" x="93.5" y="339" width="227" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyG-oa-dnf">
                                         <rect key="frame" x="0.0" y="0.0" width="135.5" height="54"/>
@@ -779,7 +775,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Upv-P3-NWn">
-                                <rect key="frame" x="197" y="491" width="20" height="20"/>
+                                <rect key="frame" x="197" y="518" width="20" height="20"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -800,6 +796,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QE5-hO-CEk"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qfw-GV-qdp"/>
                     <connections>
                         <outlet property="email_txtbx" destination="Yfy-Gj-clG" id="FVG-A9-ylI"/>
                         <outlet property="progress_spinner" destination="Upv-P3-NWn" id="riW-Nf-0Py"/>
@@ -837,6 +834,7 @@
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="name_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="i3Y-Kn-Ac0"/>
                                             <segue destination="LD5-0R-e9e" kind="show" id="xXV-uv-Znf"/>
                                         </connections>
                                     </button>
@@ -848,6 +846,7 @@
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="email_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="j52-6O-gs4"/>
                                             <segue destination="vFg-yV-z8B" kind="show" id="ZFM-SQ-VOK"/>
                                         </connections>
                                     </button>
@@ -859,6 +858,7 @@
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="password_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="fFn-41-978"/>
                                             <segue destination="C3S-Wg-43X" kind="show" id="2li-LZ-Nwc"/>
                                         </connections>
                                     </button>
@@ -869,6 +869,9 @@
                                         <state key="normal" title="Notifications">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="notifications_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="sN5-yO-gK8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svG-4l-sOH">
                                         <rect key="frame" x="0.0" y="336.5" width="394" height="74"/>
@@ -877,6 +880,9 @@
                                         <state key="normal" title="Contact">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="contact_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="NEV-cx-523"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lum-tT-Pmj">
                                         <rect key="frame" x="0.0" y="420.5" width="394" height="74.5"/>
@@ -885,6 +891,9 @@
                                         <state key="normal" title="Help">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="help_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="mTy-CF-KrO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-w6-Ld5">
                                         <rect key="frame" x="0.0" y="505" width="394" height="74"/>
@@ -893,6 +902,9 @@
                                         <state key="normal" title="Rate Us">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="rate_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="IpH-Y2-8Xg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-Yc-XWL">
                                         <rect key="frame" x="0.0" y="589" width="394" height="74"/>
@@ -1385,13 +1397,13 @@
         <!--Completed Todos View Controller-->
         <scene sceneID="PUO-JM-dwR">
             <objects>
-                <viewController id="0o3-co-BLj" customClass="CompletedTodosViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="0o3-co-BLj" customClass="CompletedTodosViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="quc-qa-utU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jZ-cA-IS4">
-                                <rect key="frame" x="20" y="10" width="47" height="36"/>
+                                <rect key="frame" x="20" y="54" width="47" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1401,7 +1413,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snN-N0-LgI">
-                                <rect key="frame" x="0.0" y="67" width="414" height="775"/>
+                                <rect key="frame" x="0.0" y="111" width="414" height="751"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UY-ON-wbX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1445,7 +1457,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="1Aq-li-cas"/>
                             </scrollView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB6-cW-8pw">
-                                <rect key="frame" x="257" y="10" width="137" height="36"/>
+                                <rect key="frame" x="257" y="54" width="137" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <state key="normal" title="Clear completed">
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1455,17 +1467,17 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bsF-gK-UJx">
-                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No completed to-dos yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghi-Co-0hp">
-                                <rect key="frame" x="54.5" y="403" width="305" height="36"/>
+                                <rect key="frame" x="54.5" y="430" width="305" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VE1-ri-x3m">
-                                <rect key="frame" x="0.0" y="66" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ghP-OY-Rgz"/>
@@ -1476,7 +1488,7 @@
                         <constraints>
                             <constraint firstItem="GB6-cW-8pw" firstAttribute="top" secondItem="Bq5-Oc-nrX" secondAttribute="top" constant="10" id="0LO-Gf-5a0"/>
                             <constraint firstItem="bsF-gK-UJx" firstAttribute="centerX" secondItem="quc-qa-utU" secondAttribute="centerX" id="5VP-qa-Hc4"/>
-                            <constraint firstItem="Bq5-Oc-nrX" firstAttribute="bottom" secondItem="snN-N0-LgI" secondAttribute="bottom" constant="-34" id="7fU-yX-fms"/>
+                            <constraint firstItem="Bq5-Oc-nrX" firstAttribute="bottom" secondItem="snN-N0-LgI" secondAttribute="bottom" id="7fU-yX-fms"/>
                             <constraint firstItem="9jZ-cA-IS4" firstAttribute="top" secondItem="Bq5-Oc-nrX" secondAttribute="top" constant="10" id="86V-F7-GE6"/>
                             <constraint firstItem="snN-N0-LgI" firstAttribute="leading" secondItem="quc-qa-utU" secondAttribute="leading" id="8Fq-ZD-220"/>
                             <constraint firstItem="9jZ-cA-IS4" firstAttribute="leading" secondItem="Bq5-Oc-nrX" secondAttribute="leading" constant="20" id="Ar4-HF-igx"/>
@@ -1492,6 +1504,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bq5-Oc-nrX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Tz8-NN-V2G"/>
                     <connections>
                         <outlet property="btn_SV" destination="x1G-Kx-oqM" id="sXQ-2a-Gux"/>
                         <outlet property="clear_btn" destination="GB6-cW-8pw" id="XbQ-u3-7N2"/>
@@ -2086,9 +2099,8 @@
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PVp-hx-dGp" kind="popoverPresentation" popoverAnchorView="r6a-se-fsq" id="KCW-Qe-vgQ">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="forgot_password_tapped:" destination="vFg-yV-z8B" eventType="touchUpInside" id="Cwi-ce-msk"/>
+                                    <segue destination="PVp-hx-dGp" kind="show" id="KCW-Qe-vgQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-dO-Gpm">
@@ -2246,9 +2258,9 @@
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PVp-hx-dGp" kind="popoverPresentation" popoverAnchorView="6gz-HI-XLt" id="ypj-XB-LWk">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="forgot_password_tapped:" destination="C3S-Wg-43X" eventType="touchUpInside" id="6zC-sW-C9D"/>
+                                    <action selector="forgot_password_tapped:" destination="V34-ZR-IxY" eventType="touchUpInside" id="xTN-dy-ZKf"/>
+                                    <segue destination="PVp-hx-dGp" kind="show" id="ypj-XB-LWk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJS-2V-Skm">
@@ -2335,6 +2347,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwX-sI-POs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="V34-ZR-IxY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-814" y="1434"/>
         </scene>
@@ -2456,9 +2469,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hx3-Bl-eJY"/>
-        <segue reference="ypj-XB-LWk"/>
+        <segue reference="qQq-fv-xBw"/>
         <segue reference="R0X-CW-s0n"/>
-        <segue reference="0Nm-Za-2py"/>
+        <segue reference="Mwk-kO-h6U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="101"/>

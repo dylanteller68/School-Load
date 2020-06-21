@@ -70,6 +70,11 @@ class EditCourseViewController: UIViewController {
 			]) { (error) in
 				if error != nil {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					self.edit_course_btn.setTitle("Oops, try again", for: .normal)
 					
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -81,6 +86,11 @@ class EditCourseViewController: UIViewController {
 					
 				} else {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.edit_course_btn.setTitle("Course Edited", for: .normal)
 					
 					db.collection("users").document(user.ID).updateData([
@@ -94,6 +104,11 @@ class EditCourseViewController: UIViewController {
 			}
 		} else {
 			progress_spinner.stopAnimating()
+			
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			course_name_txtbx.text = "Course Name"
 			course_name_txtbx.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -107,6 +122,10 @@ class EditCourseViewController: UIViewController {
 	@IBAction func delete_course_tapped(_ sender: Any) {
 		
 		if confirm_delete_lbl.isHidden {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.warning)
+			
 			confirm_delete_lbl.isHidden = false
 		} else {
 			
@@ -131,6 +150,10 @@ class EditCourseViewController: UIViewController {
 
 			db.collection("users").document(user.ID).collection("courses").document(id).delete { (error) in
 				if error == nil {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.delete_btn.setTitle("Course Deleted", for: .normal)
 
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -150,8 +173,10 @@ class EditCourseViewController: UIViewController {
 	
 	@IBAction func color_btn_tapped(_ sender: Any) {
 		
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
 		i += 1
-
 		if i == user.colors.count {
 			i = 0
 		}

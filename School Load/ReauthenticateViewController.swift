@@ -45,11 +45,20 @@ class ReauthenticateViewController: UIViewController {
 				if error == nil {
 					self.error_lbl.isHidden = true
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.verify_btn.setTitle("Verified", for: .normal)
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						self.performSegue(withIdentifier: "edit_email_segue", sender: self)
 					}
 				} else {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					self.error_lbl.text = "Invalid email/password"
 					self.error_lbl.isHidden = false
 					self.progress_spinner.stopAnimating()
@@ -58,11 +67,20 @@ class ReauthenticateViewController: UIViewController {
 				}
 			})
 		} else {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			error_lbl.text = "Email/Password required"
 			error_lbl.isHidden = false
 			self.verify_btn.isEnabled = true
 		}
 		
+	}
+	
+	@IBAction func forgot_password_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

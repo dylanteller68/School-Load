@@ -200,12 +200,17 @@ class CourseTodosViewController: UIViewController {
 	}
 	
 	@objc func btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
 		
 		performSegue(withIdentifier: "edit_course_todo_segue", sender: sender)
-		
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {
+		
+		let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+		notificationFeedbackGenerator.prepare()
+		notificationFeedbackGenerator.notificationOccurred(.success)
 		
 		sender.isEnabled = false
 
@@ -255,7 +260,7 @@ class CourseTodosViewController: UIViewController {
 			}
 		}
 				
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 			self.viewDidAppear(true)
 		}
 	}

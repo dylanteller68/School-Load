@@ -311,6 +311,9 @@ class MyCoursesViewController: UIViewController {
 	}
 	
 	@objc func btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
 		performSegue(withIdentifier: "course_todos_segue", sender: sender)
 	}
 

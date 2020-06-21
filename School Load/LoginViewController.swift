@@ -47,6 +47,10 @@ class LoginViewController: UIViewController {
 			
 			Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
 				if error != nil {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					self!.error_lbl.text = "Invalid email/password"
 					self!.error_lbl.isHidden = false
 					self!.progress_spinner.stopAnimating()
@@ -64,6 +68,11 @@ class LoginViewController: UIViewController {
 							let data = document.data()
 							fname = data!["first name"] as! String
 							self!.progress_spinner.stopAnimating()
+							
+							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+							notificationFeedbackGenerator.prepare()
+							notificationFeedbackGenerator.notificationOccurred(.success)
+							
 							self!.login_btn.setTitle("Hi \(fname)", for: .normal)
 							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 								self!.performSegue(withIdentifier: "login_segue", sender: self)
@@ -75,8 +84,23 @@ class LoginViewController: UIViewController {
 				}
 			}
 		} else {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			error_lbl.text = "Email/Password required"
 			error_lbl.isHidden = false
 		}
 	}
+	
+	@IBAction func forgot_password_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func create_account_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
 }

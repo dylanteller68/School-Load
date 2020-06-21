@@ -58,6 +58,11 @@ class NewCourseViewController: UIViewController {
 			]) { (error) in
 				if error != nil {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					self.add_course_btn.setTitle("Oops, try again", for: .normal)
 					
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -67,6 +72,11 @@ class NewCourseViewController: UIViewController {
 					self.add_course_btn.isEnabled = true
 				} else {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.add_course_btn.setTitle("Course Added", for: .normal)
 					
 					db.collection("users").document(user.ID).updateData([
@@ -82,6 +92,11 @@ class NewCourseViewController: UIViewController {
 			}
 		} else {
 			progress_spinner.stopAnimating()
+			
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			course_name_txtbx.text = "Course Name"
 			course_name_txtbx.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -93,10 +108,12 @@ class NewCourseViewController: UIViewController {
 
 	@IBAction func color_tapped(_ sender: Any) {
 		
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
 		color_has_been_tapped = true
 		
 		i += 1
-
 		if i == user.colors.count {
 			i = 0
 		}

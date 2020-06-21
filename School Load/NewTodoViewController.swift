@@ -73,6 +73,9 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 			
 			progress_spinner.stopAnimating()
 			
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.success)
 			add_todo_btn.setTitle("To-do Added", for: .normal)
 						
 			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -81,6 +84,9 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 			
 		} else {
 			progress_spinner.stopAnimating()
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
 			todo_txtbx.text = "To-do Name"
 			todo_txtbx.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

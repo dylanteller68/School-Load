@@ -40,12 +40,22 @@ class ForgotPasswordViewController: UIViewController {
 			Auth.auth().sendPasswordReset(withEmail: email) { error in
 				if error != nil {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					self.send_reset_btn.setTitle("Email not found", for: .normal)
 					  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						self.send_reset_btn.setTitle("Send Reset Email", for: .normal)
 					}
 				} else {
 					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.send_reset_btn.setTitle("Email Sent", for: .normal)
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						self.dismiss(animated: true, completion: nil)

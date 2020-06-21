@@ -43,6 +43,10 @@ class EditEmailViewController: UIViewController {
 			Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
 				self.progress_spinner.stopAnimating()
 				if error == nil {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
 					self.edit_email_btn.setTitle("Email Edited", for: .normal)
 
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -51,6 +55,10 @@ class EditEmailViewController: UIViewController {
 					}
 				} else {
 					// error
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					if error!.localizedDescription == "The email address is badly formatted." {
 						self.edit_email_btn.setTitle("Invalid email", for: .normal)
 					} else if error!.localizedDescription == "The email address is already in use by another account." {
@@ -64,8 +72,11 @@ class EditEmailViewController: UIViewController {
 					}
 				}
 			})
+		} else {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
 		}
-
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

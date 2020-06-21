@@ -98,7 +98,44 @@ class MeViewController: UIViewController {
 		email_btn.setTitle("Email: \(email)", for: .normal)
 	}
 	
+	@IBAction func name_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func email_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func password_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func notifications_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func contact_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func help_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func rate_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+	}
+	
 	@IBAction func logout_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
 		
 		do {
 			try Auth.auth().signOut()

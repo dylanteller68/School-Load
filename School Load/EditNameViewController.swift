@@ -65,6 +65,10 @@ class EditNameViewController: UIViewController {
 			
 			progress_spinner.stopAnimating()
 						
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.success)
+			
 			editName_btn.setTitle("Name Edited", for: .normal)
 			
 			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -74,6 +78,11 @@ class EditNameViewController: UIViewController {
 		} else {
 			
 			progress_spinner.stopAnimating()
+			
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			name_txtbx.text = "Name"
 			name_txtbx.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

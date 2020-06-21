@@ -45,26 +45,39 @@ class EditPasswordViewController: UIViewController {
 					Auth.auth().currentUser?.updatePassword(to: password, completion: { (error) in
 						self.progress_spinner.stopAnimating()
 						if error == nil {
+							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+							notificationFeedbackGenerator.prepare()
+							notificationFeedbackGenerator.notificationOccurred(.success)
+							
 							self.edit_password_btn.setTitle("Password Edited", for: .normal)
 
 							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 								user.needsToGoToMe = true
 								self.performSegue(withIdentifier: "edit_password_to_me_segue", sender: self)
 							}
-						} else {
-							// error
-
 						}
 					})
 				} else {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					error_lbl.text = "Password: at least 1 uppercase,\n lowercase, and number"
 					error_lbl.isHidden = false
 				}
 			} else {
+				let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+				notificationFeedbackGenerator.prepare()
+				notificationFeedbackGenerator.notificationOccurred(.error)
+				
 				error_lbl.text = "Password: 8 or more characters"
 				error_lbl.isHidden = false
 			}
 		} else {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			error_lbl.text = "Password required"
 			error_lbl.isHidden = false
 		}
@@ -77,6 +90,11 @@ class EditPasswordViewController: UIViewController {
 	
 	@IBAction func password_done(_ sender: Any) {
 		password_txtbx.resignFirstResponder()
+	}
+	
+	@IBAction func forgot_password_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
 	}
 	
 	func validatePassword(_ password: String) -> Bool {

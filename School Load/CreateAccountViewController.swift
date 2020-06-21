@@ -18,12 +18,19 @@ class CreateAccountViewController: UIViewController {
 	@IBOutlet weak var error_lbl: UILabel!
 	@IBOutlet weak var create_account_btn: UIButton!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		error_lbl.isHidden = true
 		create_account_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

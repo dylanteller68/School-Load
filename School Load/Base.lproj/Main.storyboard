@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="MyTodosViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-tY-a3f">
-                                <rect key="frame" x="10" y="15" width="394" height="30"/>
+                                <rect key="frame" x="10" y="59" width="394" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-uV-0IZ">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
@@ -62,24 +62,24 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wq-nv-E4P">
-                                <rect key="frame" x="0.0" y="65" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Z1j-0v-vNm"/>
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No to-dos yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCf-TB-Mku">
-                                <rect key="frame" x="123" y="403" width="168" height="36"/>
+                                <rect key="frame" x="123" y="430" width="168" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UMq-ba-zhu">
-                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjU-Gq-uuj">
-                                <rect key="frame" x="0.0" y="66" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quj-gH-xLr">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -161,11 +161,11 @@
             <objects>
                 <viewController title="my courses" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="8rJ-Kc-sve" customClass="MyCoursesViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVr-jr-mVL">
-                                <rect key="frame" x="0.0" y="65" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OGO-Ii-1zf"/>
@@ -173,7 +173,7 @@
                                 <viewLayoutGuide key="safeArea" id="F0t-Ja-Mjc"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-VG-HC8">
-                                <rect key="frame" x="10" y="15" width="394" height="30"/>
+                                <rect key="frame" x="10" y="59" width="394" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-z6-MbP">
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
@@ -217,17 +217,17 @@
                                 <viewLayoutGuide key="safeArea" id="xC4-l9-O0P"/>
                             </stackView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No courses yet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-t1-vaH">
-                                <rect key="frame" x="115.5" y="403" width="183.5" height="36"/>
+                                <rect key="frame" x="115.5" y="430" width="183.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-ZI-198">
-                                <rect key="frame" x="197" y="411" width="20" height="20"/>
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-XQ-Drl">
-                                <rect key="frame" x="0.0" y="66" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVd-Rg-r84">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -469,6 +469,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jq4-mv-uXu"/>
                     <connections>
+                        <outlet property="SV_width_constraint" destination="k7l-6z-gwa" id="Kal-cd-QV9"/>
+                        <outlet property="btn_width_constraint" destination="UwF-g2-GX5" id="nnh-iP-uw0"/>
                         <outlet property="email_txtbx" destination="slp-sG-Lot" id="6wz-UV-YgV"/>
                         <outlet property="error_lbl" destination="YMd-LA-sMZ" id="WR5-l1-esB"/>
                         <outlet property="login_btn" destination="Uvo-6V-B9n" id="eDd-aq-NGH"/>
@@ -665,6 +667,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="bwx-sY-3Lv"/>
                     <connections>
+                        <outlet property="SV_width_constraint" destination="BYG-eZ-qEL" id="LoG-4z-nN9"/>
+                        <outlet property="btn_width_constraint" destination="SJ3-59-DJW" id="zBq-mZ-CD2"/>
                         <outlet property="create_account_btn" destination="hdV-SR-Z2k" id="Hgh-OC-hCa"/>
                         <outlet property="email_txtbx" destination="oYH-XQ-U5C" id="PLd-DW-GXj"/>
                         <outlet property="error_lbl" destination="foO-Zv-diZ" id="iFu-E8-u3B"/>
@@ -709,7 +713,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-VD-8fE" userLabel="create account SV">
-                                <rect key="frame" x="34.5" y="396" width="345" height="50"/>
+                                <rect key="frame" x="34.5" y="423" width="345" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0QJ-9M-wH8">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
@@ -741,7 +745,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-kT-0od">
-                                <rect key="frame" x="34.5" y="476" width="345" height="50"/>
+                                <rect key="frame" x="34.5" y="503" width="345" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="RxO-4y-mSz"/>
@@ -806,6 +810,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qfw-GV-qdp"/>
                     <connections>
+                        <outlet property="SV_width_constraint" destination="JvJ-fc-P4S" id="Zzb-MJ-WyL"/>
+                        <outlet property="btn_width_constraint" destination="RxO-4y-mSz" id="wSD-gW-SEU"/>
                         <outlet property="email_txtbx" destination="Yfy-Gj-clG" id="FVG-A9-ylI"/>
                         <outlet property="progress_spinner" destination="Upv-P3-NWn" id="riW-Nf-0Py"/>
                         <outlet property="send_reset_btn" destination="Gtr-kT-0od" id="A3M-pe-Vog"/>

@@ -14,10 +14,17 @@ class ForgotPasswordViewController: UIViewController {
 	@IBOutlet weak var send_reset_btn: UIButton!
 	@IBOutlet weak var email_txtbx: UITextField!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		send_reset_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

@@ -121,6 +121,9 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 		default:
 			if course_picker_is_showing {
 				// accept tapped
+				let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+				selectionFeedbackGenerator.selectionChanged()
+				
 				course_picker.isHidden = true
 				new_todo_lbl.isHidden = false
 				choose_course_btn.setBackgroundImage(UIImage(systemName: "chevron.up.circle"), for: .normal)

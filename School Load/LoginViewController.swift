@@ -16,11 +16,18 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var login_btn: UIButton!
 	@IBOutlet weak var error_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		error_lbl.isHidden = true
 		login_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
 	}
 
 	@IBAction func email_txtbx_done(_ sender: Any) {

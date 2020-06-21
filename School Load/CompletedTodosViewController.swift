@@ -164,6 +164,11 @@ class CompletedTodosViewController: UIViewController {
 				let sv = v as? UIStackView
 				let v1 = sv?.arrangedSubviews[1] as? UIButton
 				let v2 = sv?.arrangedSubviews[2] as? UIButton
+				
+				let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+				notificationFeedbackGenerator.prepare()
+				notificationFeedbackGenerator.notificationOccurred(.success)
+				
 				let ats = NSAttributedString(string: "Added!", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
 				v1?.setAttributedTitle(ats, for: .normal)
 				v2?.tintColor = .systemGreen

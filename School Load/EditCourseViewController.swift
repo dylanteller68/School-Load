@@ -17,6 +17,8 @@ class EditCourseViewController: UIViewController {
 	@IBOutlet weak var delete_btn: UIButton!
 	@IBOutlet weak var confirm_delete_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
 	var sent_cID = 0
 	var i = 0
@@ -35,6 +37,10 @@ class EditCourseViewController: UIViewController {
 			}
 		}
 		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
 	}
     
 	@IBAction func edit_course_tapped(_ sender: Any) {

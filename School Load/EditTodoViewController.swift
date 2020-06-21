@@ -19,8 +19,9 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 	@IBOutlet weak var add_todo_btn: UIButton!
 	@IBOutlet weak var date_picker: UIDatePicker!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
-	@IBOutlet weak var lbl_constraint: NSLayoutConstraint!
 	@IBOutlet weak var delete_btn: UIButton!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
 	var course_picker_is_showing = false
 	
@@ -51,6 +52,11 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 				date_picker.setDate(t.date, animated: true)
 				break
 			}
+		}
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
 		}
     }
     

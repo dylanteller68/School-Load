@@ -16,14 +16,20 @@ class NewCourseViewController: UIViewController {
 	@IBOutlet weak var course_color_btn: UIButton!
 	@IBOutlet weak var add_course_btn: UIButton!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
 		course_color_btn.layer.cornerRadius = 10
 		add_course_btn.layer.cornerRadius = 25
 		course_name_txtbx.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
     }
 	
 	var i = 0

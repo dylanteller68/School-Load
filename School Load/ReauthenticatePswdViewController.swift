@@ -16,11 +16,18 @@ class ReauthenticatePswdViewController: UIViewController {
 	@IBOutlet weak var password_txtbx: UITextField!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var error_lbl: UILabel!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		verify_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
 	}
 	
 	@IBAction func verify_tapped(_ sender: Any) {

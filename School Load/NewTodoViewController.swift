@@ -20,6 +20,8 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 	@IBOutlet weak var date_picker: UIDatePicker!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var txtbx_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	
 	var course_picker_is_showing = false
 	
@@ -32,6 +34,15 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.course_picker.dataSource = self
 		
 		add_todo_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			self.txtbx_constraint.constant -= 80
+			self.view.layoutIfNeeded()
+			date_picker.isHidden = false
+			add_todo_btn.isHidden = false
+			btn_width_constraint.constant += 225
+			SV_width_constraint.constant += 225
+		}
     }
 	
 	@IBAction func add_todo_tapped(_ sender: Any) {
@@ -86,38 +97,58 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 	}
 	
 	@IBAction func choose_course_tapped(_ sender: Any) {
-		if course_picker_is_showing {
-			// accept tapped
-			let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-			selectionFeedbackGenerator.selectionChanged()
-			
-			course_picker.isHidden = true
-			new_todo_lbl.isHidden = false
-			choose_course_btn.setBackgroundImage(UIImage(systemName: "chevron.up.circle"), for: .normal)
-			choose_course_btn.tintColor = .systemTeal
-			course_picker_is_showing = false
-			let cIndex = course_picker.selectedRow(inComponent: 0)
-			let color = user.colors[user.courses[cIndex].color]
-			todo_txtbx.textColor = color
-			if date_picker.isHidden && add_todo_btn.isHidden {
-				UIView.animate(withDuration: 0.5) {
-					self.txtbx_constraint.constant -= 80
-					self.view.layoutIfNeeded()
-				}
+		switch UIDevice().model {
+		case "iPad":
+			if course_picker_is_showing {
+				// accept tapped
+				course_picker.isHidden = true
+				new_todo_lbl.isHidden = false
+				choose_course_btn.setBackgroundImage(UIImage(systemName: "chevron.up.circle"), for: .normal)
+				choose_course_btn.tintColor = .systemTeal
+				course_picker_is_showing = false
+				let cIndex = course_picker.selectedRow(inComponent: 0)
+				let color = user.colors[user.courses[cIndex].color]
+				todo_txtbx.textColor = color
+			} else {
+				// pick course tapped
+				course_picker.isHidden = false
+				new_todo_lbl.isHidden = true
+				choose_course_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+				choose_course_btn.tintColor = .systemGreen
+				course_picker_is_showing = true
 			}
-			date_picker.isHidden = false
-			add_todo_btn.isHidden = false
-		} else {
-			
-			// pick course tapped
-			course_picker.isHidden = false
-			new_todo_lbl.isHidden = true
-			choose_course_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-			choose_course_btn.tintColor = .systemGreen
-			course_picker_is_showing = true
+			break
+		default:
+			if course_picker_is_showing {
+				// accept tapped
+				course_picker.isHidden = true
+				new_todo_lbl.isHidden = false
+				choose_course_btn.setBackgroundImage(UIImage(systemName: "chevron.up.circle"), for: .normal)
+				choose_course_btn.tintColor = .systemTeal
+				course_picker_is_showing = false
+				let cIndex = course_picker.selectedRow(inComponent: 0)
+				let color = user.colors[user.courses[cIndex].color]
+				todo_txtbx.textColor = color
+				if date_picker.isHidden && add_todo_btn.isHidden {
+					UIView.animate(withDuration: 0.5) {
+						self.txtbx_constraint.constant -= 80
+						self.view.layoutIfNeeded()
+					}
+				}
+				date_picker.isHidden = false
+				add_todo_btn.isHidden = false
+			} else {
+				// pick course tapped
+				course_picker.isHidden = false
+				new_todo_lbl.isHidden = true
+				choose_course_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+				choose_course_btn.tintColor = .systemGreen
+				course_picker_is_showing = true
+			}
+			break
 		}
-		todo_txtbx.resignFirstResponder()
 
+		todo_txtbx.resignFirstResponder()
 	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {

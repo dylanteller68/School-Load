@@ -89,6 +89,9 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 			
 			progress_spinner.stopAnimating()
 						
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.success)
 			add_todo_btn.setTitle("To-do Edited", for: .normal)
 			
 			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -96,6 +99,9 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 			}
 		} else {
 			progress_spinner.stopAnimating()
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
 			todo_txtbx.text = "To-do Name"
 			todo_txtbx.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -108,8 +114,10 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 	
 	@IBAction func choose_course_tapped(_ sender: Any) {
 		if course_picker_is_showing {
-			
 			// accept tapped
+			let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+			selectionFeedbackGenerator.selectionChanged()
+			
 			course_picker.isHidden = true
 			new_todo_lbl.isHidden = false
 			choose_course_btn.setBackgroundImage(UIImage(systemName: "chevron.up.circle"), for: .normal)
@@ -166,6 +174,9 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 		
 		db.collection("users").document(user.ID).collection("to-dos").document(id).delete()
 		
+		let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+		notificationFeedbackGenerator.prepare()
+		notificationFeedbackGenerator.notificationOccurred(.success)
 		delete_btn.setTitle("To-do Deleted", for: .normal)
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.dismiss(animated: true, completion: nil)

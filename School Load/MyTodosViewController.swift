@@ -256,6 +256,10 @@ class MyTodosViewController: UIViewController {
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {
+		
+		let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+		notificationFeedbackGenerator.prepare()
+		notificationFeedbackGenerator.notificationOccurred(.success)
 
 		sender.isEnabled = false
 		
@@ -308,9 +312,10 @@ class MyTodosViewController: UIViewController {
 	}
 	
 	@objc func btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
 		
 		performSegue(withIdentifier: "edit_todo_segue", sender: sender)
-		
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

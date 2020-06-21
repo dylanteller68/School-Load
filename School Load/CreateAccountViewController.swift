@@ -54,6 +54,11 @@ class CreateAccountViewController: UIViewController {
 					Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
 						if error != nil {
 							self.progress_spinner.stopAnimating()
+							
+							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+							notificationFeedbackGenerator.prepare()
+							notificationFeedbackGenerator.notificationOccurred(.error)
+							
 							self.create_account_btn.setTitle("Create Account", for: .normal)
 							if error!.localizedDescription == "The email address is badly formatted." {
 								self.error_lbl.text = "Invalid email"
@@ -74,6 +79,10 @@ class CreateAccountViewController: UIViewController {
 														
 							self.progress_spinner.stopAnimating()
 							
+							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+							notificationFeedbackGenerator.prepare()
+							notificationFeedbackGenerator.notificationOccurred(.success)
+							
 							self.create_account_btn.setTitle("Welcome \(fname)", for: .normal)
 
 							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -82,14 +91,26 @@ class CreateAccountViewController: UIViewController {
 						}
 					}
 				} else {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.error)
+					
 					error_lbl.text = "Password: at least 1 uppercase,\n lowercase, and number"
 					error_lbl.isHidden = false
 				}
 			} else {
+				let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+				notificationFeedbackGenerator.prepare()
+				notificationFeedbackGenerator.notificationOccurred(.error)
+				
 				error_lbl.text = "Password: 8 or more characters"
 				error_lbl.isHidden = false
 			}
 		} else {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
+			
 			error_lbl.text = "All fields required"
 			error_lbl.isHidden = false
 		}

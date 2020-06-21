@@ -94,7 +94,7 @@ class MyCoursesViewController: UIViewController {
 						
 						for t in user.todos {
 							if t.course == courseID {
-								title.append(NSAttributedString(string: "\n\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
+								title.append(NSAttributedString(string: "\n• \(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
 								i += 1
 							}
 							if i == 5 {

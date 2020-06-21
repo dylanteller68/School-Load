@@ -53,6 +53,7 @@ class MyTodosViewController: UIViewController {
 			user.todos = []
 			user.courses = []
 
+			// need to change
 			db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments(source: .cache) { (querySnapshot, error) in
 				if error == nil {
 					for document in querySnapshot!.documents {

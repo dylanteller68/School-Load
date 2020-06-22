@@ -25,7 +25,9 @@
                                             <constraint firstAttribute="height" constant="30" id="xFB-Uv-kwf"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" backgroundImage="text.badge.checkmark" catalog="system"/>
+                                        <state key="normal" backgroundImage="text.badge.checkmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                        </state>
                                         <connections>
                                             <segue destination="0o3-co-BLj" kind="show" id="wy5-0C-Qz0"/>
                                         </connections>
@@ -54,7 +56,9 @@
                                             <constraint firstAttribute="width" constant="30" id="BNx-rL-3Mi"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="plus.circle" catalog="system"/>
+                                        <state key="normal" backgroundImage="plus.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                        </state>
                                         <connections>
                                             <action selector="new_todo_btn:" destination="9pv-A4-QxB" eventType="touchUpInside" id="FKp-1j-pxM"/>
                                         </connections>
@@ -182,7 +186,9 @@
                                             <constraint firstAttribute="height" constant="30" id="dlF-vp-S15"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="questionmark.circle" catalog="system"/>
+                                        <state key="normal" backgroundImage="questionmark.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                        </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBv-hd-Mks" userLabel="school load lbl SV">
                                         <rect key="frame" x="124" y="0.0" width="146.5" height="30"/>
@@ -208,7 +214,9 @@
                                             <constraint firstAttribute="width" constant="30" id="pun-mo-93H"/>
                                         </constraints>
                                         <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="plus.circle" catalog="system"/>
+                                        <state key="normal" backgroundImage="plus.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                        </state>
                                         <connections>
                                             <segue destination="9Y1-9b-vJf" kind="show" id="iqu-JW-IcK"/>
                                         </connections>
@@ -1377,6 +1385,7 @@
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="trash.circle" catalog="system">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                 </state>
                                 <connections>
                                     <action selector="delete_todo_tapped:" destination="yJl-6k-MrY" eventType="touchUpInside" id="ort-TS-HhV"/>
@@ -1633,6 +1642,7 @@
                                 <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="ellipsis.circle" catalog="system">
                                     <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                 </state>
                                 <connections>
                                     <action selector="more_btn_tapped:" destination="pcA-ih-f5a" eventType="touchUpInside" id="P0q-0o-ohR"/>
@@ -2556,6 +2566,7 @@
                                         <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" backgroundImage="ellipsis.circle" catalog="system">
                                             <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                         </state>
                                         <connections>
                                             <action selector="more_tapped:" destination="nKg-Zt-zsW" eventType="touchUpInside" id="WhF-Z7-bJ9"/>

@@ -397,7 +397,7 @@ class MyTodosViewController: UIViewController {
 			
 			let done_btn = UIButton(type: .system)
 			done_btn.setTitle("", for: .normal)
-			done_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+			done_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 			done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
 			done_btn.tintColor = .label
 			done_btn.tag = t.ID.hashValue

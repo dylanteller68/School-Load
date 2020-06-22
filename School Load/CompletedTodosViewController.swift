@@ -37,8 +37,8 @@ class CompletedTodosViewController: UIViewController {
 					let cID = data["courseID"] as! String
 					let tDate = data["date"] as! Timestamp
 					let dComp = data["date completed"] as! Timestamp
-					let tNote = data["note"] as! String
-					
+					let tNote = data["note"] as? String ?? "Add note..."
+
 					let todo = Todo(name: tName, course: cID, date: tDate.dateValue(), dateCompleted: dComp.dateValue(), color: tColor, ID: document.documentID, note: tNote)
 					
 					user.completed.append(todo)
@@ -83,7 +83,7 @@ class CompletedTodosViewController: UIViewController {
 					
 					let done_btn = UIButton(type: .system)
 					done_btn.setTitle("", for: .normal)
-					done_btn.setBackgroundImage(UIImage(systemName: "plus.circle"), for: .normal)
+					done_btn.setBackgroundImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 					done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
 					done_btn.tintColor = .white
 					done_btn.tag = t.ID.hashValue

@@ -114,8 +114,9 @@ class MyTodosViewController: UIViewController {
 						let todoCourseID = data["courseID"] as! String
 						let todoDate = data["date"] as! Timestamp
 						let todoColorIndex = data["color"] as! Int
+						let todoNote = data["note"] as? String ?? "Add note..."
 
-						let todo = Todo(name: todoName, course: todoCourseID, date: todoDate.dateValue(), color: todoColorIndex, ID: diff.document.documentID)
+						let todo = Todo(name: todoName, course: todoCourseID, date: todoDate.dateValue(), color: todoColorIndex, ID: diff.document.documentID, note: todoNote)
 						
 						user.todos.append(todo)
 											
@@ -141,6 +142,7 @@ class MyTodosViewController: UIViewController {
 						let formatter1 = DateFormatter()
 						formatter1.timeStyle = .short
 						let todoColorIndex = data["color"] as! Int
+						let todoNote = data["note"] as! String
 						
 						for todo in user.todos {
 							if todo.ID == diff.document.documentID {
@@ -148,6 +150,7 @@ class MyTodosViewController: UIViewController {
 								todo.course = todoCourseID
 								todo.date = todoDate.dateValue()
 								todo.color = todoColorIndex
+								todo.note = todoNote
 							}
 						}
 												
@@ -273,13 +276,14 @@ class MyTodosViewController: UIViewController {
 		
 		for t in user.todos {
 			if t.ID.hashValue == sender.tag {
-				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID)
+				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID, note: t.note)
 				db.collection("users").document(user.ID).collection("completed").document(t.ID).setData([
 					"name" : t.name,
 					"courseID" : t.course,
 					"color" : t.color,
 					"date" : Timestamp(date: t.date),
-					"date completed" : Timestamp(date: todo.dateCompleted)
+					"date completed" : Timestamp(date: todo.dateCompleted),
+					"note" : t.note
 				])
 				break
 			}
@@ -323,12 +327,12 @@ class MyTodosViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		performSegue(withIdentifier: "edit_todo_segue", sender: sender)
+		performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.destination is EditTodoViewController {
-			let v = segue.destination as! EditTodoViewController
+		if segue.destination is TodoInfoViewController {
+			let v = segue.destination as! TodoInfoViewController
 			let tid = sender as? UIButton
 			v.sent_tID = tid!.tag
 		}

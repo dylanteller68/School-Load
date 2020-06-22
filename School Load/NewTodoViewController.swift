@@ -68,7 +68,8 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 				"name" : todoName,
 				"courseID" : todoCourse,
 				"date" : Timestamp(date: todoDate),
-				"color" : todoColor
+				"color" : todoColor,
+				"note" : "Add note..."
 			])
 			
 			progress_spinner.stopAnimating()

@@ -192,6 +192,12 @@ class CourseTodosViewController: UIViewController {
 			v.sent_tID = tid!.tag
 		}
 		
+		if segue.destination is TodoInfoViewController {
+			let v = segue.destination as! TodoInfoViewController
+			let tid = sender as? UIButton
+			v.sent_tID = tid!.tag
+		}
+		
 		if segue.destination is EditCourseViewController {
 			let v = segue.destination as! EditCourseViewController
 			let cid = sender as? UIButton
@@ -203,7 +209,7 @@ class CourseTodosViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		performSegue(withIdentifier: "edit_course_todo_segue", sender: sender)
+		performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {
@@ -216,7 +222,7 @@ class CourseTodosViewController: UIViewController {
 
 		for t in user.todos {
 			if t.ID.hashValue == sender.tag {
-				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID)
+				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID, note: t.note)
 				user.completed.append(todo)
 				db.collection("users").document(user.ID).collection("completed").document(t.ID).setData([
 					"name" : t.name,

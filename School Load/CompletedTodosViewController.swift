@@ -37,8 +37,9 @@ class CompletedTodosViewController: UIViewController {
 					let cID = data["courseID"] as! String
 					let tDate = data["date"] as! Timestamp
 					let dComp = data["date completed"] as! Timestamp
+					let tNote = data["note"] as! String
 					
-					let todo = Todo(name: tName, course: cID, date: tDate.dateValue(), dateCompleted: dComp.dateValue(), color: tColor, ID: document.documentID)
+					let todo = Todo(name: tName, course: cID, date: tDate.dateValue(), dateCompleted: dComp.dateValue(), color: tColor, ID: document.documentID, note: tNote)
 					
 					user.completed.append(todo)
 					

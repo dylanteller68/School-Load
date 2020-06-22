@@ -183,9 +183,10 @@ class EditTodoViewController: UIViewController, UIPickerViewDataSource, UIPicker
 		let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
 		notificationFeedbackGenerator.prepare()
 		notificationFeedbackGenerator.notificationOccurred(.success)
-		delete_btn.setTitle("To-do Deleted", for: .normal)
+		add_todo_btn.backgroundColor = .systemRed
+		add_todo_btn.setTitle("To-do Deleted", for: .normal)
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-			self.dismiss(animated: true, completion: nil)
+			self.performSegue(withIdentifier: "deleted_todo_segue", sender: nil)
 		}
 	}
 	

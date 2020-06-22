@@ -16,22 +16,25 @@ public class Todo {
 	var color: Int
 	var dateCompleted = Date()
 	var ID: String
+	var note: String
 	
-	init(name: String, course: String, date: Date, color: Int, ID: String) {
+	init(name: String, course: String, date: Date, color: Int, ID: String, note: String) {
 		self.name = name
 		self.course = course
 		self.date = date
 		self.color = color
 		self.ID = ID
+		self.note = note
 	}
 	
-	init(name: String, course: String, date: Date, dateCompleted: Date, color: Int, ID: String) {
+	init(name: String, course: String, date: Date, dateCompleted: Date, color: Int, ID: String, note: String) {
 		self.name = name
 		self.course = course
 		self.date = date
 		self.dateCompleted = dateCompleted
 		self.color = color
 		self.ID = ID
+		self.note = note
 	}
 	
 }

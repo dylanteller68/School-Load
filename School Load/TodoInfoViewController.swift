@@ -15,6 +15,7 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var more_btn: UIButton!
 	@IBOutlet weak var note_txtview: UITextView!
+	@IBOutlet weak var done_btn: UIButton!
 	
 	var sent_tID = 0
 	var tID = ""
@@ -80,20 +81,14 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 		if note_txtview.text == "Add note..." {
 			note_txtview.text = ""
 		}
+		done_btn.isHidden = false
 	}
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
 		if note_txtview.text == "" {
 			note_txtview.text = "Add note..."
 		}
-	}
-	
-	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-		if text == "\n" {
-			note_txtview.resignFirstResponder()
-			return false
-		}
-		return true
+		done_btn.isHidden = true
 	}
 	
 	@IBAction func close_tapped(_ sender: Any) {
@@ -150,6 +145,10 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 			let tid = sender as? Int
 			v.sent_tID = tid!
 		}
+	}
+	
+	@IBAction func done_tapped(_ sender: Any) {
+		note_txtview.resignFirstResponder()
 	}
 	
 }

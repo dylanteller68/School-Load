@@ -445,7 +445,9 @@ class MyTodosViewController: UIViewController {
 			let tomorrowsDate = Date().addingTimeInterval(86400)
 			var tomorrowDate = formatter3.string(from: tomorrowsDate)
 			tomorrowDate.removeLast(6)
-			if todayDate == tdDate {
+			if t.date < Date() {
+				tdDate.append(" (Past Due)")
+			} else if todayDate == tdDate {
 				tdDate.append(" (Today)")
 			} else if tomorrowDate == tdDate {
 				tdDate.append(" (Tomorrow)")

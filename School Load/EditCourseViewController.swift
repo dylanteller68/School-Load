@@ -98,10 +98,6 @@ class EditCourseViewController: UIViewController {
 					notificationFeedbackGenerator.notificationOccurred(.success)
 					
 					self.edit_course_btn.setTitle("Course Edited", for: .normal)
-					
-					db.collection("users").document(user.ID).updateData([
-						"numCourses" : user.numCourses
-					])
 										
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						self.dismiss(animated: true, completion: nil)

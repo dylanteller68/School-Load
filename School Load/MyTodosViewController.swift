@@ -142,7 +142,7 @@ class MyTodosViewController: UIViewController {
 						let formatter1 = DateFormatter()
 						formatter1.timeStyle = .short
 						let todoColorIndex = data["color"] as! Int
-						let todoNote = data["note"] as! String
+						let todoNote = data["note"] as? String ?? "Add note..."
 						
 						for todo in user.todos {
 							if todo.ID == diff.document.documentID {
@@ -445,12 +445,12 @@ class MyTodosViewController: UIViewController {
 			let tomorrowsDate = Date().addingTimeInterval(86400)
 			var tomorrowDate = formatter3.string(from: tomorrowsDate)
 			tomorrowDate.removeLast(6)
-			if t.date < Date() {
-				tdDate.append(" (Past Due)")
-			} else if todayDate == tdDate {
+			if todayDate == tdDate {
 				tdDate.append(" (Today)")
 			} else if tomorrowDate == tdDate {
 				tdDate.append(" (Tomorrow)")
+			} else if t.date < Date() {
+				tdDate.append(" (Past Due)")
 			}
 			date_lbl.text = tdDate
 			date_lbl.font = .systemFont(ofSize: 20)
@@ -466,6 +466,8 @@ class MyTodosViewController: UIViewController {
 					compdate.append(" (Today)")
 				} else if tomorrowDate == compdate {
 					compdate.append(" (Tomorrow)")
+				} else if t.date < Date() {
+					compdate.append(" (Past Due)")
 				}
 				if compdate == date_lbl.text {
 					numTodosPerDate += 1

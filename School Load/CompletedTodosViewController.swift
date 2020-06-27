@@ -133,25 +133,28 @@ class CompletedTodosViewController: UIViewController {
 	
 	@IBAction func clear_tapped(_ sender: Any) {
 		
-		for v in btn_SV.arrangedSubviews {
-			
-			let t = v as? UIStackView
-			
-			for comp in user.completed {
-				if comp.ID.hashValue == t?.tag {
-					db.collection("users").document(user.ID).collection("completed").document(comp.ID).delete()
+		clear_btn.setTitle("Clearing...", for: .normal)
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+			for v in self.btn_SV.arrangedSubviews {
+				
+				let t = v as? UIStackView
+				
+				for comp in user.completed {
+					if comp.ID.hashValue == t?.tag {
+						db.collection("users").document(user.ID).collection("completed").document(comp.ID).delete()
+					}
 				}
+				
+				self.btn_SV.removeArrangedSubview(v)
+				v.removeFromSuperview()
 			}
 			
-			btn_SV.removeArrangedSubview(v)
-			v.removeFromSuperview()
+			user.completed.removeAll()
+			
+			self.no_completed_lbl.isHidden = false
+			self.clear_btn.isHidden = true
 		}
-		
-		user.completed.removeAll()
-		
-		self.no_completed_lbl.isHidden = false
-		self.clear_btn.isHidden = true
-		
 	}
 	
 	@objc func add_btn_tapped(sender: UIButton) {

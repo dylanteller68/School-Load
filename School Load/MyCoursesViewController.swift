@@ -177,6 +177,17 @@ class MyCoursesViewController: UIViewController {
 						}
 					}
 					
+					for t in user.completed {
+						if t.course == diff.document.documentID {
+							if t.color != courseColor {
+								db.collection("users").document(user.ID).collection("completed").document(t.ID).updateData([
+									"color" : courseColor
+								])
+								t.color = courseColor
+							}
+						}
+					}
+					
 					user.numCourses = user.courses.count
 
 					for var btn in self.btn_SV.arrangedSubviews {

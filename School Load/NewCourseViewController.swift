@@ -120,6 +120,8 @@ class NewCourseViewController: UIViewController {
 		
 		course_color_btn.backgroundColor = user.colors[i]
 		
+		course_name_txtbx.resignFirstResponder()
+
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

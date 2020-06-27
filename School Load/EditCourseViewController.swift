@@ -133,9 +133,9 @@ class EditCourseViewController: UIViewController {
 			notificationFeedbackGenerator.notificationOccurred(.warning)
 			
 			confirm_delete_lbl.isHidden = false
-		} else {
 			
-			confirm_delete_lbl.isHidden = true
+			delete_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+		} else {
 			
 			delete_btn.isEnabled = false
 			edit_course_btn.isEnabled = false
@@ -160,7 +160,8 @@ class EditCourseViewController: UIViewController {
 					notificationFeedbackGenerator.prepare()
 					notificationFeedbackGenerator.notificationOccurred(.success)
 					
-					self.delete_btn.setTitle("Course Deleted", for: .normal)
+					self.confirm_delete_lbl.textColor = .systemRed
+					self.confirm_delete_lbl.text = "Course Deleted"
 
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						user.needsToGoToCourses = true
@@ -188,6 +189,8 @@ class EditCourseViewController: UIViewController {
 		}
 		
 		color_btn.backgroundColor = user.colors[i]
+		
+		course_name_txtbx.resignFirstResponder()
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

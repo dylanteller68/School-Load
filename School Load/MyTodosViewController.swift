@@ -327,7 +327,7 @@ class MyTodosViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		performSegue(withIdentifier: "todo_info_segue", sender: sender)
+		//performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -442,8 +442,13 @@ class MyTodosViewController: UIViewController {
 			formatter3.dateStyle = .full
 			var todayDate = formatter3.string(from: todaysDate)
 			todayDate.removeLast(6)
+			let tomorrowsDate = Date().addingTimeInterval(86400)
+			var tomorrowDate = formatter3.string(from: tomorrowsDate)
+			tomorrowDate.removeLast(6)
 			if todayDate == tdDate {
 				tdDate.append(" (Today)")
+			} else if tomorrowDate == tdDate {
+				tdDate.append(" (Tomorrow)")
 			}
 			date_lbl.text = tdDate
 			date_lbl.font = .systemFont(ofSize: 20)
@@ -457,6 +462,8 @@ class MyTodosViewController: UIViewController {
 				compdate.removeLast(6)
 				if todayDate == compdate {
 					compdate.append(" (Today)")
+				} else if tomorrowDate == compdate {
+					compdate.append(" (Tomorrow)")
 				}
 				if compdate == date_lbl.text {
 					numTodosPerDate += 1

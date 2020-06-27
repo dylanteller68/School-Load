@@ -209,7 +209,7 @@ class CourseTodosViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		performSegue(withIdentifier: "todo_info_segue", sender: sender)
+			//performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {

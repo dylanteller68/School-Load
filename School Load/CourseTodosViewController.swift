@@ -16,6 +16,7 @@ class CourseTodosViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var cName_lbl: UILabel!
 	@IBOutlet weak var more_btn: UIButton!
+	@IBOutlet weak var numTodosLbl: UILabel!
 	
 	var sent_tID = 0
 	var numTs = 0
@@ -40,6 +41,8 @@ class CourseTodosViewController: UIViewController {
 					tmpName.append("...")
 					cName_lbl.text = tmpName
 				}
+				numTodosLbl.textColor = user.colors[c.color]
+				numTodosLbl.text = "\(numTs) To-dos"
 				cName_lbl.textColor = user.colors[c.color]
 				break
 			}

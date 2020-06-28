@@ -168,23 +168,25 @@ class MyCoursesViewController: UIViewController {
 					
 					for t in user.todos {
 						if t.course == diff.document.documentID {
-							if t.color != courseColor {
-								db.collection("users").document(user.ID).collection("to-dos").document(t.ID).updateData([
-									"color" : courseColor
-								])
-								t.color = courseColor
-							}
+							db.collection("users").document(user.ID).collection("to-dos").document(t.ID).updateData([
+								"color" : courseColor,
+								"courseID" : diff.document.documentID,
+								"dateModified" : Timestamp(date: Date())
+							])
+							t.color = courseColor
+							t.course = diff.document.documentID
 						}
 					}
 					
 					for t in user.completed {
 						if t.course == diff.document.documentID {
-							if t.color != courseColor {
-								db.collection("users").document(user.ID).collection("completed").document(t.ID).updateData([
-									"color" : courseColor
-								])
-								t.color = courseColor
-							}
+							db.collection("users").document(user.ID).collection("completed").document(t.ID).updateData([
+								"color" : courseColor,
+								"courseID" : diff.document.documentID,
+								"dateModified" : Timestamp(date: Date())
+							])
+							t.color = courseColor
+							t.course = diff.document.documentID
 						}
 					}
 					

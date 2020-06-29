@@ -394,6 +394,7 @@ class MyTodosViewController: UIViewController {
 			bullet_btn.widthAnchor.constraint(equalToConstant: 5).isActive = true
 			bullet_btn.tintColor = user.colors[t.color]
 			bullet_btn.tag = t.ID.hashValue
+			bullet_btn.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 			
 			let done_btn = UIButton(type: .system)
 			done_btn.setTitle("", for: .normal)

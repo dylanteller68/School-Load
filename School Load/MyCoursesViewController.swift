@@ -66,35 +66,35 @@ class MyCoursesViewController: UIViewController {
 						if numTodos == 1 {
 							if courseName.count < 28 {
 								cNameLen = courseName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							} else {
 								var tmpName = courseName
 								tmpName.removeLast(courseName.count-28)
 								tmpName.append("...")
 								cNameLen = tmpName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 
 							}
 						} else {
 							if courseName.count < 28 {
 								cNameLen = courseName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							} else {
 								var tmpName = courseName
 								tmpName.removeLast(courseName.count-28)
 								tmpName.append("...")
 								cNameLen = tmpName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							}
 						}
 						
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
 						
 						var i = 0
 						
 						for t in user.todos {
 							if t.course == courseID {
-								title.append(NSAttributedString(string: "\n• \(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
+								title.append(NSAttributedString(string: "\n• \(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
 								i += 1
 							}
 							if i == 5 {
@@ -114,30 +114,30 @@ class MyCoursesViewController: UIViewController {
 						if numTodos == 1 {
 							if courseName.count < 28 {
 								cNameLen = courseName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							} else {
 								var tmpName = courseName
 								tmpName.removeLast(courseName.count-28)
 								tmpName.append("...")
 								cNameLen = tmpName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 
 							}
 						} else {
 							if courseName.count < 28 {
 								cNameLen = courseName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							} else {
 								var tmpName = courseName
 								tmpName.removeLast(courseName.count-28)
 								tmpName.append("...")
 								cNameLen = tmpName.count
-								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+								title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 							}
 						}
 						
 						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
 						break
 					}
 
@@ -209,35 +209,35 @@ class MyCoursesViewController: UIViewController {
 								if numTodos == 1 {
 									if courseName.count < 28 {
 										cNameLen = courseName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									} else {
 										var tmpName = courseName
 										tmpName.removeLast(courseName.count-28)
 										tmpName.append("...")
 										cNameLen = tmpName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 
 									}
 								} else {
 									if courseName.count < 28 {
 										cNameLen = courseName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									} else {
 										var tmpName = courseName
 										tmpName.removeLast(courseName.count-28)
 										tmpName.append("...")
 										cNameLen = tmpName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									}
 								}
 								
-								title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+								title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
 								
 								var i = 0
 								
 								for t in user.todos {
 									if t.course == diff.document.documentID {
-										title.append(NSAttributedString(string: "\n\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
+										title.append(NSAttributedString(string: "\n\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
 										i += 1
 									}
 									if i == 5 {
@@ -257,30 +257,30 @@ class MyCoursesViewController: UIViewController {
 								if numTodos == 1 {
 									if courseName.count < 28 {
 										cNameLen = courseName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									} else {
 										var tmpName = courseName
 										tmpName.removeLast(courseName.count-28)
 										tmpName.append("...")
 										cNameLen = tmpName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 
 									}
 								} else {
 									if courseName.count < 28 {
 										cNameLen = courseName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									} else {
 										var tmpName = courseName
 										tmpName.removeLast(courseName.count-28)
 										tmpName.append("...")
 										cNameLen = tmpName.count
-										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) to-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
+										title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
 									}
 								}
 								
 								title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
-								title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: cNameLen, length: title.length-cNameLen))
+								title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
 								break
 							}
 

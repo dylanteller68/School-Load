@@ -85,7 +85,7 @@ class CompletedTodosViewController: UIViewController {
 					done_btn.setTitle("", for: .normal)
 					done_btn.setBackgroundImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 					done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
-					done_btn.tintColor = .white
+					done_btn.tintColor = .label
 					done_btn.tag = t.ID.hashValue
 					done_btn.addTarget(self, action: #selector(self.add_btn_tapped), for: .touchUpInside)
 					
@@ -93,7 +93,7 @@ class CompletedTodosViewController: UIViewController {
 					
 					if tNameLen < 28 {
 						let title = NSMutableAttributedString(string: "\(t.name)\n\(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: tNameLen))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tNameLen))
 						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tNameLen, length: title.length-tNameLen))
 						btn.setAttributedTitle(title, for: .normal)
 					} else {
@@ -101,7 +101,7 @@ class CompletedTodosViewController: UIViewController {
 						tmpName.removeLast(tNameLen-28)
 						tmpName.append("...")
 						let title = NSMutableAttributedString(string: "\(tmpName)\n\(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: tmpName.count))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tmpName.count))
 						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tmpName.count, length: title.length-tmpName.count))
 						btn.setAttributedTitle(title, for: .normal)
 					}

@@ -41,7 +41,6 @@ class CourseTodosViewController: UIViewController {
 					tmpName.append("...")
 					cName_lbl.text = tmpName
 				}
-				numTodosLbl.textColor = user.colors[c.color]
 				numTodosLbl.text = "\(numTs) To-dos"
 				cName_lbl.textColor = user.colors[c.color]
 				break
@@ -80,12 +79,13 @@ class CourseTodosViewController: UIViewController {
 					bullet_btn.widthAnchor.constraint(equalToConstant: 5).isActive = true
 					bullet_btn.tintColor = user.colors[t.color]
 					bullet_btn.tag = t.ID.hashValue
+					bullet_btn.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 					
 					let done_btn = UIButton(type: .system)
 					done_btn.setTitle("", for: .normal)
 					done_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 					done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
-					done_btn.tintColor = .white
+					done_btn.tintColor = .label
 					done_btn.tag = t.ID.hashValue
 					done_btn.addTarget(self, action: #selector(self.done_btn_tapped), for: .touchUpInside)
 					
@@ -93,7 +93,7 @@ class CourseTodosViewController: UIViewController {
 					
 					if tNameLen < 28 {
 						let title = NSMutableAttributedString(string: "\(t.name)\n\(tDate)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: tNameLen+tDate.count+1))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tNameLen+tDate.count+1))
 						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tNameLen, length: title.length-tNameLen))
 						btn.setAttributedTitle(title, for: .normal)
 					} else {
@@ -101,7 +101,7 @@ class CourseTodosViewController: UIViewController {
 						tmpName.removeLast(tNameLen-28)
 						tmpName.append("...")
 						let title = NSMutableAttributedString(string: "\(tmpName)\n\(tDate)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: tmpName.count+tDate.count+1))
+						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tmpName.count+tDate.count+1))
 						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tmpName.count, length: title.length-tmpName.count))
 						btn.setAttributedTitle(title, for: .normal)
 					}

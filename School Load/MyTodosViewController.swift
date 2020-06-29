@@ -56,41 +56,40 @@ class MyTodosViewController: UIViewController {
 			// need to change
 			db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments(source: .cache) { (querySnapshot, error) in
 				if error == nil {
-					for document in querySnapshot!.documents {
-						let data = document.data()
-						
-						let cName = data["name"] as! String
-						let cColor = data["color"] as! Int
-						let cID = document.documentID
-						let numTodos = 0
-						
-						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
-						
-						user.courses.append(course)
-						
-					}
-				} else {
-					// error probably first time launching from device
-					db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments { (querySnapshot, error) in
-						if error == nil {
-							for document in querySnapshot!.documents {
-								let data = document.data()
-								
-								let cName = data["name"] as! String
-								let cColor = data["color"] as! Int
-								let cID = document.documentID
-								let numTodos = 0
-								
-								let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
-								
-								user.courses.append(course)
-								
+					if querySnapshot?.documents.count == 0 {
+						db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments { (querySnapshot, error) in
+							if error == nil {
+								for document in querySnapshot!.documents {
+									let data = document.data()
+									
+									let cName = data["name"] as! String
+									let cColor = data["color"] as! Int
+									let cID = document.documentID
+									let numTodos = 0
+									
+									let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
+									
+									user.courses.append(course)
+								}
+							} else {
+								// error
 							}
-						} else {
-							// error
+						}
+					} else {
+						for document in querySnapshot!.documents {
+							let data = document.data()
+							
+							let cName = data["name"] as! String
+							let cColor = data["color"] as! Int
+							let cID = document.documentID
+							let numTodos = 0
+							
+							let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
+							
+							user.courses.append(course)
+							
 						}
 					}
-					
 				}
 			}
 			

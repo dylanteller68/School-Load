@@ -24,16 +24,6 @@ class MeViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		if traitCollection.userInterfaceStyle == .light {
-			name_btn.setTitleColor(.black, for: .normal)
-			email_btn.setTitleColor(.black, for: .normal)
-			change_password_btn.setTitleColor(.black, for: .normal)
-			notifications_btn.setTitleColor(.black, for: .normal)
-			contact_btn.setTitleColor(.black, for: .normal)
-			help_btn.setTitleColor(.black, for: .normal)
-			rate_btn.setTitleColor(.black, for: .normal)
-		}
-		
 		name_btn.layer.cornerRadius = 25
 		email_btn.layer.cornerRadius = 25
 		change_password_btn.layer.cornerRadius = 25
@@ -101,6 +91,24 @@ class MeViewController: UIViewController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
+		if traitCollection.userInterfaceStyle == .light {
+			name_btn.setTitleColor(.black, for: .normal)
+			email_btn.setTitleColor(.black, for: .normal)
+			change_password_btn.setTitleColor(.black, for: .normal)
+			notifications_btn.setTitleColor(.black, for: .normal)
+			contact_btn.setTitleColor(.black, for: .normal)
+			help_btn.setTitleColor(.black, for: .normal)
+			rate_btn.setTitleColor(.black, for: .normal)
+		} else {
+			name_btn.setTitleColor(.systemTeal, for: .normal)
+			email_btn.setTitleColor(.systemTeal, for: .normal)
+			change_password_btn.setTitleColor(.systemTeal, for: .normal)
+			notifications_btn.setTitleColor(.systemTeal, for: .normal)
+			contact_btn.setTitleColor(.systemTeal, for: .normal)
+			help_btn.setTitleColor(.systemTeal, for: .normal)
+			rate_btn.setTitleColor(.systemTeal, for: .normal)
+		}
+		
 		let name = "\(user.fname) \(user.lname)"
 		name_btn.setTitle("Name: \(name)", for: .normal)
 		

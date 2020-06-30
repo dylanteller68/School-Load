@@ -134,12 +134,18 @@ class CourseTodosViewController: UIViewController {
 					tomorrowDate.removeLast(6)
 					if todayDate == tdDate {
 						tdDate.append(" (Today)")
+						date_lbl.text = tdDate
 					} else if tomorrowDate == tdDate {
 						tdDate.append(" (Tomorrow)")
+						date_lbl.text = tdDate
 					} else if t.date < Date() {
 						tdDate.append(" (Past Due)")
+						let attrstr = NSMutableAttributedString(string: tdDate)
+						attrstr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemRed, range: NSRange(location: tdDate.count-10, length: 10))
+						date_lbl.attributedText = attrstr
+					} else {
+						date_lbl.text = tdDate
 					}
-					date_lbl.text = tdDate
 					date_lbl.font = .systemFont(ofSize: 20)
 					
 					let numTodosPerDate_lbl = UILabel()

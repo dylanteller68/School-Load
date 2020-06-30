@@ -135,7 +135,7 @@ class CompletedTodosViewController: UIViewController {
 		
 		clear_btn.setTitle("Clearing...", for: .normal)
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			for v in self.btn_SV.arrangedSubviews {
 				
 				let t = v as? UIStackView
@@ -190,28 +190,26 @@ class CompletedTodosViewController: UIViewController {
 						self.view.layoutIfNeeded()
 					}
 				}
-			}
-		}
-		
-		for t in user.completed {
-			if t.ID.hashValue == sender.tag {
-				db.collection("users").document(user.ID).collection("to-dos").document(t.ID).setData([
-					"name" : t.name,
-					"date" : Timestamp(date: t.date),
-					"courseID" : t.course,
-					"color" : t.color
-				])
-				
-				db.collection("users").document(user.ID).collection("completed").document(t.ID).delete()
-				user.completed.removeAll(where: {$0.ID == t.ID})
-				if user.completed.count == 0 {
-					self.no_completed_lbl.isHidden = false
-					self.clear_btn.isHidden = true
+				for t in user.completed {
+					if t.ID.hashValue == sender.tag {
+						db.collection("users").document(user.ID).collection("to-dos").document(t.ID).setData([
+							"name" : t.name,
+							"date" : Timestamp(date: t.date),
+							"courseID" : t.course,
+							"color" : t.color
+						])
+						
+						db.collection("users").document(user.ID).collection("completed").document(t.ID).delete()
+						user.completed.removeAll(where: {$0.ID == t.ID})
+						if user.completed.count == 0 {
+							self.no_completed_lbl.isHidden = false
+							self.clear_btn.isHidden = true
+						}
+						break
+					}
 				}
-				break
 			}
 		}
-		
 	}
 	
 }

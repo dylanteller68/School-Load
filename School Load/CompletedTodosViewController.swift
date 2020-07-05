@@ -15,6 +15,7 @@ class CompletedTodosViewController: UIViewController {
 	@IBOutlet weak var btn_SV: UIStackView!
 	@IBOutlet weak var no_completed_lbl: UILabel!
 	@IBOutlet weak var clear_btn: UIButton!
+	@IBOutlet weak var v: UIView!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,6 @@ class CompletedTodosViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-
 		
 		user.completed = []
 		
@@ -51,9 +51,11 @@ class CompletedTodosViewController: UIViewController {
 				}
 				
 				if user.completed.count > 0 {
+					self.v.isHidden = false
 					self.no_completed_lbl.isHidden = true
 					self.clear_btn.isHidden = false
 				} else {
+					self.v.isHidden = true
 					self.no_completed_lbl.isHidden = false
 				}
 				self.progress_spinner.stopAnimating()
@@ -152,6 +154,7 @@ class CompletedTodosViewController: UIViewController {
 			
 			user.completed.removeAll()
 			
+			self.v.isHidden = true
 			self.no_completed_lbl.isHidden = false
 			self.clear_btn.isHidden = true
 		}
@@ -202,6 +205,7 @@ class CompletedTodosViewController: UIViewController {
 						db.collection("users").document(user.ID).collection("completed").document(t.ID).delete()
 						user.completed.removeAll(where: {$0.ID == t.ID})
 						if user.completed.count == 0 {
+							self.v.isHidden = true
 							self.no_completed_lbl.isHidden = false
 							self.clear_btn.isHidden = true
 						}

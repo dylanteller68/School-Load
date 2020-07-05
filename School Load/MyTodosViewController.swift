@@ -443,21 +443,25 @@ class MyTodosViewController: UIViewController {
 			let tomorrowsDate = Date().addingTimeInterval(86400)
 			var tomorrowDate = formatter3.string(from: tomorrowsDate)
 			tomorrowDate.removeLast(6)
+			date_lbl.font = .systemFont(ofSize: 20)
 			if todayDate == tdDate {
 				tdDate.append(" (Today)")
-				date_lbl.text = tdDate
+				let attrstr = NSMutableAttributedString(string: tdDate)
+				attrstr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: tdDate.count-7, length: 7))
+				date_lbl.attributedText = attrstr
 			} else if tomorrowDate == tdDate {
 				tdDate.append(" (Tomorrow)")
-				date_lbl.text = tdDate
+				let attrstr = NSMutableAttributedString(string: tdDate)
+				attrstr.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: tdDate.count-10, length: 10))
+				date_lbl.attributedText = attrstr
 			} else if t.date < Date() {
 				tdDate.append(" (Past Due)")
 				let attrstr = NSMutableAttributedString(string: tdDate)
-				attrstr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemRed, range: NSRange(location: tdDate.count-10, length: 10))
+				attrstr.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemRed, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)], range: NSRange(location: tdDate.count-10, length: 10))
 				date_lbl.attributedText = attrstr
 			} else {
 				date_lbl.text = tdDate
 			}
-			date_lbl.font = .systemFont(ofSize: 20)
 			
 			let numTodosPerDate_lbl = UILabel()
 			var numTodosPerDate = 0

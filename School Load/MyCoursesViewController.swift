@@ -24,6 +24,7 @@ class MyCoursesViewController: UIViewController {
 		
 		if user.numCourses == 0 {
 			no_courses_lbl.isHidden = false
+			progress_spinner.stopAnimating()
 		}
 		
 		user.courses = []

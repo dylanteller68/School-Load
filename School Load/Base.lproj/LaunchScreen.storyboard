@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,29 +57,26 @@
                                     <constraint firstAttribute="height" constant="1" id="n5Q-VB-grA"/>
                                 </constraints>
                             </view>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vd-GY-aFu">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Im4-uB-Y39">
                                 <rect key="frame" x="0.0" y="813" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="To-dos" image="list.bullet" catalog="system" id="NSZ-Gg-j29">
-                                        <color key="badgeColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Courses" image="book" catalog="system" id="SDf-8Q-5Jw"/>
-                                    <tabBarItem title="Me" image="person" catalog="system" id="5fa-Hb-CCo"/>
+                                    <tabBarItem title="To-dos" image="list.bullet" catalog="system" id="D1h-uv-7bJ"/>
+                                    <tabBarItem title="Courses" image="book" catalog="system" id="27W-Kz-Vbd"/>
+                                    <tabBarItem title="Me" image="person" catalog="system" id="KUJ-1w-rCV"/>
                                 </items>
-                                <color key="selectedImageTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uL7-rq-Zsf" firstAttribute="top" secondItem="OAJ-2k-IWi" secondAttribute="bottom" constant="10" id="0v8-LK-fWg"/>
+                            <constraint firstAttribute="bottom" secondItem="Im4-uB-Y39" secondAttribute="bottom" id="5BA-cI-9dW"/>
                             <constraint firstItem="uL7-rq-Zsf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8Xy-Fi-3Bt"/>
+                            <constraint firstAttribute="trailing" secondItem="Im4-uB-Y39" secondAttribute="trailing" id="9jQ-kt-mjD"/>
                             <constraint firstAttribute="trailing" secondItem="uL7-rq-Zsf" secondAttribute="trailing" id="Ecu-vo-Xf9"/>
-                            <constraint firstItem="6vd-GY-aFu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OfP-aa-4av"/>
-                            <constraint firstAttribute="bottom" secondItem="6vd-GY-aFu" secondAttribute="bottom" id="Yn1-YC-dkt"/>
-                            <constraint firstAttribute="trailing" secondItem="6vd-GY-aFu" secondAttribute="trailing" id="e6p-kI-Kmx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4aa-rl-rpO" secondAttribute="trailing" constant="15" id="ma7-2X-nqc"/>
                             <constraint firstItem="4aa-rl-rpO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="oBh-AF-WUI"/>
+                            <constraint firstItem="Im4-uB-Y39" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qEi-RY-Fyo"/>
                             <constraint firstItem="OAJ-2k-IWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sJR-eK-64e"/>
                             <constraint firstItem="sg2-uR-8Wq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="15" id="xyH-MT-sCl"/>
                             <constraint firstItem="OAJ-2k-IWi" firstAttribute="centerY" secondItem="4aa-rl-rpO" secondAttribute="centerY" id="zSB-Ve-c8v"/>

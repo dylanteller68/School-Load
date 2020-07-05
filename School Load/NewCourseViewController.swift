@@ -30,7 +30,7 @@ class NewCourseViewController: UIViewController {
 			btn_width_constraint.constant += 225
 			SV_width_constraint.constant += 225
 		}
-    }
+	}
 	
 	var i = 0
 	var color_has_been_tapped = false

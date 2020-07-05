@@ -1125,7 +1125,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Eyg-qv-8Qb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eKb-NQ-Ew9"/>
                     <connections>
                         <outlet property="SV_width_constraint" destination="drL-Uc-L6Q" id="TgV-mp-dM2"/>
                         <outlet property="add_course_btn" destination="IZu-KC-izs" id="FO8-J6-UbR"/>

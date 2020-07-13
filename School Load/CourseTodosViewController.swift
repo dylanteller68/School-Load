@@ -244,14 +244,16 @@ class CourseTodosViewController: UIViewController {
 
 		for t in user.todos {
 			if t.ID.hashValue == sender.tag {
-				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID, note: t.note)
+				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), dateAdded: t.dateAdded, color: t.color, ID: t.ID, note: t.note)
 				user.completed.append(todo)
 				db.collection("users").document(user.ID).collection("completed").document(t.ID).setData([
 					"name" : t.name,
 					"courseID" : t.course,
 					"color" : t.color,
 					"date" : Timestamp(date: t.date),
-					"date completed" : Timestamp(date: todo.dateCompleted)
+					"date completed" : Timestamp(date: todo.dateCompleted),
+					"dataAdded" : t.dateAdded,
+					"note" : t.note
 				])
 				break
 			}

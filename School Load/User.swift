@@ -59,7 +59,7 @@ public class User {
 						formatter4.timeStyle = .short
 						let time2 = formatter4.string(from: self.todos[k].date)
 						if time1 == time2 {
-							if self.todos[i].name > self.todos[k].name {
+							if self.todos[i].dateAdded > self.todos[k].dateAdded {
 								let tmp = self.todos[i]
 								self.todos[i] = self.todos[k]
 								self.todos[k] = tmp

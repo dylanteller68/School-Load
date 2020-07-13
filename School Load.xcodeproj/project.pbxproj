@@ -17,7 +17,6 @@
 		4C351556249C6A8400BAF650 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C351555249C6A8400BAF650 /* GoogleService-Info.plist */; };
 		4C35155824A02E7500BAF650 /* TodoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C35155724A02E7500BAF650 /* TodoInfoViewController.swift */; };
 		4C3C9AC4246132100030A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B4524319A4C00654077 /* Assets.xcassets */; };
-		4C4E70D02432BF3D005AB60C /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70CF2432BF3D005AB60C /* CreateAccountViewController.swift */; };
 		4C4E70D224330CB6005AB60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70D124330CB6005AB60C /* LoginViewController.swift */; };
 		4C51C2AF2442279D00988081 /* NewTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51C2AE2442279D00988081 /* NewTodoViewController.swift */; };
 		4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7177C9243AE91500FAC248 /* MeViewController.swift */; };
@@ -33,6 +32,9 @@
 		4CDB690124455AD80052ACE0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB690024455AD80052ACE0 /* Todo.swift */; };
 		4CEB1FE72457CA340057CBDF /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB1FE62457CA340057CBDF /* EditTodoViewController.swift */; };
 		4CEB1FE92458F9300057CBDF /* CompletedTodosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB1FE82458F9300057CBDF /* CompletedTodosViewController.swift */; };
+		4CEFCC8F24BBBCB00039776F /* YourNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC8E24BBBCB00039776F /* YourNameViewController.swift */; };
+		4CEFCC9124BBC0190039776F /* YourEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */; };
+		4CEFCC9324BBC0350039776F /* YourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */; };
 		4CF81550246F003A0020DF98 /* EditCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8154F246F003A0020DF98 /* EditCourseViewController.swift */; };
 		8CF1D68D08CE8DC28A34C32A /* Pods_School_Load.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5B5E2AA5DCAB34E2258306 /* Pods_School_Load.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +67,6 @@
 		4C351555249C6A8400BAF650 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C35155724A02E7500BAF650 /* TodoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoInfoViewController.swift; sourceTree = "<group>"; };
 		4C3C9AD02463C5960030A363 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		4C4E70CF2432BF3D005AB60C /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		4C4E70D124330CB6005AB60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4C51C2AE2442279D00988081 /* NewTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoViewController.swift; sourceTree = "<group>"; };
 		4C7177C9243AE91500FAC248 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +82,9 @@
 		4CDB690024455AD80052ACE0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		4CEB1FE62457CA340057CBDF /* EditTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
 		4CEB1FE82458F9300057CBDF /* CompletedTodosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTodosViewController.swift; sourceTree = "<group>"; };
+		4CEFCC8E24BBBCB00039776F /* YourNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourNameViewController.swift; sourceTree = "<group>"; };
+		4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourEmailViewController.swift; sourceTree = "<group>"; };
+		4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPasswordViewController.swift; sourceTree = "<group>"; };
 		4CF8154F246F003A0020DF98 /* EditCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseViewController.swift; sourceTree = "<group>"; };
 		57FC9314FB97A3F587397AF7 /* Pods-School Load.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-School Load.release.xcconfig"; path = "Target Support Files/Pods-School Load/Pods-School Load.release.xcconfig"; sourceTree = "<group>"; };
 		BE5B5E2AA5DCAB34E2258306 /* Pods_School_Load.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_School_Load.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +148,6 @@
 				4CDB690024455AD80052ACE0 /* Todo.swift */,
 				4CDB68FE24453B570052ACE0 /* Course.swift */,
 				4C4E70D124330CB6005AB60C /* LoginViewController.swift */,
-				4C4E70CF2432BF3D005AB60C /* CreateAccountViewController.swift */,
 				4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */,
 				4C7177C9243AE91500FAC248 /* MeViewController.swift */,
 				4CCAB4532479898D0079BB0F /* EditNameViewController.swift */,
@@ -158,6 +161,9 @@
 				4C067B4A24319A4C00654077 /* Info.plist */,
 				4C205E712459CB6C00C1E5B5 /* School Load.entitlements */,
 				4C35155724A02E7500BAF650 /* TodoInfoViewController.swift */,
+				4CEFCC8E24BBBCB00039776F /* YourNameViewController.swift */,
+				4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */,
+				4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */,
 			);
 			path = "School Load";
 			sourceTree = "<group>";
@@ -294,17 +300,19 @@
 				4C205E732459FEBE00C1E5B5 /* CourseTodosViewController.swift in Sources */,
 				4C866D1F247E157A0090A0BB /* EditEmailViewController.swift in Sources */,
 				4C7E98ED2437B6CA0058DFD8 /* ForgotPasswordViewController.swift in Sources */,
+				4CEFCC8F24BBBCB00039776F /* YourNameViewController.swift in Sources */,
 				4C866D23247E25810090A0BB /* ReauthenticatePswdViewController.swift in Sources */,
 				4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */,
 				4C51C2AF2442279D00988081 /* NewTodoViewController.swift in Sources */,
-				4C4E70D02432BF3D005AB60C /* CreateAccountViewController.swift in Sources */,
 				4C866D25247E293E0090A0BB /* EditPasswordViewController.swift in Sources */,
 				4C067B4124319A4B00654077 /* MyCoursesViewController.swift in Sources */,
 				4C866D21247E16F30090A0BB /* ReauthenticateViewController.swift in Sources */,
+				4CEFCC9324BBC0350039776F /* YourPasswordViewController.swift in Sources */,
 				4CCAB4542479898D0079BB0F /* EditNameViewController.swift in Sources */,
 				4C35155824A02E7500BAF650 /* TodoInfoViewController.swift in Sources */,
 				4C067B3F24319A4B00654077 /* MyTodosViewController.swift in Sources */,
 				4C067B3B24319A4B00654077 /* AppDelegate.swift in Sources */,
+				4CEFCC9124BBC0190039776F /* YourEmailViewController.swift in Sources */,
 				4C067B3D24319A4B00654077 /* SceneDelegate.swift in Sources */,
 				4CAA0FCE243D873100C962A8 /* NewCourseViewController.swift in Sources */,
 				4CDB690124455AD80052ACE0 /* Todo.swift in Sources */,

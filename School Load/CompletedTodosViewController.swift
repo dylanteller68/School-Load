@@ -37,9 +37,10 @@ class CompletedTodosViewController: UIViewController {
 					let cID = data["courseID"] as! String
 					let tDate = data["date"] as! Timestamp
 					let dComp = data["date completed"] as! Timestamp
+					let dAdded = data["dateAdded"] as! Timestamp
 					let tNote = data["note"] as? String ?? "Add note..."
 
-					let todo = Todo(name: tName, course: cID, date: tDate.dateValue(), dateCompleted: dComp.dateValue(), color: tColor, ID: document.documentID, note: tNote)
+					let todo = Todo(name: tName, course: cID, date: tDate.dateValue(), dateCompleted: dComp.dateValue(), dateAdded: dAdded.dateValue(), color: tColor, ID: document.documentID, note: tNote)
 					
 					user.completed.append(todo)
 					
@@ -197,9 +198,11 @@ class CompletedTodosViewController: UIViewController {
 					if t.ID.hashValue == sender.tag {
 						db.collection("users").document(user.ID).collection("to-dos").document(t.ID).setData([
 							"name" : t.name,
-							"date" : Timestamp(date: t.date),
 							"courseID" : t.course,
-							"color" : t.color
+							"date" : Timestamp(date: t.date),
+							"dateAdded" : t.dateAdded,
+							"color" : t.color,
+							"note" : t.note
 						])
 						
 						db.collection("users").document(user.ID).collection("completed").document(t.ID).delete()

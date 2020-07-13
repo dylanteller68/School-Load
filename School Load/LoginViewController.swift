@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var email_txtbx: UITextField!
 	@IBOutlet weak var password_txtbx: UITextField!
 	@IBOutlet weak var login_btn: UIButton!
+	@IBOutlet weak var create_acct_btn: UIButton!
+	@IBOutlet weak var forgot_pswd_btn: UIButton!
 	@IBOutlet weak var error_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
@@ -29,6 +31,16 @@ class LoginViewController: UIViewController {
 			SV_width_constraint.constant += 225
 		}
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		error_lbl.isHidden = true
+
+		forgot_pswd_btn.isEnabled = true
+		create_acct_btn.isEnabled = true
+		login_btn.isEnabled = true
+		
+		password_txtbx.text = ""
+	}
 
 	@IBAction func email_txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
@@ -39,6 +51,10 @@ class LoginViewController: UIViewController {
 	}
 	
 	@IBAction func login_tapped(_ sender: Any) {
+		
+		forgot_pswd_btn.isEnabled = false
+		create_acct_btn.isEnabled = false
+		login_btn.isEnabled = false
 		
 		email_txtbx.resignFirstResponder()
 		password_txtbx.resignFirstResponder()
@@ -58,7 +74,7 @@ class LoginViewController: UIViewController {
 					notificationFeedbackGenerator.prepare()
 					notificationFeedbackGenerator.notificationOccurred(.error)
 					
-					self!.error_lbl.text = "Invalid email/password"
+					self!.error_lbl.text = "Invalid email or password"
 					self!.error_lbl.isHidden = false
 					self!.progress_spinner.stopAnimating()
 					self!.login_btn.setTitle("Login", for: .normal)
@@ -95,19 +111,39 @@ class LoginViewController: UIViewController {
 			notificationFeedbackGenerator.prepare()
 			notificationFeedbackGenerator.notificationOccurred(.error)
 			
-			error_lbl.text = "Email/Password required"
+			error_lbl.text = "Email & Password required"
 			error_lbl.isHidden = false
 		}
+		
+		forgot_pswd_btn.isEnabled = true
+		create_acct_btn.isEnabled = true
+		login_btn.isEnabled = true
 	}
 	
 	@IBAction func forgot_password_tapped(_ sender: Any) {
+		forgot_pswd_btn.isEnabled = false
+		create_acct_btn.isEnabled = false
+		login_btn.isEnabled = false
+		
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 	}
 	
 	@IBAction func create_account_tapped(_ sender: Any) {
+		forgot_pswd_btn.isEnabled = false
+		create_acct_btn.isEnabled = false
+		login_btn.isEnabled = false
+		
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.destination is ForgotPasswordViewController {
+			let v = segue.destination as! ForgotPasswordViewController
+			let email = email_txtbx.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+			v.sent_email = email
+		}
 	}
 	
 }

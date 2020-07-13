@@ -16,6 +16,9 @@ class ForgotPasswordViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var cancel_btn: UIButton!
+	
+	var sent_email = ""
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,8 @@ class ForgotPasswordViewController: UIViewController {
 			btn_width_constraint.constant += 225
 			SV_width_constraint.constant += 225
 		}
+		
+		email_txtbx.text = sent_email
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
@@ -32,6 +37,9 @@ class ForgotPasswordViewController: UIViewController {
 	}
 	
 	@IBAction func send_reset_email_tapped(_ sender: Any) {
+		
+		send_reset_btn.isEnabled = false
+		cancel_btn.isEnabled = false
 		
 		email_txtbx.resignFirstResponder()
 		
@@ -53,9 +61,6 @@ class ForgotPasswordViewController: UIViewController {
 					notificationFeedbackGenerator.notificationOccurred(.error)
 					
 					self.send_reset_btn.setTitle("Email not found", for: .normal)
-					  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-						self.send_reset_btn.setTitle("Send Reset Email", for: .normal)
-					}
 				} else {
 					self.progress_spinner.stopAnimating()
 					
@@ -71,6 +76,12 @@ class ForgotPasswordViewController: UIViewController {
 			}
 		}
 
+		cancel_btn.isEnabled = true
+	}
+	
+	@IBAction func text_changed(_ sender: Any) {
+		send_reset_btn.isEnabled = true
+		send_reset_btn.setTitle("Send Reset Email", for: .normal)
 	}
 	
 	@IBAction func email_txtbx_done(_ sender: Any) {

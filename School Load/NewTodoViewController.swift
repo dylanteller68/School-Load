@@ -68,6 +68,7 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 				"name" : todoName,
 				"courseID" : todoCourse,
 				"date" : Timestamp(date: todoDate),
+				"dateAdded" : Timestamp(date: Date()),
 				"color" : todoColor,
 				"note" : "Add note..."
 			])

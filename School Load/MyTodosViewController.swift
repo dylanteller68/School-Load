@@ -19,6 +19,10 @@ class MyTodosViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		user.completed = []
+		user.todos = []
+		user.courses = []
 
 		progress_spinner.startAnimating()
 		progress_spinner.isHidden = false
@@ -34,7 +38,7 @@ class MyTodosViewController: UIViewController {
 					let data = DocumentSnapshot?.data()
 					
 					let userFName = data!["first name"] as! String
-					let userLName = data!["last name"] as! String
+					let userLName = data!["last name"] as? String ?? ""
 					let userEmail = currentUser?.email
 					let numCourses = data!["numCourses"] as! Int
 					
@@ -48,192 +52,170 @@ class MyTodosViewController: UIViewController {
 					// error
 				}
 			}
-			
-			user.completed = []
-			user.todos = []
-			user.courses = []
 
-			// need to change
-			db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments(source: .cache) { (querySnapshot, error) in
+			db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments { (querySnapshot, error) in
 				if error == nil {
-					if querySnapshot?.documents.count == 0 {
-						db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments { (querySnapshot, error) in
-							if error == nil {
-								for document in querySnapshot!.documents {
-									let data = document.data()
-									
-									let cName = data["name"] as! String
-									let cColor = data["color"] as! Int
-									let cID = document.documentID
-									let numTodos = 0
-									
-									let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
-									
-									user.courses.append(course)
-								}
-							}
-						}
-					} else {
-						for document in querySnapshot!.documents {
-							let data = document.data()
-							
-							let cName = data["name"] as! String
-							let cColor = data["color"] as! Int
-							let cID = document.documentID
-							let numTodos = 0
-							
-							let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
-							
-							user.courses.append(course)
-							
-						}
-					}
-				}
-			}
-			
-			// get to-dos
-			db.collection("users").document(user.ID).collection("to-dos").order(by: "date")
-			.addSnapshotListener { querySnapshot, error in
-				guard let snapshot = querySnapshot else {
-					// error
-					return
-				}
-				snapshot.documentChanges.forEach { diff in
-					if (diff.type == .added) {
+					for document in querySnapshot!.documents {
+						let data = document.data()
 						
-						// ADDED**********************************************************************
+						let cName = data["name"] as! String
+						let cColor = data["color"] as! Int
+						let cID = document.documentID
+						let numTodos = 0
 						
-						self.no_todos_lbl.isHidden = true
-
-						let data = diff.document.data()
+						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
 						
-						let todoName = data["name"] as! String
-						let todoCourseID = data["courseID"] as! String
-						let todoDate = data["date"] as! Timestamp
-						let todoColorIndex = data["color"] as! Int
-						let todoNote = data["note"] as? String ?? "Add note..."
-
-						let todo = Todo(name: todoName, course: todoCourseID, date: todoDate.dateValue(), color: todoColorIndex, ID: diff.document.documentID, note: todoNote)
+						user.courses.append(course)
 						
-						user.todos.append(todo)
-											
-						for c in user.courses {
-							if c.ID == todoCourseID {
-								c.numTodos += 1
-								db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-									"numTodos" : c.numTodos
-								])
-							}
-						}
-						
-					}
-					if (diff.type == .modified) {
-						
-						// MODIFIED*******************************************************************
-						
-						let data = diff.document.data()
-						
-						let todoName = data["name"] as! String
-						let todoCourseID = data["courseID"] as! String
-						let todoDate = data["date"] as! Timestamp
-						let formatter1 = DateFormatter()
-						formatter1.timeStyle = .short
-						let todoColorIndex = data["color"] as! Int
-						let todoNote = data["note"] as? String ?? "Add note..."
-						
-						for todo in user.todos {
-							if todo.ID == diff.document.documentID {
-								todo.name = todoName
-								todo.course = todoCourseID
-								todo.date = todoDate.dateValue()
-								todo.color = todoColorIndex
-								todo.note = todoNote
-							}
-						}
-												
-						for c in user.courses {
-							c.numTodos = 0
-						}
-						
-						for c in user.courses {
-							for t in user.todos {
-								if c.ID == t.course {
-									c.numTodos += 1
-								}
-							}
-						}
-						
-						for c in user.courses {
-							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-								"numTodos" : c.numTodos
-							])
-						}
-
-					}
-					if (diff.type == .removed) {
-						
-						// REMOVED*********************************************************************
-												
-						user.todos.removeAll(where: {$0.ID == diff.document.documentID})
-						
-						for c in user.courses {
-							c.numTodos = 0
-						}
-						
-						for c in user.courses {
-							for t in user.todos {
-								if c.ID == t.course {
-									c.numTodos += 1
-								}
-							}
-						}
-						
-						for c in user.courses {
-							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-								"numTodos" : c.numTodos
-							])
-						}
-												
 					}
 					
-					let center = UNUserNotificationCenter.current()
-					center.removeAllPendingNotificationRequests()
-					center.requestAuthorization(options: [.sound, .alert]) { (granted, error) in
-					}
+					// get to-dos
+					db.collection("users").document(user.ID).collection("to-dos").order(by: "date")
+					.addSnapshotListener { querySnapshot, error in
+						guard let snapshot = querySnapshot else {
+							// error
+							return
+						}
+						snapshot.documentChanges.forEach { diff in
+							if (diff.type == .added) {
+								
+								// ADDED**********************************************************************
+								
+								self.no_todos_lbl.isHidden = true
 
-					let content = UNMutableNotificationContent()
-					if user.numTodosToday == 1 {
-						content.body = "You have \(user.numTodosToday) to-do today"
-					} else {
-						content.body = "You have \(user.numTodosToday) to-dos today"
-					}
+								let data = diff.document.data()
+								
+								let todoName = data["name"] as! String
+								let todoCourseID = data["courseID"] as! String
+								let todoDate = data["date"] as! Timestamp
+								let todoAdded = data["dateAdded"] as! Timestamp
+								let todoColorIndex = data["color"] as! Int
+								let todoNote = data["note"] as? String ?? "Add note..."
 
-			//		let date = Date().addingTimeInterval(10)
-			//
-			//		let dc = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+								let todo = Todo(name: todoName, course: todoCourseID, date: todoDate.dateValue(), dateAdded: todoAdded.dateValue(), color: todoColorIndex, ID: diff.document.documentID, note: todoNote)
+								
+								user.todos.append(todo)
+													
+								for c in user.courses {
+									if c.ID == todoCourseID {
+										c.numTodos += 1
+										db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
+											"numTodos" : c.numTodos
+										])
+									}
+								}
+								
+							}
+							if (diff.type == .modified) {
+								
+								// MODIFIED*******************************************************************
+								
+								let data = diff.document.data()
+								
+								let todoName = data["name"] as! String
+								let todoCourseID = data["courseID"] as! String
+								let todoDate = data["date"] as! Timestamp
+								let todoAdded = data["dateAdded"] as! Timestamp
+								let formatter1 = DateFormatter()
+								formatter1.timeStyle = .short
+								let todoColorIndex = data["color"] as! Int
+								let todoNote = data["note"] as? String ?? "Add note..."
+								
+								for todo in user.todos {
+									if todo.ID == diff.document.documentID {
+										todo.name = todoName
+										todo.course = todoCourseID
+										todo.date = todoDate.dateValue()
+										todo.dateAdded = todoAdded.dateValue()
+										todo.color = todoColorIndex
+										todo.note = todoNote
+									}
+								}
+														
+								for c in user.courses {
+									c.numTodos = 0
+								}
+								
+								for c in user.courses {
+									for t in user.todos {
+										if c.ID == t.course {
+											c.numTodos += 1
+										}
+									}
+								}
+								
+								for c in user.courses {
+									db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
+										"numTodos" : c.numTodos
+									])
+								}
 
-					var dc = DateComponents()
-					dc.calendar = Calendar.current
-					dc.hour = 8
+							}
+							if (diff.type == .removed) {
+								
+								// REMOVED*********************************************************************
+														
+								user.todos.removeAll(where: {$0.ID == diff.document.documentID})
+								
+								for c in user.courses {
+									c.numTodos = 0
+								}
+								
+								for c in user.courses {
+									for t in user.todos {
+										if c.ID == t.course {
+											c.numTodos += 1
+										}
+									}
+								}
+								
+								for c in user.courses {
+									db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
+										"numTodos" : c.numTodos
+									])
+								}
+														
+							}
+							
+							let center = UNUserNotificationCenter.current()
+							center.removeAllPendingNotificationRequests()
+							center.requestAuthorization(options: [.sound, .alert]) { (granted, error) in
+							}
 
-					let trigger = UNCalendarNotificationTrigger(dateMatching: dc, repeats: true)
+							let content = UNMutableNotificationContent()
+							if user.numTodosToday == 1 {
+								content.body = "You have \(user.numTodosToday) to-do today"
+							} else {
+								content.body = "You have \(user.numTodosToday) to-dos today"
+							}
 
-					let uuidString = UUID().uuidString
+					//		let date = Date().addingTimeInterval(10)
+					//
+					//		let dc = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
 
-					let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+							var dc = DateComponents()
+							dc.calendar = Calendar.current
+							dc.hour = 8
 
-					center.add(request) { (error) in
+							let trigger = UNCalendarNotificationTrigger(dateMatching: dc, repeats: true)
+
+							let uuidString = UUID().uuidString
+
+							let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+
+							center.add(request) { (error) in
+							}
+						}
+
+						if user.todos.count == 0 {
+							self.no_todos_lbl.isHidden = false
+						}
+						self.progress_spinner.stopAnimating()
+						self.redraw_screen()
 					}
 				}
-
-				if user.todos.count == 0 {
-					self.no_todos_lbl.isHidden = false
-				}
-				self.progress_spinner.stopAnimating()
-				self.redraw_screen()
 			}
 		}
-
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -260,7 +242,7 @@ class MyTodosViewController: UIViewController {
 			}
 			
 		}
-				
+		no_todos_lbl.text = "No to-dos yet"
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {
@@ -273,13 +255,14 @@ class MyTodosViewController: UIViewController {
 		
 		for t in user.todos {
 			if t.ID.hashValue == sender.tag {
-				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), color: t.color, ID: t.ID, note: t.note)
+				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), dateAdded: t.dateAdded, color: t.color, ID: t.ID, note: t.note)
 				db.collection("users").document(user.ID).collection("completed").document(t.ID).setData([
 					"name" : t.name,
 					"courseID" : t.course,
 					"color" : t.color,
 					"date" : Timestamp(date: t.date),
 					"date completed" : Timestamp(date: todo.dateCompleted),
+					"dateAdded" : t.dateAdded,
 					"note" : t.note
 				])
 				break
@@ -337,7 +320,7 @@ class MyTodosViewController: UIViewController {
 	
 	@IBAction func new_todo_btn(_ sender: Any) {
 		if user.courses.count == 0 {
-			tabBarController?.selectedIndex = 1
+			no_todos_lbl.text = "Add a course first"
 		} else {
 			performSegue(withIdentifier: "new_todo_segue", sender: self)
 		}

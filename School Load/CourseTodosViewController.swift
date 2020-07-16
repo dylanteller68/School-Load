@@ -252,7 +252,7 @@ class CourseTodosViewController: UIViewController {
 					"color" : t.color,
 					"date" : Timestamp(date: t.date),
 					"date completed" : Timestamp(date: todo.dateCompleted),
-					"dataAdded" : t.dateAdded,
+					"dateAdded" : t.dateAdded,
 					"note" : t.note
 				])
 				break

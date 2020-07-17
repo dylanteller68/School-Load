@@ -53,7 +53,8 @@ class NewCourseViewController: UIViewController {
 			db.collection("users").document(user.ID).collection("courses").addDocument(data: [
 				"name" : cName,
 				"color" : numColor,
-				"time" : Timestamp(date: Date())
+				"time" : Timestamp(date: Date()),
+				"numTodos" : 0
 			]) { (error) in
 				if error == nil {
 					self.progress_spinner.stopAnimating()

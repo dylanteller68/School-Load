@@ -161,7 +161,7 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return user.courses.count
+		return user.numCourses
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {

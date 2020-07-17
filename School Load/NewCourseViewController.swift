@@ -49,14 +49,27 @@ class NewCourseViewController: UIViewController {
 			add_course_btn.setTitle("", for: .normal)
 			progress_spinner.startAnimating()
 			progress_spinner.isHidden = false
-						
-			db.collection("users").document(user.ID).collection("courses").document().setData([
+			
+			db.collection("users").document(user.ID).collection("courses").addDocument(data: [
 				"name" : cName,
 				"color" : numColor,
-				"numTodos": 0,
-				"time" : Timestamp()
+				"time" : Timestamp(date: Date())
 			]) { (error) in
-				if error != nil {
+				if error == nil {
+					self.progress_spinner.stopAnimating()
+					
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+					
+					self.add_course_btn.setTitle("Course Added", for: .normal)
+					
+					self.add_course_btn.isEnabled = false
+					
+					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+						self.dismiss(animated: true, completion: nil)
+					}
+				} else {
 					self.progress_spinner.stopAnimating()
 					
 					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
@@ -70,26 +83,9 @@ class NewCourseViewController: UIViewController {
 					}
 					
 					self.add_course_btn.isEnabled = true
-				} else {
-					self.progress_spinner.stopAnimating()
-					
-					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-					notificationFeedbackGenerator.prepare()
-					notificationFeedbackGenerator.notificationOccurred(.success)
-					
-					self.add_course_btn.setTitle("Course Added", for: .normal)
-					
-					db.collection("users").document(user.ID).updateData([
-						"numCourses" : user.numCourses
-					])
-					
-					self.add_course_btn.isEnabled = false
-					
-					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-						self.dismiss(animated: true, completion: nil)
-					}
 				}
 			}
+
 		} else {
 			progress_spinner.stopAnimating()
 			

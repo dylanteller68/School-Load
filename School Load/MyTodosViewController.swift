@@ -99,9 +99,6 @@ class MyTodosViewController: UIViewController {
 								for c in user.courses {
 									if c.ID == todoCourseID {
 										c.numTodos += 1
-										db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-											"numTodos" : c.numTodos
-										])
 									}
 								}
 								
@@ -143,12 +140,6 @@ class MyTodosViewController: UIViewController {
 										}
 									}
 								}
-								
-								for c in user.courses {
-									db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-										"numTodos" : c.numTodos
-									])
-								}
 
 							}
 							if (diff.type == .removed) {
@@ -167,12 +158,6 @@ class MyTodosViewController: UIViewController {
 											c.numTodos += 1
 										}
 									}
-								}
-								
-								for c in user.courses {
-									db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-										"numTodos" : c.numTodos
-									])
 								}
 														
 							}

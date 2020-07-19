@@ -45,7 +45,7 @@ class MyCoursesViewController: UIViewController {
 						let course = Course(name: courseName, color: courseColor, ID: courseID, numTodos: numTodos)
 
 						if user.courses.count != 0 {
-							if user.courses[user.courses.count-1] !== course {
+							if user.courses[user.courses.count-1].ID != course.ID {
 								user.courses.append(course)
 							}
 						} else {

@@ -94,11 +94,21 @@ class MyTodosViewController: UIViewController {
 
 								let todo = Todo(name: todoName, course: todoCourseID, date: todoDate.dateValue(), dateAdded: todoAdded.dateValue(), color: todoColorIndex, ID: diff.document.documentID, note: todoNote)
 								
-								user.todos.append(todo)
-													
-								for c in user.courses {
-									if c.ID == todoCourseID {
-										c.numTodos += 1
+								if user.todos.count != 0 {
+									if !user.todos.contains(where: {$0.ID == todo.ID}) {
+										user.todos.append(todo)
+										for c in user.courses {
+											if c.ID == todoCourseID {
+												c.numTodos += 1
+											}
+										}
+									}
+								} else {
+									user.todos.append(todo)
+									for c in user.courses {
+										if c.ID == todoCourseID {
+											c.numTodos += 1
+										}
 									}
 								}
 								

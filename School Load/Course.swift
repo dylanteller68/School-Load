@@ -22,4 +22,12 @@ public class Course {
 		self.numTodos = numTodos
 	}
 	
+	static public func ==(left: Course, right: Course) -> Bool {
+		if left.ID == right.ID {
+			return true
+		} else {
+			return false
+		}
+	}
+	
 }

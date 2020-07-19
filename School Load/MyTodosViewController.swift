@@ -161,7 +161,17 @@ class MyTodosViewController: UIViewController {
 								}
 														
 							}
-							
+							let c = diff.document.data()["courseID"] as! String
+							var nT = 0
+							for course in user.courses {
+								if course.ID == c {
+									nT = course.numTodos
+									break
+								}
+							}
+							db.collection("users").document(user.ID).collection("courses").document(c).updateData([
+								"numTodos" : nT
+							])
 							let center = UNUserNotificationCenter.current()
 							center.removeAllPendingNotificationRequests()
 							center.requestAuthorization(options: [.sound, .alert]) { (granted, error) in
@@ -191,7 +201,7 @@ class MyTodosViewController: UIViewController {
 							center.add(request) { (error) in
 							}
 						}
-
+						
 						if user.todos.count == 0 {
 							self.no_todos_lbl.isHidden = false
 						}

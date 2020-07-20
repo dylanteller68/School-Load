@@ -123,50 +123,7 @@ class EditCourseViewController: UIViewController {
 	
 	@IBAction func delete_course_tapped(_ sender: Any) {
 		
-		if confirm_delete_lbl.isHidden {
-			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-			notificationFeedbackGenerator.prepare()
-			notificationFeedbackGenerator.notificationOccurred(.warning)
-			
-			confirm_delete_lbl.isHidden = false
-			
-			delete_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-		} else {
-			
-			delete_btn.isEnabled = false
-			edit_course_btn.isEnabled = false
-			
-			var id = ""
-
-			for c in user.courses {
-				if c.ID.hashValue == sent_cID {
-					id = c.ID
-					for t in user.todos {
-						if t.course == c.ID {
-							db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
-						}
-					}
-					break
-				}
-			}
-
-			db.collection("users").document(user.ID).collection("courses").document(id).delete { (error) in
-				if error == nil {
-					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-					notificationFeedbackGenerator.prepare()
-					notificationFeedbackGenerator.notificationOccurred(.success)
-					
-					self.confirm_delete_lbl.textColor = .systemRed
-					self.confirm_delete_lbl.text = "Course Deleted"
-
-					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-						user.needsToGoToCourses = true
-						self.performSegue(withIdentifier: "deleted_course_segue", sender: self)
-					}
-				}
-			}
-			
-		}
+		alert_delete()
 		
 	}
 	
@@ -191,6 +148,48 @@ class EditCourseViewController: UIViewController {
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
+	}
+	
+	func alert_delete() {
+		let alert = UIAlertController(title: "Delete Course", message: "All to-dos associated with this course will also be deleted. This cannot be undone.", preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in	}))
+		alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+			
+			self.delete_btn.isEnabled = false
+			self.edit_course_btn.isEnabled = false
+
+			var id = ""
+
+			for c in user.courses {
+				if c.ID.hashValue == self.sent_cID {
+					id = c.ID
+					for t in user.todos {
+						if t.course == c.ID {
+							db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
+						}
+					}
+					break
+				}
+			}
+
+			db.collection("users").document(user.ID).collection("courses").document(id).delete { (error) in
+				if error == nil {
+					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+					notificationFeedbackGenerator.prepare()
+					notificationFeedbackGenerator.notificationOccurred(.success)
+
+					self.confirm_delete_lbl.textColor = .systemRed
+					self.confirm_delete_lbl.text = "Course Deleted"
+
+					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+						user.needsToGoToCourses = true
+						self.performSegue(withIdentifier: "deleted_course_segue", sender: self)
+					}
+				}
+			}
+		}))
+		
+		present(alert, animated: true)
 	}
 	
 }

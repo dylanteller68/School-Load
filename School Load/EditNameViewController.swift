@@ -30,6 +30,10 @@ class EditNameViewController: UIViewController {
 		}
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		name_txtbx.becomeFirstResponder()
+	}
+	
 	@IBAction func edit_name_tapped(_ sender: Any) {
 		
 		name_txtbx.resignFirstResponder()

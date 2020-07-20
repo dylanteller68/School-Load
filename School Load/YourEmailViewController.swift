@@ -23,6 +23,10 @@ class YourEmailViewController: UIViewController {
 		next_btn.layer.cornerRadius = 25
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		email_txtbx.becomeFirstResponder()
+	}
+	
 	@IBAction func next_tapped(_ sender: Any) {
 		email = email_txtbx.text?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 

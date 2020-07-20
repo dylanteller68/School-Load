@@ -28,6 +28,10 @@ class EditEmailViewController: UIViewController {
 			SV_width_constraint.constant += 225
 		}
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		email_txtbx.becomeFirstResponder()
+	}
 
 	@IBAction func edit_email_tapped(_ sender: Any) {
 		

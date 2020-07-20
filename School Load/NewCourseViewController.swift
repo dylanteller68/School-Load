@@ -32,6 +32,10 @@ class NewCourseViewController: UIViewController {
 		}
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		course_name_txtbx.becomeFirstResponder()
+	}
+	
 	var i = 0
 	var color_has_been_tapped = false
 

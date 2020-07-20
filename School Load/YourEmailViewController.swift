@@ -66,5 +66,6 @@ class YourEmailViewController: UIViewController {
 	
 	@IBAction func txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		next_tapped(self)
 	}
 }

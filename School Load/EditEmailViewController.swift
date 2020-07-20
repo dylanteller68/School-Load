@@ -90,5 +90,6 @@ class EditEmailViewController: UIViewController {
 	
 	@IBAction func email_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		edit_email_tapped(self)
 	}
 }

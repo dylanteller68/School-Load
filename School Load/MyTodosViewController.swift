@@ -326,6 +326,10 @@ class MyTodosViewController: UIViewController {
 	@IBAction func new_todo_btn(_ sender: Any) {
 		if user.courses.count == 0 {
 			no_todos_lbl.text = "Add a course first"
+			no_todos_lbl.textColor = .systemRed
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+				self.no_todos_lbl.textColor = .label
+			}
 		} else {
 			performSegue(withIdentifier: "new_todo_segue", sender: self)
 		}

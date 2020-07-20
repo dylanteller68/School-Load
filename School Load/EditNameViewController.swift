@@ -99,6 +99,7 @@ class EditNameViewController: UIViewController {
 	
 	@IBAction func txtbx_done(_ sender: Any) {
 		name_txtbx.resignFirstResponder()
+		edit_name_tapped(self)
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

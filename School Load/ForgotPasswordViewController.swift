@@ -90,5 +90,6 @@ class ForgotPasswordViewController: UIViewController {
 	
 	@IBAction func email_txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		send_reset_email_tapped(self)
 	}
 }

@@ -72,5 +72,6 @@ class YourNameViewController: UIViewController {
 	
 	@IBAction func txtbx_done(_ sender: Any) {
 		name_txtbx.resignFirstResponder()
+		next_tapped(self)
 	}
 }

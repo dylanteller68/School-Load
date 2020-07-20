@@ -44,10 +44,12 @@ class LoginViewController: UIViewController {
 
 	@IBAction func email_txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		password_txtbx.becomeFirstResponder()
 	}
 	
 	@IBAction func password_txtbx_done(_ sender: Any) {
 		password_txtbx.resignFirstResponder()
+		login_tapped(self)
 	}
 	
 	@IBAction func login_tapped(_ sender: Any) {

@@ -28,6 +28,10 @@ class EditPasswordViewController: UIViewController {
 			SV_width_constraint.constant += 225
 		}
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		password_txtbx.becomeFirstResponder()
+	}
 
 	@IBAction func edit_password_tapped(_ sender: Any) {
 		

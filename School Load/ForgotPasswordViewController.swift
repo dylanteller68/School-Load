@@ -32,6 +32,10 @@ class ForgotPasswordViewController: UIViewController {
 		email_txtbx.text = sent_email
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		email_txtbx.becomeFirstResponder()
+	}
+	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
 	}

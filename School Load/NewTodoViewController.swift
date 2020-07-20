@@ -45,6 +45,10 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 		}
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		todo_txtbx.becomeFirstResponder()
+	}
+	
 	@IBAction func add_todo_tapped(_ sender: Any) {
 		
 		todo_txtbx.resignFirstResponder()

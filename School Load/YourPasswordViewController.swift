@@ -26,6 +26,10 @@ class YourPasswordViewController: UIViewController {
 
 		create_acct_btn.layer.cornerRadius = 25
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		pswd_txtbx.becomeFirstResponder()
+	}
 
 	@IBAction func create_acct_tapped(_ sender: Any) {
 		

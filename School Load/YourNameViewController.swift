@@ -21,6 +21,10 @@ class YourNameViewController: UIViewController {
 
 		next_btn.layer.cornerRadius = 25
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		name_txtbx.becomeFirstResponder()
+	}
 
 	@IBAction func next_tapped(_ sender: Any) {
 		let newName = name_txtbx.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""

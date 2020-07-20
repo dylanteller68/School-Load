@@ -30,6 +30,10 @@ class ReauthenticateViewController: UIViewController {
 		}
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		email_txtbx.becomeFirstResponder()
+	}
+	
 	@IBAction func verify_tapped(_ sender: Any) {
 		
 		email_txtbx.resignFirstResponder()

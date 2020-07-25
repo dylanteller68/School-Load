@@ -41,15 +41,14 @@ class NewCourseViewController: UIViewController {
 
 	@IBAction func add_course_tapped(_ sender: Any) {
 		
+		add_course_btn.isEnabled = false
+		
 		course_name_txtbx.resignFirstResponder()
 		
 		let numColor = i
 		let cName = course_name_txtbx.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 				
 		if cName != "" {
-			
-			add_course_btn.isEnabled = false
-			
 			add_course_btn.setTitle("", for: .normal)
 			progress_spinner.startAnimating()
 			progress_spinner.isHidden = false
@@ -103,6 +102,7 @@ class NewCourseViewController: UIViewController {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self.course_name_txtbx.text = ""
 				self.course_name_txtbx.textColor = .white
+				self.add_course_btn.isEnabled = true
 			}
 		}
 	}

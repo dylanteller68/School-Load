@@ -29,6 +29,11 @@ class CourseTodosViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		
+		if user.needsToGoToCourses {
+			self.dismiss(animated: true, completion: nil)
+			user.needsToGoToCourses = false
+		}
+		
 		for c in user.courses {
 			if c.ID.hashValue == sent_tID {
 				more_btn.tag = sent_tID

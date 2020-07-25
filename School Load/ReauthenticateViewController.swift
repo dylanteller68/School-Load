@@ -31,6 +31,10 @@ class ReauthenticateViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
+		if user.needsToGoToMe {
+			user.needsToGoToMe = false
+			self.dismiss(animated: true, completion: nil)
+		}
 		email_txtbx.becomeFirstResponder()
 	}
 	

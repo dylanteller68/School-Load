@@ -45,13 +45,14 @@ class EditCourseViewController: UIViewController {
     
 	@IBAction func edit_course_tapped(_ sender: Any) {
 		
+		edit_course_btn.isEnabled = false
+
 		course_name_txtbx.resignFirstResponder()
 		
 		let numColor = i
 		let cName = course_name_txtbx.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
 		if cName != "" {
-			edit_course_btn.isEnabled = false
 			delete_btn.isEnabled = false
 			
 			edit_course_btn.setTitle("", for: .normal)
@@ -116,15 +117,14 @@ class EditCourseViewController: UIViewController {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self.course_name_txtbx.text = ""
 				self.course_name_txtbx.textColor = .white
+				self.edit_course_btn.isEnabled = true
 			}
 		}
 		
 	}
 	
 	@IBAction func delete_course_tapped(_ sender: Any) {
-		
 		alert_delete()
-		
 	}
 	
 	@IBAction func txtbx_done(_ sender: Any) {
@@ -155,6 +155,10 @@ class EditCourseViewController: UIViewController {
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in	}))
 		alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
 			
+			self.edit_course_btn.setTitle("", for: .normal)
+			self.progress_spinner.startAnimating()
+			self.progress_spinner.isHidden = false
+			
 			self.delete_btn.isEnabled = false
 			self.edit_course_btn.isEnabled = false
 
@@ -183,10 +187,13 @@ class EditCourseViewController: UIViewController {
 
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						user.needsToGoToCourses = true
-						self.performSegue(withIdentifier: "deleted_course_segue", sender: self)
+						self.dismiss(animated: true, completion: nil)
 					}
 				}
 			}
+			
+			self.progress_spinner.stopAnimating()
+			self.edit_course_btn.setTitle("Course Deleted", for: .normal)
 		}))
 		
 		present(alert, animated: true)

@@ -85,7 +85,7 @@ class EditEmailViewController: UIViewController {
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		user.needsToGoToMe = true
-		performSegue(withIdentifier: "edit_email_to_me_segue", sender: self)
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func email_done(_ sender: Any) {

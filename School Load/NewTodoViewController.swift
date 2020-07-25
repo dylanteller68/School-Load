@@ -51,13 +51,13 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 	
 	@IBAction func add_todo_tapped(_ sender: Any) {
 		
+		add_todo_btn.isEnabled = false
+		
 		todo_txtbx.resignFirstResponder()
 		
 		let todoName = todo_txtbx.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 		
 		if todoName != "" {
-			add_todo_btn.isEnabled = false
-			
 			progress_spinner.startAnimating()
 			progress_spinner.isHidden = false
 			add_todo_btn.setTitle("", for: .normal)
@@ -98,6 +98,7 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self.todo_txtbx.text = ""
 				self.todo_txtbx.textColor = user.colors[ user.courses[self.course_picker.selectedRow(inComponent: 0)].color]
+				self.add_todo_btn.isEnabled = true
 			}
 		}
 	}

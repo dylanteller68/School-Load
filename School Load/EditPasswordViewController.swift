@@ -89,7 +89,7 @@ class EditPasswordViewController: UIViewController {
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		user.needsToGoToMe = true
-		performSegue(withIdentifier: "edit_password_to_me_segue", sender: self)
+		self.dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func password_done(_ sender: Any) {

@@ -46,7 +46,11 @@ class CourseTodosViewController: UIViewController {
 					tmpName.append("...")
 					cName_lbl.text = tmpName
 				}
-				numTodosLbl.text = "\(numTs) To-dos"
+				if numTs == 1 {
+					numTodosLbl.text = "\(numTs) To-do"
+				} else {
+					numTodosLbl.text = "\(numTs) To-dos"
+				}
 				cName_lbl.textColor = user.colors[c.color]
 				break
 			}

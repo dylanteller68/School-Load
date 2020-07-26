@@ -104,7 +104,6 @@ class ReauthenticateViewController: UIViewController {
 	
 	@IBAction func email_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
-		password_txtbx.becomeFirstResponder()
 	}
 	
 	@IBAction func password_done(_ sender: Any) {

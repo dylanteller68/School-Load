@@ -350,7 +350,6 @@ class MyTodosViewController: UIViewController {
 			let formatter1 = DateFormatter()
 			formatter1.timeStyle = .short
 			let tDate = formatter1.string(from: t.date)
-			let tNameLen = t.name.count
 			var tCourseName = ""
 			for c in user.courses {
 				if c.ID == t.course {
@@ -393,27 +392,26 @@ class MyTodosViewController: UIViewController {
 			done_btn.tag = t.ID.hashValue
 			done_btn.addTarget(self, action: #selector(self.done_btn_tapped), for: .touchUpInside)
 			
-			let btn = UIButton(type: .system)
+			let btn1 = UIButton(type: .system)
+			let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
+			btn1.setAttributedTitle(title, for: .normal)
+			btn1.contentHorizontalAlignment = .leading
+			btn1.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
+			btn1.tag = t.ID.hashValue
 			
-			if tNameLen < 28 {
-				let title = NSMutableAttributedString(string: "\(t.name)\n\(tDate) • \(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-				title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tNameLen+tDate.count+3))
-				title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tNameLen, length: title.length-tNameLen))
-				btn.setAttributedTitle(title, for: .normal)
-			} else {
-				var tmpName = t.name
-				tmpName.removeLast(tNameLen-27)
-				tmpName.append("...")
-				let title = NSMutableAttributedString(string: "\(tmpName)\n\(tDate) • \(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-				title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tmpName.count+tDate.count+3))
-				title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tmpName.count, length: title.length-tmpName.count))
-				btn.setAttributedTitle(title, for: .normal)
-			}
-
-			btn.titleLabel?.numberOfLines = 2
-			btn.contentHorizontalAlignment = .leading
-			btn.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
-			btn.tag = t.ID.hashValue
+			let btn2 = UIButton(type: .system)
+			let title2 = NSMutableAttributedString(string: "\(tDate) • \(tCourseName)", attributes: [
+				NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: UIColor.label])
+			title2.addAttribute(NSAttributedString.Key.foregroundColor, value: user.colors[t.color], range: NSRange(location: tDate.count+2, length: tCourseName.count+1))
+			btn2.setAttributedTitle(title2, for: .normal)
+			btn2.contentHorizontalAlignment = .leading
+			btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
+			btn2.tag = t.ID.hashValue
+			
+			let btn = UIStackView(arrangedSubviews: [btn1, btn2])
+			btn.axis = .vertical
+			btn.distribution = .fillEqually
+			btn.spacing = 10
 
 			// individual todo SV
 			let todo_SV = UIStackView(arrangedSubviews: [bullet_btn, btn, done_btn])

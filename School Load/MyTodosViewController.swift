@@ -396,6 +396,7 @@ class MyTodosViewController: UIViewController {
 			let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
 			btn1.setAttributedTitle(title, for: .normal)
 			btn1.contentHorizontalAlignment = .leading
+			btn1.titleLabel?.lineBreakMode = .byTruncatingTail
 			btn1.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 			btn1.tag = t.ID.hashValue
 			
@@ -405,6 +406,7 @@ class MyTodosViewController: UIViewController {
 			title2.addAttribute(NSAttributedString.Key.foregroundColor, value: user.colors[t.color], range: NSRange(location: tDate.count+2, length: tCourseName.count+1))
 			btn2.setAttributedTitle(title2, for: .normal)
 			btn2.contentHorizontalAlignment = .leading
+			btn2.titleLabel?.lineBreakMode = .byTruncatingTail
 			btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 			btn2.tag = t.ID.hashValue
 			

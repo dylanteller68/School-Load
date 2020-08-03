@@ -54,104 +54,31 @@ class MyCoursesViewController: UIViewController {
 						
 						user.numCourses = user.courses.count
 						
-						let title = NSMutableAttributedString()
+						let btn1 = UIButton(type: .system)
+						btn1.setAttributedTitle(NSAttributedString(string: "\(courseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[courseColor], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin)]), for: .normal)
+						btn1.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 0, right: 15)
+						btn1.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
+						btn1.tag = courseID.hashValue
+						btn1.titleLabel?.lineBreakMode = .byTruncatingTail
 						
-						var cNameLen = 0
+						let btn2 = UIButton(type: .system)
+						btn2.setAttributedTitle(NSAttributedString(string: "\(numTodos) To-dos", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
+						btn2.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
+						btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
+						btn2.tag = courseID.hashValue
+						btn2.titleLabel?.lineBreakMode = .byTruncatingTail
 
-						let button = UIButton(type: .system)
-						button.setAttributedTitle(title, for: .normal)
+						let course_btn_SV = UIStackView(arrangedSubviews: [btn1, btn2])
+						course_btn_SV.axis = .vertical
+						course_btn_SV.alignment = .center
+						course_btn_SV.distribution = .fillEqually
+						course_btn_SV.spacing = 0
+						course_btn_SV.addBackground(color: .systemGray5, tag: courseID.hashValue)
+						course_btn_SV.heightAnchor.constraint(equalToConstant: 90).isActive = true
+						let subv = course_btn_SV.subviews[0] as? UIButton
+						subv?.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 						
-						switch UIDevice().model {
-						case "iPad":
-							button.titleLabel?.numberOfLines = 7
-							button.titleLabel?.textAlignment = .center
-							button.backgroundColor = .systemGray5
-							button.translatesAutoresizingMaskIntoConstraints = false
-							button.heightAnchor.constraint(equalToConstant: 230).isActive = true
-							if numTodos == 1 {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-
-								}
-							} else {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName) • \(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								}
-							}
-							
-							title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
-							
-							var i = 0
-							
-							for t in user.todos {
-								if t.course == courseID {
-									title.append(NSAttributedString(string: "\n• \(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .thin)]))
-									i += 1
-								}
-								if i == 5 {
-									if course.numTodos > 5 {
-										title.append(NSAttributedString(string: "\n...", attributes: [NSAttributedString.Key.foregroundColor: user.colors[courseColor], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30, weight: .bold)]))
-									}
-									break
-								}
-							}
-							break
-						default:
-							button.titleLabel?.numberOfLines = 2
-							button.titleLabel?.textAlignment = .center
-							button.backgroundColor = .systemGray5
-							button.translatesAutoresizingMaskIntoConstraints = false
-							button.heightAnchor.constraint(equalToConstant: 90).isActive = true
-							if numTodos == 1 {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-do", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-
-								}
-							} else {
-								if courseName.count < 28 {
-									cNameLen = courseName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(courseName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								} else {
-									var tmpName = courseName
-									tmpName.removeLast(courseName.count-28)
-									tmpName.append("...")
-									cNameLen = tmpName.count
-									title.setAttributedString(NSMutableAttributedString(string: "\(tmpName)\n\(numTodos) To-dos", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin) ,NSAttributedString.Key.foregroundColor:user.colors[courseColor]]))
-								}
-							}
-							
-							title.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .thin), range: NSRange(location: cNameLen, length: title.length-cNameLen))
-							title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: cNameLen, length: title.length-cNameLen))
-							break
-						}
-
-						button.layer.cornerRadius = 25
-						button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-						button.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
-						button.tag = courseID.hashValue
-
-						self.btn_SV.addArrangedSubview(button)
+						self.btn_SV.addArrangedSubview(course_btn_SV)
 						
 						self.no_courses_lbl.isHidden = true
 						
@@ -336,4 +263,15 @@ class MyCoursesViewController: UIViewController {
 		performSegue(withIdentifier: "course_todos_segue", sender: sender)
 	}
 
+}
+
+extension UIStackView {
+	func addBackground(color: UIColor, tag: Int) {
+        let subview = UIButton(frame: bounds)
+        subview.backgroundColor = color
+        subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		subview.layer.cornerRadius = 25
+		subview.tag = tag
+        insertSubview(subview, at: 0)
+    }
 }

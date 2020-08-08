@@ -14,6 +14,7 @@ import UserNotifications
 class MyTodosViewController: UIViewController {
 	
 	@IBOutlet weak var no_todos_lbl: UILabel!
+	@IBOutlet weak var scrollview: UIScrollView!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var btn_SV: UIStackView!
 	
@@ -225,6 +226,7 @@ class MyTodosViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
+		scrollview.contentOffset = CGPoint(x: 0, y: 0)
 		if Auth.auth().currentUser == nil {
 			performSegue(withIdentifier: "not_logged_in", sender: self)
 		} else if user.needsToGoToCourses {

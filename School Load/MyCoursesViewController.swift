@@ -13,7 +13,7 @@ import FirebaseAuth
 class MyCoursesViewController: UIViewController {
 	
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
-		
+	@IBOutlet weak var scrollview: UIScrollView!
 	@IBOutlet weak var btn_SV: UIStackView!
 	@IBOutlet weak var no_courses_lbl: UILabel!
 	
@@ -118,6 +118,10 @@ class MyCoursesViewController: UIViewController {
 			}
 			self.progress_spinner.stopAnimating()
 		}
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		scrollview.contentOffset = CGPoint(x: 0, y: 0)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

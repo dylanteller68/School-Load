@@ -16,6 +16,7 @@ class CourseTodosViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var cName_lbl: UILabel!
 	@IBOutlet weak var more_btn: UIButton!
+	@IBOutlet weak var scrollview: UIScrollView!
 	@IBOutlet weak var numTodosLbl: UILabel!
 	
 	var sent_tID = 0
@@ -28,7 +29,8 @@ class CourseTodosViewController: UIViewController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		
+		scrollview.contentOffset = CGPoint(x: 0, y: 0)
+
 		if user.needsToGoToCourses {
 			self.dismiss(animated: true, completion: nil)
 			user.needsToGoToCourses = false

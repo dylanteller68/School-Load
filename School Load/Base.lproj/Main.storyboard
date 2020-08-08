@@ -149,6 +149,7 @@
                         <outlet property="btn_SV" destination="j0l-gj-Hru" id="hbb-FJ-ffd"/>
                         <outlet property="no_todos_lbl" destination="fCf-TB-Mku" id="GUi-Ar-Md2"/>
                         <outlet property="progress_spinner" destination="UMq-ba-zhu" id="HmK-tH-qet"/>
+                        <outlet property="scrollview" destination="IjU-Gq-uuj" id="PNs-Ps-r9a"/>
                         <segue destination="Sez-yX-niQ" kind="show" identifier="not_logged_in" id="Mwk-kO-h6U"/>
                         <segue destination="HmO-s1-V3j" kind="show" identifier="new_todo_segue" id="ZAB-hA-7Xu"/>
                     </connections>
@@ -297,6 +298,7 @@
                         <outlet property="btn_SV" destination="eBF-MG-tI6" id="qkU-Ni-sf9"/>
                         <outlet property="no_courses_lbl" destination="Ujz-t1-vaH" id="lk7-ES-1kY"/>
                         <outlet property="progress_spinner" destination="4RQ-ZI-198" id="zax-6F-Umy"/>
+                        <outlet property="scrollview" destination="Ekg-XQ-Drl" id="fRf-HI-jCb"/>
                         <segue destination="pcA-ih-f5a" kind="show" identifier="course_todos_segue" id="CsE-Ps-5Px"/>
                     </connections>
                 </viewController>
@@ -1369,6 +1371,7 @@
                         <outlet property="clear_btn" destination="GB6-cW-8pw" id="XbQ-u3-7N2"/>
                         <outlet property="no_completed_lbl" destination="ghi-Co-0hp" id="6Cv-F3-m5U"/>
                         <outlet property="progress_spinner" destination="bsF-gK-UJx" id="Izb-Ll-s0s"/>
+                        <outlet property="scrollview" destination="snN-N0-LgI" id="HN0-X8-viC"/>
                         <outlet property="v" destination="VE1-ri-x3m" id="rNo-nD-aBr"/>
                     </connections>
                 </viewController>
@@ -1533,6 +1536,7 @@
                         <outlet property="no_todos_lbl" destination="T7M-BU-Ls9" id="y5L-NE-JqD"/>
                         <outlet property="numTodosLbl" destination="Jtr-47-Bpc" id="toH-NF-g9u"/>
                         <outlet property="progress_spinner" destination="Hkv-7I-7OO" id="Z2z-Qn-R82"/>
+                        <outlet property="scrollview" destination="3Sj-6R-bld" id="2kc-EA-F8v"/>
                         <segue destination="lSu-Lu-k5n" kind="show" identifier="edit_course_segue" id="Zpq-0A-XFq"/>
                     </connections>
                 </viewController>

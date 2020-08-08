@@ -15,6 +15,7 @@ class CompletedTodosViewController: UIViewController {
 	@IBOutlet weak var btn_SV: UIStackView!
 	@IBOutlet weak var no_completed_lbl: UILabel!
 	@IBOutlet weak var clear_btn: UIButton!
+	@IBOutlet weak var scrollview: UIScrollView!
 	@IBOutlet weak var v: UIView!
 	
 	override func viewDidLoad() {
@@ -24,7 +25,8 @@ class CompletedTodosViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		
+		scrollview.contentOffset = CGPoint(x: 0, y: 0)
+
 		user.completed = []
 		
 		db.collection("users").document(user.ID).collection("completed").getDocuments { (querySnapshot, error) in

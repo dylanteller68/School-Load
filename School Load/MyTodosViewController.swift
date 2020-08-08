@@ -329,6 +329,9 @@ class MyTodosViewController: UIViewController {
 	
 	@IBAction func new_todo_btn(_ sender: Any) {
 		if user.courses.count == 0 {
+			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+			notificationFeedbackGenerator.prepare()
+			notificationFeedbackGenerator.notificationOccurred(.error)
 			no_todos_lbl.text = "Add a course first"
 			no_todos_lbl.textColor = .systemRed
 			DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

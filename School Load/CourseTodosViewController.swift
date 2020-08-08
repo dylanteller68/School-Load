@@ -122,7 +122,7 @@ class CourseTodosViewController: UIViewController {
 					let todo_SV = UIStackView(arrangedSubviews: [bullet_btn, btn, done_btn])
 					todo_SV.axis = .horizontal
 					todo_SV.spacing = 15
-					todo_SV.tag = btn.tag
+					todo_SV.tag = btn1.tag
 					todo_SV.heightAnchor.constraint(equalToConstant: 40).isActive = true
 					
 
@@ -246,13 +246,12 @@ class CourseTodosViewController: UIViewController {
 		let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
 		notificationFeedbackGenerator.prepare()
 		notificationFeedbackGenerator.notificationOccurred(.success)
-		
-		sender.isEnabled = false
 
+		sender.isEnabled = false
+		
 		for t in user.todos {
 			if t.ID.hashValue == sender.tag {
 				let todo = Todo(name: t.name, course: t.course, date: t.date, dateCompleted: Date(), dateAdded: t.dateAdded, color: t.color, ID: t.ID, note: t.note)
-				user.completed.append(todo)
 				db.collection("users").document(user.ID).collection("completed").document(t.ID).setData([
 					"name" : t.name,
 					"courseID" : t.course,
@@ -269,12 +268,15 @@ class CourseTodosViewController: UIViewController {
 		for v in self.btn_SV.arrangedSubviews {
 			if v.tag == sender.tag {
 				let sv = v as? UIStackView
-				let v1 = sv?.arrangedSubviews[1] as? UIButton
+				let v1 = sv?.arrangedSubviews[1] as? UIStackView
 				let v2 = sv?.arrangedSubviews[2] as? UIButton
-				let ats = NSAttributedString(string: "Done!", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-				v1?.setAttributedTitle(ats, for: .normal)
+				let ats = NSAttributedString(string: "Done!", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
+				let ats2 = NSAttributedString(string: "Nice Job", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
+				let subv1 = v1?.arrangedSubviews[0] as? UIButton
+				let subv2 = v1?.arrangedSubviews[1] as? UIButton
+				subv1?.setAttributedTitle(ats, for: .normal)
+				subv2?.setAttributedTitle(ats2, for: .normal)
 				v2?.tintColor = .systemGreen
-				v1?.isEnabled = false
 				break
 			}
 		}
@@ -291,13 +293,15 @@ class CourseTodosViewController: UIViewController {
 			}
 		}
 		
-		for t in user.todos {
-			if t.ID.hashValue == sender.tag {
-				db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+			for t in user.todos {
+				if t.ID.hashValue == sender.tag {
+					db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
+				}
 			}
 		}
-				
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 			self.viewDidAppear(true)
 		}
 	}

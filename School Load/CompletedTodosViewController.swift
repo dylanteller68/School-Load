@@ -158,6 +158,10 @@ class CompletedTodosViewController: UIViewController {
 			self.v.isHidden = true
 			self.no_completed_lbl.isHidden = false
 			self.clear_btn.isHidden = true
+			
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+				self.dismiss(animated: true, completion: nil)
+			}
 		}
 	}
 	

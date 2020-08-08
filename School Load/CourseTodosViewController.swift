@@ -70,7 +70,6 @@ class CourseTodosViewController: UIViewController {
 					let formatter1 = DateFormatter()
 					formatter1.timeStyle = .short
 					let tDate = formatter1.string(from: t.date)
-					let tNameLen = t.name.count
 					var tCourseName = ""
 					for c in user.courses {
 						if c.ID == t.course {

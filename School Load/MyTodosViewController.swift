@@ -62,8 +62,9 @@ class MyTodosViewController: UIViewController {
 						let cColor = data["color"] as! Int
 						let cID = document.documentID
 						let numTodos = 0
+						let time = data["time"] as! Timestamp
 						
-						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos)
+						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos, time: time.dateValue())
 						
 						user.courses.append(course)
 						

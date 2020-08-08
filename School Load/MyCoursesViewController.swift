@@ -55,34 +55,7 @@ class MyCoursesViewController: UIViewController {
 						
 						user.numCourses = user.courses.count
 						
-						let btn1 = UIButton(type: .system)
-						btn1.setAttributedTitle(NSAttributedString(string: "\(courseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[courseColor], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin)]), for: .normal)
-						btn1.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 0, right: 15)
-						btn1.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
-						btn1.tag = courseID.hashValue
-						btn1.titleLabel?.lineBreakMode = .byTruncatingTail
-						
-						let btn2 = UIButton(type: .system)
-						btn2.setAttributedTitle(NSAttributedString(string: "\(numTodos) To-dos", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
-						btn2.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
-						btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
-						btn2.tag = courseID.hashValue
-						btn2.titleLabel?.lineBreakMode = .byTruncatingTail
-
-						let course_btn_SV = UIStackView(arrangedSubviews: [btn1, btn2])
-						course_btn_SV.axis = .vertical
-						course_btn_SV.alignment = .center
-						course_btn_SV.distribution = .fillEqually
-						course_btn_SV.spacing = 0
-						course_btn_SV.addBackground(color: .systemGray5, tag: courseID.hashValue)
-						course_btn_SV.heightAnchor.constraint(equalToConstant: 90).isActive = true
-						let subv = course_btn_SV.subviews[0] as? UIButton
-						subv?.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
-						
-						self.btn_SV.addArrangedSubview(course_btn_SV)
-						
-						self.no_courses_lbl.isHidden = true
-						
+						self.redraw_screen()
 					}
 					if (diff.type == .modified) {
 						let data = diff.document.data()

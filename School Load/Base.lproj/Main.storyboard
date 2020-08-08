@@ -162,11 +162,11 @@
             <objects>
                 <viewController title="my courses" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="8rJ-Kc-sve" customClass="MyCoursesViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-z6-MbP">
-                                <rect key="frame" x="15" y="10.5" width="30" height="29"/>
+                                <rect key="frame" x="15" y="54.5" width="30" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="70i-fV-8NB"/>
                                     <constraint firstAttribute="height" constant="30" id="dlF-vp-S15"/>
@@ -177,7 +177,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAI-KN-QJz">
-                                <rect key="frame" x="369" y="10.5" width="30" height="29"/>
+                                <rect key="frame" x="369" y="54.5" width="30" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bN2-DJ-gCl"/>
                                     <constraint firstAttribute="width" constant="30" id="pun-mo-93H"/>
@@ -191,7 +191,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBv-hd-Mks" userLabel="school load lbl SV">
-                                <rect key="frame" x="134" y="7" width="146.5" height="36"/>
+                                <rect key="frame" x="134" y="51" width="146.5" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psR-YS-Xte">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="36"/>
@@ -208,7 +208,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVr-jr-mVL">
-                                <rect key="frame" x="0.0" y="53" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OGO-Ii-1zf"/>
@@ -216,17 +216,17 @@
                                 <viewLayoutGuide key="safeArea" id="F0t-Ja-Mjc"/>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No courses yet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujz-t1-vaH">
-                                <rect key="frame" x="115.5" y="403" width="183.5" height="36"/>
+                                <rect key="frame" x="115.5" y="430" width="183.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-ZI-198">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-XQ-Drl">
-                                <rect key="frame" x="0.0" y="54" width="414" height="705"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVd-Rg-r84">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -1658,29 +1658,26 @@
                                     <action selector="delete_todo_tapped:" destination="yJl-6k-MrY" eventType="touchUpInside" id="YMG-ih-xkG"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure? All to-dos associated with this course will also be deleted" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPq-eR-DZi">
-                                <rect key="frame" x="30" y="114" width="354" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bjb-pn-aqG">
+                                <rect key="frame" x="374" y="59" width="20" height="20"/>
+                                <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UZy-1v-1V1" firstAttribute="centerX" secondItem="qL3-Ue-tUg" secondAttribute="centerX" id="17p-At-aID"/>
                             <constraint firstItem="WKr-52-Pny" firstAttribute="centerY" secondItem="qL3-Ue-tUg" secondAttribute="centerY" id="33r-5a-yzy"/>
-                            <constraint firstAttribute="trailing" secondItem="FPq-eR-DZi" secondAttribute="trailing" constant="30" id="3Cc-tH-cbV"/>
                             <constraint firstItem="kKu-0k-G3k" firstAttribute="top" secondItem="rOc-pz-mje" secondAttribute="top" constant="10" id="Cua-kl-Dj6"/>
                             <constraint firstItem="zIW-z3-EKf" firstAttribute="centerY" secondItem="gwA-Wj-mOY" secondAttribute="centerY" id="JZW-l3-8qf"/>
+                            <constraint firstItem="bjb-pn-aqG" firstAttribute="centerY" secondItem="kKu-0k-G3k" secondAttribute="centerY" id="LZ9-VA-TYJ"/>
                             <constraint firstItem="WKr-52-Pny" firstAttribute="top" secondItem="UZy-1v-1V1" secondAttribute="bottom" constant="20" id="QHo-20-3tQ"/>
                             <constraint firstItem="zIW-z3-EKf" firstAttribute="centerX" secondItem="qL3-Ue-tUg" secondAttribute="centerX" id="QTA-uN-PzE"/>
                             <constraint firstItem="Lgy-qY-6i3" firstAttribute="top" secondItem="rOc-pz-mje" secondAttribute="top" constant="10" id="W68-A0-sMF"/>
                             <constraint firstItem="Lgy-qY-6i3" firstAttribute="leading" secondItem="rOc-pz-mje" secondAttribute="leading" constant="15" id="YVZ-DF-xY0"/>
-                            <constraint firstItem="FPq-eR-DZi" firstAttribute="top" secondItem="kKu-0k-G3k" secondAttribute="bottom" constant="30" id="bPU-zS-kMo"/>
                             <constraint firstItem="WKr-52-Pny" firstAttribute="centerX" secondItem="qL3-Ue-tUg" secondAttribute="centerX" id="j4G-Yi-mTU"/>
                             <constraint firstItem="rOc-pz-mje" firstAttribute="trailing" secondItem="kKu-0k-G3k" secondAttribute="trailing" constant="15" id="jPZ-pO-no2"/>
-                            <constraint firstItem="FPq-eR-DZi" firstAttribute="leading" secondItem="rOc-pz-mje" secondAttribute="leading" constant="30" id="ohr-lz-X7C"/>
                             <constraint firstItem="gwA-Wj-mOY" firstAttribute="top" secondItem="WKr-52-Pny" secondAttribute="bottom" constant="30" id="rro-X9-P0i"/>
+                            <constraint firstItem="bjb-pn-aqG" firstAttribute="centerX" secondItem="kKu-0k-G3k" secondAttribute="centerX" id="sil-GF-3Rr"/>
                             <constraint firstItem="gwA-Wj-mOY" firstAttribute="centerX" secondItem="qL3-Ue-tUg" secondAttribute="centerX" id="wRq-Ph-up2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rOc-pz-mje"/>
@@ -1690,9 +1687,9 @@
                         <outlet property="SV_width_constraint" destination="bBM-st-MMg" id="cY7-iW-UqK"/>
                         <outlet property="btn_width_constraint" destination="ZKF-GD-bpl" id="kzb-gQ-lxw"/>
                         <outlet property="color_btn" destination="B9O-yN-Fwe" id="Oar-Pw-tv9"/>
-                        <outlet property="confirm_delete_lbl" destination="FPq-eR-DZi" id="HpB-i2-Ai5"/>
                         <outlet property="course_name_txtbx" destination="Hnm-Fe-Lq2" id="Eud-eg-WRe"/>
                         <outlet property="delete_btn" destination="kKu-0k-G3k" id="jRR-lP-woc"/>
+                        <outlet property="delete_progress_spinner" destination="bjb-pn-aqG" id="dzt-Kc-dmP"/>
                         <outlet property="edit_course_btn" destination="gwA-Wj-mOY" id="R69-1J-wmw"/>
                         <outlet property="progress_spinner" destination="zIW-z3-EKf" id="boU-W3-TRe"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="deleted_course_segue" id="M35-uz-owP"/>
@@ -2784,7 +2781,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="KCW-Qe-vgQ"/>
-        <segue reference="3gF-lC-h5J"/>
+        <segue reference="M35-uz-owP"/>
         <segue reference="Mwk-kO-h6U"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -15,10 +15,10 @@ class EditCourseViewController: UIViewController {
 	@IBOutlet weak var edit_course_btn: UIButton!
 	@IBOutlet weak var course_name_txtbx: UITextField!
 	@IBOutlet weak var delete_btn: UIButton!
-	@IBOutlet weak var confirm_delete_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var delete_progress_spinner: UIActivityIndicatorView!
 	
 	var sent_cID = 0
 	var i = 0
@@ -151,10 +151,15 @@ class EditCourseViewController: UIViewController {
 	}
 	
 	func alert_delete() {
+		delete_btn.isHidden = true
+		delete_progress_spinner.startAnimating()
+		delete_progress_spinner.isHidden = false
 		let alert = UIAlertController(title: "Delete Course", message: "All to-dos associated with this course will also be deleted. This cannot be undone.", preferredStyle: .actionSheet)
-		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in	}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+			self.delete_btn.isHidden = false
+			self.delete_progress_spinner.stopAnimating()
+		}))
 		alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-			
 			self.edit_course_btn.setTitle("", for: .normal)
 			self.progress_spinner.startAnimating()
 			self.progress_spinner.isHidden = false
@@ -182,9 +187,6 @@ class EditCourseViewController: UIViewController {
 					notificationFeedbackGenerator.prepare()
 					notificationFeedbackGenerator.notificationOccurred(.success)
 
-					self.confirm_delete_lbl.textColor = .systemRed
-					self.confirm_delete_lbl.text = "Course Deleted"
-
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						user.needsToGoToCourses = true
 						self.dismiss(animated: true, completion: nil)
@@ -194,6 +196,8 @@ class EditCourseViewController: UIViewController {
 			
 			self.progress_spinner.stopAnimating()
 			self.edit_course_btn.setTitle("Course Deleted", for: .normal)
+			self.delete_btn.isHidden = false
+			self.delete_progress_spinner.stopAnimating()
 		}))
 		
 		present(alert, animated: true)

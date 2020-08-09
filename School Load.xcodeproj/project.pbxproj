@@ -18,6 +18,7 @@
 		4C3C9AC4246132100030A363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C067B4524319A4C00654077 /* Assets.xcassets */; };
 		4C4E70D224330CB6005AB60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70D124330CB6005AB60C /* LoginViewController.swift */; };
 		4C51C2AF2442279D00988081 /* NewTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51C2AE2442279D00988081 /* NewTodoViewController.swift */; };
+		4C6042AE24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */; };
 		4C71734324E04210003E3D83 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71734224E04210003E3D83 /* HelpViewController.swift */; };
 		4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7177C9243AE91500FAC248 /* MeViewController.swift */; };
 		4C7E98ED2437B6CA0058DFD8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */; };
@@ -69,6 +70,7 @@
 		4C3C9AD02463C5960030A363 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		4C4E70D124330CB6005AB60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4C51C2AE2442279D00988081 /* NewTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoViewController.swift; sourceTree = "<group>"; };
+		4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticateDeleteAcctViewController.swift; sourceTree = "<group>"; };
 		4C71734224E04210003E3D83 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		4C7177C9243AE91500FAC248 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */,
 				4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */,
 				4C71734224E04210003E3D83 /* HelpViewController.swift */,
+				4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */,
 			);
 			path = "School Load";
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				4C067B3D24319A4B00654077 /* SceneDelegate.swift in Sources */,
 				4CAA0FCE243D873100C962A8 /* NewCourseViewController.swift in Sources */,
 				4C71734324E04210003E3D83 /* HelpViewController.swift in Sources */,
+				4C6042AE24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift in Sources */,
 				4CDB690124455AD80052ACE0 /* Todo.swift in Sources */,
 				4CEB1FE92458F9300057CBDF /* CompletedTodosViewController.swift in Sources */,
 				4CDB68FD24435FBD0052ACE0 /* User.swift in Sources */,

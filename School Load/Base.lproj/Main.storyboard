@@ -176,6 +176,9 @@
                                 <state key="normal" backgroundImage="questionmark.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MfQ-t3-O86" kind="show" id="IfQ-gY-3PO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAI-KN-QJz">
                                 <rect key="frame" x="369" y="54.5" width="30" height="29"/>
@@ -738,6 +741,7 @@
                                         </state>
                                         <connections>
                                             <action selector="help_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="mTy-CF-KrO"/>
+                                            <segue destination="MfQ-t3-O86" kind="show" id="mjY-Ie-3dP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-w6-Ld5">
@@ -2617,11 +2621,69 @@
             </objects>
             <point key="canvasLocation" x="-3546" y="743"/>
         </scene>
+        <!--Help View Controller-->
+        <scene sceneID="yBr-xf-Fpi">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="MfQ-t3-O86" customClass="HelpViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9yK-wI-Ekf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGy-b5-hlb">
+                                <rect key="frame" x="15" y="54.5" width="30" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="EAJ-Yf-MBH"/>
+                                    <constraint firstAttribute="height" constant="30" id="loY-N2-Vjb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="arrow.down.circle" catalog="system">
+                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_tapped:" destination="MfQ-t3-O86" eventType="touchUpInside" id="Ohe-zt-lsP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN1-h7-uFg">
+                                <rect key="frame" x="178.5" y="51" width="57" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfM-HW-3gv">
+                                <rect key="frame" x="0.0" y="97" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="DXq-7x-iYf"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Sax-zq-LRB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IN1-h7-uFg" firstAttribute="centerY" secondItem="KGy-b5-hlb" secondAttribute="centerY" id="BHq-HH-Ix0"/>
+                            <constraint firstItem="IN1-h7-uFg" firstAttribute="centerX" secondItem="9yK-wI-Ekf" secondAttribute="centerX" id="NXx-XS-koI"/>
+                            <constraint firstAttribute="trailing" secondItem="pfM-HW-3gv" secondAttribute="trailing" id="R3H-C0-3M6"/>
+                            <constraint firstItem="pfM-HW-3gv" firstAttribute="leading" secondItem="9yK-wI-Ekf" secondAttribute="leading" id="U9o-mr-ozK"/>
+                            <constraint firstItem="KGy-b5-hlb" firstAttribute="leading" secondItem="6nO-qr-36C" secondAttribute="leading" constant="15" id="aIe-ib-Ygg"/>
+                            <constraint firstItem="KGy-b5-hlb" firstAttribute="top" secondItem="6nO-qr-36C" secondAttribute="top" constant="10" id="m3L-fw-0j1"/>
+                            <constraint firstItem="pfM-HW-3gv" firstAttribute="top" secondItem="IN1-h7-uFg" secondAttribute="bottom" constant="10" id="suJ-q9-nVI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6nO-qr-36C"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="14X-Fy-rao"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WkY-0g-zpk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909" y="743"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="IfQ-gY-3PO"/>
         <segue reference="KCW-Qe-vgQ"/>
         <segue reference="M35-uz-owP"/>
-        <segue reference="Mwk-kO-h6U"/>
+        <segue reference="0Nm-Za-2py"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.circle" catalog="system" width="128" height="121"/>

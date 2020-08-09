@@ -321,14 +321,6 @@ class MyTodosViewController: UIViewController {
 		//performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.destination is TodoInfoViewController {
-			let v = segue.destination as! TodoInfoViewController
-			let tid = sender as? UIButton
-			v.sent_tID = tid!.tag
-		}
-	}
-	
 	@IBAction func new_todo_btn(_ sender: Any) {
 		if user.courses.count == 0 {
 			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()

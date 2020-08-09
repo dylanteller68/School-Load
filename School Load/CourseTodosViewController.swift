@@ -217,18 +217,6 @@ class CourseTodosViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.destination is EditTodoViewController {
-			let v = segue.destination as! EditTodoViewController
-			let tid = sender as? UIButton
-			v.sent_tID = tid!.tag
-		}
-		
-		if segue.destination is TodoInfoViewController {
-			let v = segue.destination as! TodoInfoViewController
-			let tid = sender as? UIButton
-			v.sent_tID = tid!.tag
-		}
-		
 		if segue.destination is EditCourseViewController {
 			let v = segue.destination as! EditCourseViewController
 			let cid = sender as? UIButton

@@ -67,7 +67,6 @@ class CompletedTodosViewController: UIViewController {
 				user.sortCompleted()
 				
 				for t in user.completed {
-					let tNameLen = t.name.count
 					var tCourseName = ""
 					for c in user.courses {
 						if c.ID == t.course {

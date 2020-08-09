@@ -173,8 +173,13 @@ class EditCourseViewController: UIViewController {
 				if c.ID.hashValue == self.sent_cID {
 					id = c.ID
 					for t in user.todos {
-						if t.course == c.ID {
+						if t.course == id {
 							db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
+						}
+					}
+					for t in user.completed {
+						if t.course == id {
+							db.collection("users").document(user.ID).collection("completed").document(t.ID).delete()
 						}
 					}
 					break

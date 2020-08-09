@@ -108,6 +108,11 @@ class MyCoursesViewController: UIViewController {
 						user.numCourses = user.courses.count
 						self.redraw_screen()
 					}
+					if user.numCourses != 0 {
+						self.no_courses_lbl.isHidden = true
+					} else {
+						self.no_courses_lbl.isHidden = false
+					}
 				}
 			}
 			db.collection("users").document(user.ID).updateData([

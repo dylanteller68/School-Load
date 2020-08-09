@@ -30,7 +30,6 @@
 		4CDB68FD24435FBD0052ACE0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB68FC24435FBD0052ACE0 /* User.swift */; };
 		4CDB68FF24453B570052ACE0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB68FE24453B570052ACE0 /* Course.swift */; };
 		4CDB690124455AD80052ACE0 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB690024455AD80052ACE0 /* Todo.swift */; };
-		4CEB1FE72457CA340057CBDF /* EditTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB1FE62457CA340057CBDF /* EditTodoViewController.swift */; };
 		4CEB1FE92458F9300057CBDF /* CompletedTodosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEB1FE82458F9300057CBDF /* CompletedTodosViewController.swift */; };
 		4CEFCC8F24BBBCB00039776F /* YourNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC8E24BBBCB00039776F /* YourNameViewController.swift */; };
 		4CEFCC9124BBC0190039776F /* YourEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */; };
@@ -82,7 +81,6 @@
 		4CDB68FC24435FBD0052ACE0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CDB68FE24453B570052ACE0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		4CDB690024455AD80052ACE0 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		4CEB1FE62457CA340057CBDF /* EditTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoViewController.swift; sourceTree = "<group>"; };
 		4CEB1FE82458F9300057CBDF /* CompletedTodosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTodosViewController.swift; sourceTree = "<group>"; };
 		4CEFCC8E24BBBCB00039776F /* YourNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourNameViewController.swift; sourceTree = "<group>"; };
 		4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourEmailViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				4C067B4724319A4C00654077 /* LaunchScreen.storyboard */,
 				4C067B3E24319A4B00654077 /* MyTodosViewController.swift */,
 				4C51C2AE2442279D00988081 /* NewTodoViewController.swift */,
-				4CEB1FE62457CA340057CBDF /* EditTodoViewController.swift */,
 				4CEB1FE82458F9300057CBDF /* CompletedTodosViewController.swift */,
 				4C067B4024319A4B00654077 /* MyCoursesViewController.swift */,
 				4CAA0FCD243D873100C962A8 /* NewCourseViewController.swift */,
@@ -294,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEB1FE72457CA340057CBDF /* EditTodoViewController.swift in Sources */,
 				4CDB68FF24453B570052ACE0 /* Course.swift in Sources */,
 				4C4E70D224330CB6005AB60C /* LoginViewController.swift in Sources */,
 				4C205E732459FEBE00C1E5B5 /* CourseTodosViewController.swift in Sources */,

@@ -139,6 +139,7 @@ class MeViewController: UIViewController {
 	@IBAction func contact_tapped(_ sender: Any) {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
+		performSegue(withIdentifier: "contact_segue", sender: true)
 	}
 	
 	@IBAction func help_tapped(_ sender: Any) {
@@ -161,6 +162,13 @@ class MeViewController: UIViewController {
 			performSegue(withIdentifier: "logout_segue", sender: self)
 		} catch {
 			// error
+		}
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.destination is HelpViewController {
+			let v = segue.destination as! HelpViewController
+			v.isContactScreen = sender as? Bool ?? false
 		}
 	}
 }

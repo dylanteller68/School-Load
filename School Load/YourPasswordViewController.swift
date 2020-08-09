@@ -79,6 +79,8 @@ class YourPasswordViewController: UIViewController {
 									"numCourses" : 0
 								])
 							}
+							
+							Auth.auth().currentUser?.sendEmailVerification()
 														
 							self.progress_spinner.stopAnimating()
 							

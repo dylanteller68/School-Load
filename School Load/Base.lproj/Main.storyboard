@@ -2469,6 +2469,13 @@
                                 <rect key="frame" x="197" y="518" width="20" height="20"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aq-fv-D1M">
+                                <rect key="frame" x="10" y="267" width="394" height="72"/>
+                                <string key="text">A verification email will be sent once your account is created. Without verification, you may not be able to recover your password.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2477,11 +2484,14 @@
                             <constraint firstItem="Ixg-kd-5US" firstAttribute="top" secondItem="rwT-l4-7WM" secondAttribute="bottom" constant="30" id="1si-7m-HAg"/>
                             <constraint firstItem="rwT-l4-7WM" firstAttribute="centerX" secondItem="bR4-d6-jaw" secondAttribute="centerX" id="7vC-cM-POK"/>
                             <constraint firstItem="Ixg-kd-5US" firstAttribute="centerX" secondItem="bR4-d6-jaw" secondAttribute="centerX" id="PRM-bi-mnu"/>
+                            <constraint firstItem="5xJ-9J-zFB" firstAttribute="trailing" secondItem="4aq-fv-D1M" secondAttribute="trailing" constant="10" id="THp-bP-KJo"/>
                             <constraint firstItem="TXT-ij-UEB" firstAttribute="top" secondItem="5xJ-9J-zFB" secondAttribute="top" constant="10" id="Z9y-9X-yKw"/>
                             <constraint firstItem="rwT-l4-7WM" firstAttribute="centerY" secondItem="bR4-d6-jaw" secondAttribute="centerY" id="h9Y-A9-JtT"/>
+                            <constraint firstItem="4aq-fv-D1M" firstAttribute="leading" secondItem="bR4-d6-jaw" secondAttribute="leading" constant="10" id="hu4-bf-qwH"/>
                             <constraint firstItem="rwT-l4-7WM" firstAttribute="top" secondItem="uJ5-UG-lkN" secondAttribute="bottom" constant="20" id="iyY-Qt-bQd"/>
                             <constraint firstItem="f7w-6z-jOC" firstAttribute="centerY" secondItem="Ixg-kd-5US" secondAttribute="centerY" id="k1T-La-ohv"/>
                             <constraint firstItem="TXT-ij-UEB" firstAttribute="leading" secondItem="5xJ-9J-zFB" secondAttribute="leading" constant="15" id="ms9-rk-BB9"/>
+                            <constraint firstItem="uJ5-UG-lkN" firstAttribute="top" secondItem="4aq-fv-D1M" secondAttribute="bottom" constant="10" id="nce-s3-qpZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5xJ-9J-zFB"/>
                     </view>

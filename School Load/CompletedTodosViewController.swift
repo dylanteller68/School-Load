@@ -94,32 +94,31 @@ class CompletedTodosViewController: UIViewController {
 					done_btn.tag = t.ID.hashValue
 					done_btn.addTarget(self, action: #selector(self.add_btn_tapped), for: .touchUpInside)
 					
-					let btn = UIButton(type: .system)
+					let btn1 = UIButton(type: .system)
+					let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
+					btn1.setAttributedTitle(title, for: .normal)
+					btn1.contentHorizontalAlignment = .leading
+					btn1.titleLabel?.lineBreakMode = .byTruncatingTail
+					btn1.tag = t.ID.hashValue
 					
-					if tNameLen < 28 {
-						let title = NSMutableAttributedString(string: "\(t.name)\n\(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tNameLen))
-						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tNameLen, length: title.length-tNameLen))
-						btn.setAttributedTitle(title, for: .normal)
-					} else {
-						var tmpName = t.name
-						tmpName.removeLast(tNameLen-28)
-						tmpName.append("...")
-						let title = NSMutableAttributedString(string: "\(tmpName)\n\(tCourseName)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[t.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						title.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: tmpName.count))
-						title.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .thin), range: NSRange(location: tmpName.count, length: title.length-tmpName.count))
-						btn.setAttributedTitle(title, for: .normal)
-					}
-
-					btn.titleLabel?.numberOfLines = 2
-					btn.contentHorizontalAlignment = .leading
-					btn.tag = t.ID.hashValue
+					let btn2 = UIButton(type: .system)
+					let title2 = NSMutableAttributedString(string: "\(tCourseName)", attributes: [
+						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: user.colors[t.color]])
+					btn2.setAttributedTitle(title2, for: .normal)
+					btn2.contentHorizontalAlignment = .leading
+					btn2.titleLabel?.lineBreakMode = .byTruncatingTail
+					btn2.tag = t.ID.hashValue
+					
+					let btn = UIStackView(arrangedSubviews: [btn1, btn2])
+					btn.axis = .vertical
+					btn.distribution = .fillEqually
+					btn.spacing = 10
 
 					// individual todo SV
 					let todo_SV = UIStackView(arrangedSubviews: [bullet_btn, btn, done_btn])
 					todo_SV.axis = .horizontal
 					todo_SV.spacing = 15
-					todo_SV.tag = btn.tag
+					todo_SV.tag = btn1.tag
 					todo_SV.heightAnchor.constraint(equalToConstant: 40).isActive = true
 								
 					self.btn_SV.addArrangedSubview(todo_SV)
@@ -142,13 +141,9 @@ class CompletedTodosViewController: UIViewController {
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			for v in self.btn_SV.arrangedSubviews {
-				
-				let t = v as? UIStackView
-				
+							
 				for comp in user.completed {
-					if comp.ID.hashValue == t?.tag {
-						db.collection("users").document(user.ID).collection("completed").document(comp.ID).delete()
-					}
+					db.collection("users").document(user.ID).collection("completed").document(comp.ID).delete()
 				}
 				
 				self.btn_SV.removeArrangedSubview(v)
@@ -176,17 +171,17 @@ class CompletedTodosViewController: UIViewController {
 		for v in self.btn_SV.arrangedSubviews {
 			if v.tag == sender.tag {
 				let sv = v as? UIStackView
-				let v1 = sv?.arrangedSubviews[1] as? UIButton
+				let v1 = sv?.arrangedSubviews[1] as? UIStackView
 				let v2 = sv?.arrangedSubviews[2] as? UIButton
 				
 				let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
 				notificationFeedbackGenerator.prepare()
 				notificationFeedbackGenerator.notificationOccurred(.success)
 				
-				let ats = NSAttributedString(string: "Added", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-				v1?.setAttributedTitle(ats, for: .normal)
-				v2?.tintColor = .systemGreen
-				v1?.isEnabled = false
+				let ats = NSAttributedString(string: "Added", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemTeal, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
+				let subv1 = v1?.arrangedSubviews[0] as? UIButton
+				subv1?.setAttributedTitle(ats, for: .normal)
+				v2?.tintColor = .systemTeal
 				break
 			}
 		}

@@ -173,47 +173,7 @@ class MyTodosViewController: UIViewController {
 								}
 														
 							}
-							let c = diff.document.data()["courseID"] as! String
-							var nT = 0
-							for course in user.courses {
-								if course.ID == c {
-									nT = course.numTodos
-									break
-								}
-							}
-							db.collection("users").document(user.ID).collection("courses").document(c).updateData([
-								"numTodos" : nT
-							])
-							let center = UNUserNotificationCenter.current()
-							center.removeAllPendingNotificationRequests()
-							center.requestAuthorization(options: [.sound, .alert]) { (granted, error) in
-							}
-
-							let content = UNMutableNotificationContent()
-							if user.numTodosToday == 1 {
-								content.body = "You have \(user.numTodosToday) to-do today"
-							} else {
-								content.body = "You have \(user.numTodosToday) to-dos today"
-							}
-
-					//		let date = Date().addingTimeInterval(10)
-					//
-					//		let dc = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-
-							var dc = DateComponents()
-							dc.calendar = Calendar.current
-							dc.hour = 8
-
-							let trigger = UNCalendarNotificationTrigger(dateMatching: dc, repeats: true)
-
-							let uuidString = UUID().uuidString
-
-							let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-							center.add(request) { (error) in
-							}
 						}
-						
 						if user.todos.count == 0 {
 							self.no_todos_lbl.isHidden = false
 						}

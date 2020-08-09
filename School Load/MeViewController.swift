@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import StoreKit
 
 class MeViewController: UIViewController {
 
@@ -150,6 +151,8 @@ class MeViewController: UIViewController {
 	@IBAction func rate_tapped(_ sender: Any) {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
+		
+		SKStoreReviewController.requestReview()
 	}
 	
 	@IBAction func logout_tapped(_ sender: Any) {

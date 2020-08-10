@@ -42,13 +42,18 @@ class MyTodosViewController: UIViewController {
 					let userLName = data!["last name"] as? String ?? ""
 					let userEmail = currentUser?.email
 					let numCourses = data!["numCourses"] as! Int
+					let notificationHour = data!["notificationHour"] as! Int
+					let notificationMinute = data!["notificationMinute"] as! Int
 					
 					// populate user object
 					user.fname = userFName
 					user.lname = userLName
 					user.email = userEmail!
 					user.numCourses = numCourses
+					user.notificationHour = notificationHour
+					user.notificationMinute = notificationMinute
 					
+					user.setNotifications()
 				} else {
 					// error
 				}
@@ -174,6 +179,10 @@ class MyTodosViewController: UIViewController {
 														
 							}
 						}
+						
+						// NOTIFICATIONS***********************************************************
+						user.setNotifications()
+						
 						if user.todos.count == 0 {
 							self.no_todos_lbl.isHidden = false
 						}

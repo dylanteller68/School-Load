@@ -20,6 +20,8 @@ class YourPasswordViewController: UIViewController {
 	var fname = ""
 	var lname = ""
 	var email = ""
+	var hour = 0
+	var minute = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,13 +72,17 @@ class YourPasswordViewController: UIViewController {
 							if self.lname == "" {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
-									"numCourses" : 0
+									"numCourses" : 0,
+									"notificationHour" : self.hour,
+									"notificationMinute" : self.minute
 								])
 							} else {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
 									"last name" : self.lname,
-									"numCourses" : 0
+									"numCourses" : 0,
+									"notificationHour" : self.hour,
+									"notificationMinute" : self.minute
 								])
 							}
 							

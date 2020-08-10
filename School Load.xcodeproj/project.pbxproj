@@ -19,6 +19,7 @@
 		4C4E70D224330CB6005AB60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E70D124330CB6005AB60C /* LoginViewController.swift */; };
 		4C51C2AF2442279D00988081 /* NewTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51C2AE2442279D00988081 /* NewTodoViewController.swift */; };
 		4C545B8A24E1F376005DA083 /* SetNotificationTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C545B8924E1F376005DA083 /* SetNotificationTimeViewController.swift */; };
+		4C545B8C24E1FA2F005DA083 /* EditNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */; };
 		4C6042AE24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */; };
 		4C71734324E04210003E3D83 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71734224E04210003E3D83 /* HelpViewController.swift */; };
 		4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7177C9243AE91500FAC248 /* MeViewController.swift */; };
@@ -72,6 +73,7 @@
 		4C4E70D124330CB6005AB60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4C51C2AE2442279D00988081 /* NewTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoViewController.swift; sourceTree = "<group>"; };
 		4C545B8924E1F376005DA083 /* SetNotificationTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationTimeViewController.swift; sourceTree = "<group>"; };
+		4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotificationViewController.swift; sourceTree = "<group>"; };
 		4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticateDeleteAcctViewController.swift; sourceTree = "<group>"; };
 		4C71734224E04210003E3D83 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		4C7177C9243AE91500FAC248 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				4C71734224E04210003E3D83 /* HelpViewController.swift */,
 				4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */,
 				4C545B8924E1F376005DA083 /* SetNotificationTimeViewController.swift */,
+				4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */,
 			);
 			path = "School Load";
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				4CCAB4542479898D0079BB0F /* EditNameViewController.swift in Sources */,
 				4C067B3F24319A4B00654077 /* MyTodosViewController.swift in Sources */,
 				4C067B3B24319A4B00654077 /* AppDelegate.swift in Sources */,
+				4C545B8C24E1FA2F005DA083 /* EditNotificationViewController.swift in Sources */,
 				4CEFCC9124BBC0190039776F /* YourEmailViewController.swift in Sources */,
 				4C067B3D24319A4B00654077 /* SceneDelegate.swift in Sources */,
 				4CAA0FCE243D873100C962A8 /* NewCourseViewController.swift in Sources */,

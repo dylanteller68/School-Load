@@ -719,6 +719,7 @@
                                         </state>
                                         <connections>
                                             <action selector="notifications_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="sN5-yO-gK8"/>
+                                            <segue destination="3Vt-lG-1ch" kind="show" id="bRg-Ax-4OG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svG-4l-sOH">
@@ -3301,12 +3302,108 @@
             </objects>
             <point key="canvasLocation" x="-4339" y="743"/>
         </scene>
+        <!--Edit Notification View Controller-->
+        <scene sceneID="EVy-tP-UxB">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="3Vt-lG-1ch" customClass="EditNotificationViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="USt-mv-6eC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzL-91-eij">
+                                <rect key="frame" x="34.5" y="556" width="345" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="345" id="fJs-X0-NeD"/>
+                                    <constraint firstAttribute="height" constant="50" id="lH6-gM-rwQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Edit Notifications">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit_notification_tapped:" destination="3Vt-lG-1ch" eventType="touchUpInside" id="iBl-jx-ifS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2T-5T-SMM">
+                                <rect key="frame" x="15" y="54.5" width="30" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gxB-Ye-Dkt"/>
+                                    <constraint firstAttribute="width" constant="30" id="yMr-3m-GH0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="arrow.down.circle" catalog="system">
+                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_tapped:" destination="3Vt-lG-1ch" eventType="touchUpInside" id="dJ7-ej-e9u"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDW-Aq-DXY" userLabel="school load lbl SV">
+                                <rect key="frame" x="123" y="286" width="168" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiG-In-6LP">
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irh-n3-Tw6">
+                                        <rect key="frame" x="77" y="0.0" width="91" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="45"/>
+                                        <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="DS0-5O-8de">
+                                <rect key="frame" x="197" y="571" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNv-eB-0ow">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="618757200.08735895">
+                                    <!--2020-08-10 13:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MNv-eB-0ow" firstAttribute="top" secondItem="nDW-Aq-DXY" secondAttribute="bottom" id="1Kq-5X-NFc"/>
+                            <constraint firstItem="i2T-5T-SMM" firstAttribute="leading" secondItem="RTO-l8-9ig" secondAttribute="leading" constant="15" id="92n-pr-Q6N"/>
+                            <constraint firstItem="zzL-91-eij" firstAttribute="top" secondItem="MNv-eB-0ow" secondAttribute="bottom" id="EcM-jS-lAG"/>
+                            <constraint firstItem="i2T-5T-SMM" firstAttribute="top" secondItem="RTO-l8-9ig" secondAttribute="top" constant="10" id="NtS-3u-kcX"/>
+                            <constraint firstItem="DS0-5O-8de" firstAttribute="centerX" secondItem="USt-mv-6eC" secondAttribute="centerX" id="TXD-KT-Cfs"/>
+                            <constraint firstItem="MNv-eB-0ow" firstAttribute="centerY" secondItem="USt-mv-6eC" secondAttribute="centerY" id="af5-hv-2xH"/>
+                            <constraint firstItem="zzL-91-eij" firstAttribute="centerX" secondItem="USt-mv-6eC" secondAttribute="centerX" id="csT-4s-OPX"/>
+                            <constraint firstItem="nDW-Aq-DXY" firstAttribute="centerX" secondItem="USt-mv-6eC" secondAttribute="centerX" id="k0m-zL-zC8"/>
+                            <constraint firstItem="DS0-5O-8de" firstAttribute="centerY" secondItem="zzL-91-eij" secondAttribute="centerY" id="k7j-j3-bwZ"/>
+                            <constraint firstItem="MNv-eB-0ow" firstAttribute="leading" secondItem="RTO-l8-9ig" secondAttribute="leading" id="teH-0o-8bf"/>
+                            <constraint firstItem="RTO-l8-9ig" firstAttribute="trailing" secondItem="MNv-eB-0ow" secondAttribute="trailing" id="teM-Zz-Gto"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RTO-l8-9ig"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OXz-th-WUp"/>
+                    <connections>
+                        <outlet property="datePicker" destination="MNv-eB-0ow" id="cwd-ad-Lym"/>
+                        <outlet property="edit_btn" destination="zzL-91-eij" id="dgJ-di-rnu"/>
+                        <outlet property="progress_spinner" destination="DS0-5O-8de" id="cEM-9A-pY4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8c-ry-K40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2630" y="743"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="LU6-Z5-BcM"/>
         <segue reference="UDt-oY-Pwp"/>
-        <segue reference="rCA-lz-wmm"/>
-        <segue reference="q39-Mu-kBR"/>
+        <segue reference="ylw-0q-tLB"/>
+        <segue reference="0Nm-Za-2py"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.circle" catalog="system" width="128" height="121"/>

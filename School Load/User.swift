@@ -102,48 +102,48 @@ public class User {
 	}
 	
 	public func setNotifications() {
-		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-		
-		var numTodosToday = 0
-		
-		for t in user.todos {
-			let df = DateFormatter()
-			df.dateStyle = .full
-			var todoDateFormatted = df.string(from: t.date)
-			todoDateFormatted.removeLast(6)
-			
-			let df2 = DateFormatter()
-			df2.dateStyle = .full
-			var todaysDateFormatted = df2.string(from: Date())
-			todaysDateFormatted.removeLast(6)
-			
-			if todaysDateFormatted == todoDateFormatted {
-				numTodosToday += 1
-			}
-		}
-		
-		let content = UNMutableNotificationContent()
-		content.title = "Today"
-		if numTodosToday != 1 {
-			content.body = "You have \(numTodosToday) to-dos today"
-		} else {
-			content.body = "You have \(numTodosToday) to-do today"
-		}
-		content.sound = .default
-		
-		var dateComponents = DateComponents()
-		dateComponents.calendar = Calendar.current
-
-		dateComponents.hour = user.notificationHour
-		dateComponents.minute = user.notificationMinute
-		   
-		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-		
-		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-		let notificationCenter = UNUserNotificationCenter.current()
-		notificationCenter.requestAuthorization(options: [.alert,.sound], completionHandler: { (granted,error) in})
-		notificationCenter.add(request)
+//		UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//
+//		var numTodosToday = 0
+//
+//		for t in user.todos {
+//			let df = DateFormatter()
+//			df.dateStyle = .full
+//			var todoDateFormatted = df.string(from: t.date)
+//			todoDateFormatted.removeLast(6)
+//
+//			let df2 = DateFormatter()
+//			df2.dateStyle = .full
+//			var todaysDateFormatted = df2.string(from: Date())
+//			todaysDateFormatted.removeLast(6)
+//
+//			if todaysDateFormatted == todoDateFormatted {
+//				numTodosToday += 1
+//			}
+//		}
+//
+//		let content = UNMutableNotificationContent()
+//		content.title = "Today"
+//		if numTodosToday != 1 {
+//			content.body = "You have \(numTodosToday) to-dos today"
+//		} else {
+//			content.body = "You have \(numTodosToday) to-do today"
+//		}
+//		content.sound = .default
+//
+//		var dateComponents = DateComponents()
+//		dateComponents.calendar = Calendar.current
+//
+//		dateComponents.hour = user.notificationHour
+//		dateComponents.minute = user.notificationMinute
+//
+//		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+//
+//		let uuidString = UUID().uuidString
+//		let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+//
+//		let notificationCenter = UNUserNotificationCenter.current()
+//		notificationCenter.requestAuthorization(options: [.alert,.sound], completionHandler: { (granted,error) in})
+//		notificationCenter.add(request)
 	}
 }

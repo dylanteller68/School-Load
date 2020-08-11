@@ -33,7 +33,7 @@ class YourEmailViewController: UIViewController {
 		if email != "" {
 			email_txtbx.resignFirstResponder()
 			
-			performSegue(withIdentifier: "notificationtime_segue", sender: self)
+			performSegue(withIdentifier: "set_password_segue", sender: self)
 		} else {
 			next_btn.isEnabled = false
 			
@@ -56,8 +56,8 @@ class YourEmailViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.destination is SetNotificationTimeViewController {
-			let v = segue.destination as! SetNotificationTimeViewController
+		if segue.destination is YourPasswordViewController {
+			let v = segue.destination as! YourPasswordViewController
 			v.fname = fname
 			v.lname = lname
 			v.email = email

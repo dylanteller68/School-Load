@@ -646,6 +646,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7za-KC-MuX">
+                                <rect key="frame" x="10" y="108" width="394" height="585"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1gY-Tj-8hv">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="188.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYc-AI-ZsU">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Name">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="name_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="i3Y-Kn-Ac0"/>
+                                                    <segue destination="LD5-0R-e9e" kind="show" id="xXV-uv-Znf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0A-MQ-7Yn">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="188.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Email">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="email_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="j52-6O-gs4"/>
+                                                    <segue destination="vFg-yV-z8B" kind="show" id="ZFM-SQ-VOK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="458-U4-AGY">
+                                        <rect key="frame" x="0.0" y="198.5" width="394" height="188"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-Fx-nYa">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Change Password">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="password_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="fFn-41-978"/>
+                                                    <segue destination="C3S-Wg-43X" kind="show" id="2li-LZ-Nwc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-w6-Ld5">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="188"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Rate Us">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rate_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="IpH-Y2-8Xg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-Mv-WrQ">
+                                        <rect key="frame" x="0.0" y="396.5" width="394" height="188.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lum-tT-Pmj">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Help">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="help_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="mTy-CF-KrO"/>
+                                                    <segue destination="MfQ-t3-O86" kind="show" id="mjY-Ie-3dP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svG-4l-sOH">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="188.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                <state key="normal" title="Contact">
+                                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="contact_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="f5Y-cB-1Ly"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-Yc-XWL">
+                                <rect key="frame" x="10" y="703" width="394" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="hxL-x3-e6P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="D9E-FF-CEV"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-dn-YBk" userLabel="school load lbl SV">
                                 <rect key="frame" x="163" y="51" width="88" height="36"/>
                                 <subviews>
@@ -671,104 +775,6 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="1dG-fV-J0m"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s2V-fT-wXV">
-                                <rect key="frame" x="10" y="118" width="394" height="675"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYc-AI-ZsU">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Name">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="name_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="i3Y-Kn-Ac0"/>
-                                            <segue destination="LD5-0R-e9e" kind="show" id="xXV-uv-Znf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0A-MQ-7Yn">
-                                        <rect key="frame" x="0.0" y="85.5" width="394" height="76"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Email">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="email_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="j52-6O-gs4"/>
-                                            <segue destination="vFg-yV-z8B" kind="show" id="ZFM-SQ-VOK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-Fx-nYa">
-                                        <rect key="frame" x="0.0" y="171.5" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Change Password">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="password_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="fFn-41-978"/>
-                                            <segue destination="C3S-Wg-43X" kind="show" id="2li-LZ-Nwc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkU-ir-lK4">
-                                        <rect key="frame" x="0.0" y="257" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Notifications">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="notifications_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="sN5-yO-gK8"/>
-                                            <segue destination="3Vt-lG-1ch" kind="show" id="bRg-Ax-4OG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svG-4l-sOH">
-                                        <rect key="frame" x="0.0" y="342.5" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Contact">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="contact_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="f5Y-cB-1Ly"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lum-tT-Pmj">
-                                        <rect key="frame" x="0.0" y="428" width="394" height="76"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Help">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="help_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="mTy-CF-KrO"/>
-                                            <segue destination="MfQ-t3-O86" kind="show" id="mjY-Ie-3dP"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-w6-Ld5">
-                                        <rect key="frame" x="0.0" y="514" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Rate Us">
-                                            <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="rate_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="IpH-Y2-8Xg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-Yc-XWL">
-                                        <rect key="frame" x="0.0" y="599.5" width="394" height="75.5"/>
-                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <state key="normal" title="Logout">
-                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logout_tapped:" destination="CsA-qq-WdE" eventType="touchUpInside" id="D9E-FF-CEV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-c4-Xxb">
                                 <rect key="frame" x="15" y="54" width="30" height="30"/>
                                 <constraints>
@@ -783,13 +789,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="s2V-fT-wXV" firstAttribute="leading" secondItem="LWf-S0-Cvv" secondAttribute="leading" constant="10" id="7QP-IB-ZGC"/>
-                            <constraint firstItem="LWf-S0-Cvv" firstAttribute="bottom" secondItem="s2V-fT-wXV" secondAttribute="bottom" constant="20" id="LXb-Bh-l28"/>
+                            <constraint firstItem="7za-KC-MuX" firstAttribute="leading" secondItem="LWf-S0-Cvv" secondAttribute="leading" constant="10" id="3fh-nx-Wbm"/>
+                            <constraint firstItem="LWf-S0-Cvv" firstAttribute="trailing" secondItem="MuS-Yc-XWL" secondAttribute="trailing" constant="10" id="HcE-SM-1fO"/>
+                            <constraint firstItem="LWf-S0-Cvv" firstAttribute="bottom" secondItem="MuS-Yc-XWL" secondAttribute="bottom" constant="10" id="JYu-Ze-vFN"/>
                             <constraint firstItem="dyZ-jw-tFY" firstAttribute="leading" secondItem="mLa-BY-CsS" secondAttribute="leading" id="RaO-wT-G7T"/>
-                            <constraint firstItem="s2V-fT-wXV" firstAttribute="top" secondItem="dyZ-jw-tFY" secondAttribute="bottom" constant="20" id="Y2Y-fW-o7d"/>
+                            <constraint firstItem="MuS-Yc-XWL" firstAttribute="top" secondItem="7za-KC-MuX" secondAttribute="bottom" constant="10" id="TIi-WC-Lqy"/>
                             <constraint firstItem="2hn-c4-Xxb" firstAttribute="leading" secondItem="LWf-S0-Cvv" secondAttribute="leading" constant="15" id="YLE-fv-EYn"/>
-                            <constraint firstItem="LWf-S0-Cvv" firstAttribute="trailing" secondItem="s2V-fT-wXV" secondAttribute="trailing" constant="10" id="ba9-qb-Hd4"/>
                             <constraint firstItem="2hn-c4-Xxb" firstAttribute="top" secondItem="LWf-S0-Cvv" secondAttribute="top" constant="10" id="dI3-s8-HoQ"/>
+                            <constraint firstItem="LWf-S0-Cvv" firstAttribute="trailing" secondItem="7za-KC-MuX" secondAttribute="trailing" constant="10" id="hFv-nP-GWK"/>
+                            <constraint firstItem="MuS-Yc-XWL" firstAttribute="leading" secondItem="LWf-S0-Cvv" secondAttribute="leading" constant="10" id="hpK-cb-vOG"/>
+                            <constraint firstItem="7za-KC-MuX" firstAttribute="top" secondItem="dyZ-jw-tFY" secondAttribute="bottom" constant="10" id="iPh-eF-wkq"/>
                             <constraint firstAttribute="trailing" secondItem="dyZ-jw-tFY" secondAttribute="trailing" id="rjO-DC-RZE"/>
                             <constraint firstItem="dyZ-jw-tFY" firstAttribute="top" secondItem="h7P-dn-YBk" secondAttribute="bottom" constant="10" id="sUS-4e-Mte"/>
                             <constraint firstItem="h7P-dn-YBk" firstAttribute="centerY" secondItem="2hn-c4-Xxb" secondAttribute="centerY" id="swg-kg-OuW"/>
@@ -806,7 +815,6 @@
                         <outlet property="help_btn" destination="lum-tT-Pmj" id="OQk-S6-2Mv"/>
                         <outlet property="logout_btn" destination="MuS-Yc-XWL" id="j4p-ua-isO"/>
                         <outlet property="name_btn" destination="rYc-AI-ZsU" id="Jlr-MT-CzV"/>
-                        <outlet property="notifications_btn" destination="AkU-ir-lK4" id="CU2-6v-Bex"/>
                         <outlet property="rate_btn" destination="utc-w6-Ld5" id="eqf-hD-IgB"/>
                         <segue destination="Sez-yX-niQ" kind="show" identifier="logout_segue" id="0Nm-Za-2py"/>
                         <segue destination="MfQ-t3-O86" kind="show" identifier="contact_segue" id="LU6-Z5-BcM"/>
@@ -2500,7 +2508,7 @@
                     <connections>
                         <outlet property="email_txtbx" destination="qaE-oF-Bme" id="NVz-eA-gK7"/>
                         <outlet property="next_btn" destination="Ixg-kd-5US" id="HAV-go-gP3"/>
-                        <segue destination="tAA-hT-Ixj" kind="show" identifier="notificationtime_segue" id="Awr-Ym-FRw"/>
+                        <segue destination="CDB-ja-Zdj" kind="show" identifier="set_password_segue" id="TST-Zs-rNh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ZD-JE-aMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3302,7 +3310,6 @@
                     <connections>
                         <outlet property="datePicker" destination="a2I-0H-IyW" id="am7-Tn-Soh"/>
                         <outlet property="next_btn" destination="OvJ-zS-SBj" id="lJT-AU-gUV"/>
-                        <segue destination="CDB-ja-Zdj" kind="show" identifier="your_password_segue" id="Ebc-gb-AQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e93-bJ-MF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3407,10 +3414,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IfQ-gY-3PO"/>
+        <segue reference="mjY-Ie-3dP"/>
         <segue reference="UDt-oY-Pwp"/>
         <segue reference="ylw-0q-tLB"/>
-        <segue reference="Mwk-kO-h6U"/>
+        <segue reference="0Nm-Za-2py"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.circle" catalog="system" width="128" height="121"/>

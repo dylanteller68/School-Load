@@ -126,10 +126,6 @@ class MyCoursesViewController: UIViewController {
 		}
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		scrollview.contentOffset = CGPoint(x: 0, y: 0)
-	}
-	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.destination is CourseTodosViewController {
 			let v = segue.destination as! CourseTodosViewController

@@ -208,7 +208,6 @@ class MyTodosViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.drawScreen), name: UIApplication.willEnterForegroundNotification, object: nil)
 
-		scrollview.contentOffset = CGPoint(x: 0, y: 0)
 		if Auth.auth().currentUser == nil {
 			performSegue(withIdentifier: "not_logged_in", sender: self)
 		} else if user.needsToGoToCourses {

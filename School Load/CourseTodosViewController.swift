@@ -29,8 +29,6 @@ class CourseTodosViewController: UIViewController {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
-		scrollview.contentOffset = CGPoint(x: 0, y: 0)
-
 		if user.needsToGoToCourses {
 			self.dismiss(animated: true, completion: nil)
 			user.needsToGoToCourses = false

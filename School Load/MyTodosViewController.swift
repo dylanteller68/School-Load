@@ -180,6 +180,18 @@ class MyTodosViewController: UIViewController {
 							}
 						}
 						
+						for c in user.courses {
+							c.numTodos = 0
+							for t in user.todos {
+								if c.ID == t.course {
+									c.numTodos += 1
+								}
+							}
+							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
+								"numTodos" : c.numTodos
+							])
+						}
+						
 						user.setNotifications()
 						
 						if user.todos.count == 0 {

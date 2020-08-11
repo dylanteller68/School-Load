@@ -58,11 +58,13 @@ class CourseTodosViewController: UIViewController {
 			}
 		}
 		
+		user.sortTodos()
+
 		for v in self.btn_SV.arrangedSubviews {
 			self.btn_SV.removeArrangedSubview(v)
 			v.removeFromSuperview()
 		}
-		
+				
 		if numTs == 0 {
 			no_todos_lbl.isHidden = false
 		} else {
@@ -72,16 +74,6 @@ class CourseTodosViewController: UIViewController {
 					let formatter1 = DateFormatter()
 					formatter1.timeStyle = .short
 					let tDate = formatter1.string(from: t.date)
-					var tCourseName = ""
-					for c in user.courses {
-						if c.ID == t.course {
-							tCourseName = c.name
-						}
-					}
-					if tCourseName.count > 23 {
-						tCourseName.removeLast(tCourseName.count-23)
-						tCourseName.append("...")
-					}
 					
 					let bullet_btn = UIButton(type: .system)
 					bullet_btn.setTitle("", for: .normal)
@@ -107,9 +99,8 @@ class CourseTodosViewController: UIViewController {
 					btn1.tag = t.ID.hashValue
 					
 					let btn2 = UIButton(type: .system)
-					let title2 = NSMutableAttributedString(string: "\(tDate) • \(tCourseName)", attributes: [
+					let title2 = NSMutableAttributedString(string: "\(tDate)", attributes: [
 						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: UIColor.label])
-					title2.addAttribute(NSAttributedString.Key.foregroundColor, value: user.colors[t.color], range: NSRange(location: tDate.count+2, length: tCourseName.count+1))
 					btn2.setAttributedTitle(title2, for: .normal)
 					btn2.contentHorizontalAlignment = .leading
 					btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
@@ -164,19 +155,21 @@ class CourseTodosViewController: UIViewController {
 					let numTodosPerDate_lbl = UILabel()
 					var numTodosPerDate = 0
 					for td in user.todos {
-						let dform = DateFormatter()
-						dform.dateStyle = .full
-						var compdate = dform.string(from: td.date)
-						compdate.removeLast(6)
-						if todayDate == compdate {
-							compdate.append(" (Today)")
-						} else if tomorrowDate == compdate {
-							compdate.append(" (Tomorrow)")
-						} else if t.date < Date() {
-							compdate.append(" (Past Due)")
-						}
-						if compdate == date_lbl.text {
-							numTodosPerDate += 1
+						if td.course.hashValue == sent_tID {
+							let dform = DateFormatter()
+							dform.dateStyle = .full
+							var compdate = dform.string(from: td.date)
+							compdate.removeLast(6)
+							if todayDate == compdate {
+								compdate.append(" (Today)")
+							} else if tomorrowDate == compdate {
+								compdate.append(" (Tomorrow)")
+							} else if t.date < Date() {
+								compdate.append(" (Past Due)")
+							}
+							if compdate == date_lbl.text {
+								numTodosPerDate += 1
+							}
 						}
 					}
 					numTodosPerDate_lbl.textColor = .systemGray2

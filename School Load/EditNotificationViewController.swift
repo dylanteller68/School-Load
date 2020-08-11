@@ -18,6 +18,12 @@ class EditNotificationViewController: UIViewController {
         super.viewDidLoad()
 
 		edit_btn.layer.cornerRadius = 25
+
+		var dateComponents = DateComponents()
+		dateComponents.hour = user.notificationHour
+		dateComponents.minute = user.notificationMinute
+		let userCalendar = Calendar.current
+		datePicker.date = userCalendar.date(from: dateComponents)!
     }
 
 	@IBAction func edit_notification_tapped(_ sender: Any) {

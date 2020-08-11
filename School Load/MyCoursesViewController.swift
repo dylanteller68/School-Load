@@ -114,6 +114,7 @@ class MyCoursesViewController: UIViewController {
 						self.no_courses_lbl.isHidden = false
 					}
 				}
+				user.setNotifications()
 			}
 			db.collection("users").document(user.ID).updateData([
 				"numCourses" : user.numCourses

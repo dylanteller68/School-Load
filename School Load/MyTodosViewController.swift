@@ -180,7 +180,6 @@ class MyTodosViewController: UIViewController {
 							}
 						}
 						
-						// NOTIFICATIONS***********************************************************
 						user.setNotifications()
 						
 						if user.todos.count == 0 {
@@ -310,6 +309,8 @@ class MyTodosViewController: UIViewController {
 	func redraw_screen() {
 		
 		user.sortTodos()
+		
+		user.setNotifications()
 		
 		for v in self.btn_SV.arrangedSubviews {
 			self.btn_SV.removeArrangedSubview(v)

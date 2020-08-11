@@ -129,6 +129,7 @@ public class User {
 		} else {
 			content.body = "You have \(numTodosToday) to-do today"
 		}
+		content.sound = .default
 		
 		var dateComponents = DateComponents()
 		dateComponents.calendar = Calendar.current
@@ -136,14 +137,13 @@ public class User {
 		dateComponents.hour = user.notificationHour
 		dateComponents.minute = user.notificationMinute
 		   
-		let trigger = UNCalendarNotificationTrigger(
-				 dateMatching: dateComponents, repeats: true)
+		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 		
 		let uuidString = UUID().uuidString
-		let request = UNNotificationRequest(identifier: uuidString,
-					content: content, trigger: trigger)
+		let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
 
 		let notificationCenter = UNUserNotificationCenter.current()
+		notificationCenter.requestAuthorization(options: [.alert,.sound], completionHandler: { (granted,error) in})
 		notificationCenter.add(request)
 	}
 }

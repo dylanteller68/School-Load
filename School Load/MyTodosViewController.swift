@@ -52,8 +52,6 @@ class MyTodosViewController: UIViewController {
 					user.numCourses = numCourses
 					user.notificationHour = notificationHour
 					user.notificationMinute = notificationMinute
-					
-					user.setNotifications()
 				} else {
 					// error
 				}
@@ -191,9 +189,7 @@ class MyTodosViewController: UIViewController {
 								"numTodos" : c.numTodos
 							])
 						}
-						
-						user.setNotifications()
-						
+												
 						if user.todos.count == 0 {
 							self.no_todos_lbl.isHidden = false
 						}
@@ -328,9 +324,7 @@ class MyTodosViewController: UIViewController {
 	func redraw_screen() {
 		
 		user.sortTodos()
-		
-		user.setNotifications()
-		
+				
 		for v in self.btn_SV.arrangedSubviews {
 			self.btn_SV.removeArrangedSubview(v)
 			v.removeFromSuperview()

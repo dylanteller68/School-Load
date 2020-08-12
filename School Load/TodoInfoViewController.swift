@@ -86,10 +86,11 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	func textViewDidEndEditing(_ textView: UITextView) {
 		note_txtfield.backgroundColor = .systemGray6
 		
-		let note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
+		var note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
 		
 		if note == "" {
-			note_txtfield.text = "Add note..."
+			note = "Add note..."
+			note_txtfield.text = note
 		}
 		
 		for t in user.todos {
@@ -109,7 +110,12 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
-		let note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
+		var note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
+		
+		if note == "" {
+			note = "Add note..."
+			note_txtfield.text = note
+		}
 		
 		for t in user.todos {
 			if t.ID == todoID {

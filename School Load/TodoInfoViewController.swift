@@ -41,6 +41,31 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 		note_txtfield.delegate = self
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		if user.needsToGoToTodos {
+			self.dismiss(animated: true, completion: nil)
+			user.needsToGoToTodos = false
+		}
+		
+		for t in user.todos {
+			if t.ID.hashValue == sent_tid {
+				todoName_lbl.text = t.name
+				todoName_lbl.textColor = user.colors[t.color]
+				let df = DateFormatter()
+				df.dateStyle = .full
+				var todoDateFormatted = df.string(from: t.date)
+				todoDateFormatted.removeLast(6)
+				let formatter1 = DateFormatter()
+				formatter1.timeStyle = .short
+				let tDate = formatter1.string(from: t.date)
+				todoDate_lbl.text = "\(todoDateFormatted), \(tDate)"
+				note_txtfield.text = t.note
+				todoID = t.ID
+				break
+			}
+		}
+	}
+	
 	func textViewDidBeginEditing(_ textView: UITextView) {
 		note_txtfield.backgroundColor = .systemGray5
 		
@@ -79,7 +104,7 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	}
 
 	@IBAction func more_tapped(_ sender: Any) {
-//		performSegue(withIdentifier: "editTodo_segue", sender: self)
+		performSegue(withIdentifier: "edit_todo_segue", sender: sent_tid)
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
@@ -97,5 +122,13 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 		}
 		
 		self.dismiss(animated: true, completion: nil)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.destination is EditTodoViewController {
+			let v = segue.destination as! EditTodoViewController
+			let tid = sender as? Int
+			v.sent_tID = tid!
+		}
 	}
 }

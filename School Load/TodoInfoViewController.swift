@@ -42,6 +42,11 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
+		if user.needsToGoToTodos {
+			self.dismiss(animated: true, completion: nil)
+			user.needsToGoToTodos = false
+		}
+		
 		for t in user.todos {
 			if t.ID.hashValue == sent_tid {
 				todoName_lbl.text = t.name

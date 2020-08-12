@@ -14,10 +14,12 @@ class EditTodoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 	@IBOutlet weak var course_btn: UIButton!
 	@IBOutlet weak var todo_name_txtbx: UITextField!
 	@IBOutlet weak var addTodo_btn: UIButton!
-	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var course_picker: UIPickerView!
 	@IBOutlet weak var datePicker: UIDatePicker!
+	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var editTodo_lbl: UIStackView!
+	@IBOutlet weak var delete_btn: UIButton!
+	@IBOutlet weak var delete_progress_spinner: UIActivityIndicatorView!
 	
 	var sent_tID = 0
 	var tID = ""
@@ -143,5 +145,53 @@ class EditTodoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func delete_tapped(_ sender: Any) {
+		alert_delete()
+	}
+	
+	func alert_delete() {
+		delete_btn.isHidden = true
+		delete_progress_spinner.startAnimating()
+		delete_progress_spinner.isHidden = false
+		let alert = UIAlertController(title: "Delete To-do", message: "This cannot be undone.", preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+			self.delete_btn.isHidden = false
+			self.delete_progress_spinner.stopAnimating()
+		}))
+		alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+			self.addTodo_btn.setTitle("", for: .normal)
+			self.progress_spinner.startAnimating()
+			self.progress_spinner.isHidden = false
+			
+			self.delete_btn.isEnabled = false
+			self.addTodo_btn.isEnabled = false
+
+			for t in user.todos {
+				if t.ID == self.tID {
+					db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete { (error) in
+						if error == nil {
+							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+							notificationFeedbackGenerator.prepare()
+							notificationFeedbackGenerator.notificationOccurred(.success)
+
+							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+								user.needsToGoToTodos = true
+								self.dismiss(animated: true, completion: nil)
+							}
+						}
+					}
+					break
+				}
+			}
+			
+			self.progress_spinner.stopAnimating()
+			self.addTodo_btn.setTitle("To-do Deleted", for: .normal)
+			self.delete_btn.isHidden = false
+			self.delete_progress_spinner.stopAnimating()
+		}))
+		
+		present(alert, animated: true)
 	}
 }

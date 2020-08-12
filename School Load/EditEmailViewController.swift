@@ -22,11 +22,6 @@ class EditEmailViewController: UIViewController {
 
 		edit_email_btn.layer.cornerRadius = 25
 		email_txtbx.text = user.email
-		
-		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
-		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

@@ -22,11 +22,6 @@ class EditPasswordViewController: UIViewController {
         super.viewDidLoad()
 
 		edit_password_btn.layer.cornerRadius = 25
-		
-		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
-		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

@@ -36,11 +36,6 @@ class EditCourseViewController: UIViewController {
 				i = c.color
 			}
 		}
-		
-		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
-		}
 	}
     
 	@IBAction func edit_course_tapped(_ sender: Any) {

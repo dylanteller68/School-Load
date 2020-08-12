@@ -24,11 +24,6 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
 		send_reset_btn.layer.cornerRadius = 25
 		
-		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
-		}
-		
 		email_txtbx.text = sent_email
 	}
 	

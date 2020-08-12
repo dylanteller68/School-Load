@@ -32,6 +32,7 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 				formatter1.timeStyle = .short
 				let tDate = formatter1.string(from: t.date)
 				todoDate_lbl.text = "\(todoDateFormatted), \(tDate)"
+				todoDate_lbl.lineBreakMode = .byTruncatingTail
 				note_txtfield.text = t.note
 				todoID = t.ID
 				break

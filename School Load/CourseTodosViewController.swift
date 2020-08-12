@@ -208,13 +208,18 @@ class CourseTodosViewController: UIViewController {
 			let cid = sender as? UIButton
 			v.sent_cID = cid!.tag
 		}
+		if segue.destination is TodoInfoViewController {
+			let v = segue.destination as! TodoInfoViewController
+			let tid = sender as? UIButton
+			v.sent_tid = tid!.tag
+		}
 	}
 	
 	@objc func btn_tapped(sender: UIButton) {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-			//performSegue(withIdentifier: "todo_info_segue", sender: sender)
+		performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	@objc func done_btn_tapped(sender: UIButton) {

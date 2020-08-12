@@ -41,6 +41,12 @@ class EditTodoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 				todo_name_txtbx.textColor = user.colors[t.color]
 				todo_name_txtbx.text = t.name
 				datePicker.date = t.date
+				for i in 0..<user.courses.count {
+					if user.courses[i].ID == t.course {
+						course_picker.selectRow(i, inComponent: 0, animated: true)
+						break
+					}
+				}
 				break
 			}
 		}

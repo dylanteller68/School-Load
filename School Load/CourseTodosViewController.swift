@@ -44,6 +44,7 @@ class CourseTodosViewController: UIViewController {
 					numTodosLbl.text = "\(numTs) To-dos"
 				}
 				cName_lbl.textColor = user.colors[c.color]
+				cName_lbl.text = c.name
 				break
 			}
 		}
@@ -85,6 +86,7 @@ class CourseTodosViewController: UIViewController {
 					let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
 					btn1.setAttributedTitle(title, for: .normal)
 					btn1.contentHorizontalAlignment = .leading
+					btn1.titleLabel?.lineBreakMode = .byTruncatingTail
 					btn1.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 					btn1.tag = t.ID.hashValue
 					
@@ -93,6 +95,7 @@ class CourseTodosViewController: UIViewController {
 						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: UIColor.label])
 					btn2.setAttributedTitle(title2, for: .normal)
 					btn2.contentHorizontalAlignment = .leading
+					btn2.titleLabel?.lineBreakMode = .byTruncatingTail
 					btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 					btn2.tag = t.ID.hashValue
 					

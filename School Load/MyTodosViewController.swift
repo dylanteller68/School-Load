@@ -363,11 +363,6 @@ class MyTodosViewController: UIViewController {
 				user.numTodosToday += 1
 			}
 			
-			if tCourseName.count > 25 {
-				tCourseName.removeLast(tCourseName.count-25)
-				tCourseName.append("...")
-			}
-			
 			let bullet_btn = UIButton(type: .system)
 			bullet_btn.setTitle("", for: .normal)
 			bullet_btn.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)

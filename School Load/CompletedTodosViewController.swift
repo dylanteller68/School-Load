@@ -73,10 +73,6 @@ class CompletedTodosViewController: UIViewController {
 							tCourseName = c.name
 						}
 					}
-					if tCourseName.count > 33 {
-						tCourseName.removeLast(tCourseName.count-33)
-						tCourseName.append("...")
-					}
 					
 					let bullet_btn = UIButton(type: .system)
 					bullet_btn.setTitle("", for: .normal)

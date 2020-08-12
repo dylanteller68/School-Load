@@ -38,14 +38,6 @@ class CourseTodosViewController: UIViewController {
 			if c.ID.hashValue == sent_tID {
 				more_btn.tag = sent_tID
 				numTs = c.numTodos
-				if c.name.count < 25 {
-					cName_lbl.text = c.name
-				} else {
-					var tmpName = c.name
-					tmpName.removeLast(c.name.count-25)
-					tmpName.append("...")
-					cName_lbl.text = tmpName
-				}
 				if numTs == 1 {
 					numTodosLbl.text = "\(numTs) To-do"
 				} else {

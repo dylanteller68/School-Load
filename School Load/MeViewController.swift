@@ -34,14 +34,19 @@ class MeViewController: UIViewController {
 		change_password_btn.layer.cornerRadius = 25
 		change_password_btn.titleLabel?.numberOfLines = 2
 		change_password_btn.titleLabel?.textAlignment = .center
-		change_password_btn.setTitle("Change\nPassword", for: .normal)
+		if UIDevice().model == "iPad" {
+			change_password_btn.setTitle("Change Password", for: .normal)
+			rate_btn.setTitle("Rate Us", for: .normal)
+		} else {
+			change_password_btn.setTitle("Change\nPassword", for: .normal)
+			rate_btn.setTitle("Rate\nUs", for: .normal)
+		}
 //		notifications_btn.layer.cornerRadius = 25
 		contact_btn.layer.cornerRadius = 25
 		help_btn.layer.cornerRadius = 25
 		rate_btn.layer.cornerRadius = 25
 		rate_btn.titleLabel?.numberOfLines = 2
 		rate_btn.titleLabel?.textAlignment = .center
-		rate_btn.setTitle("Rate\nUs", for: .normal)
 		logout_btn.layer.cornerRadius = 25
 		
 		let name = "\(user.fname) \(user.lname)"

@@ -299,7 +299,7 @@ class MyTodosViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		//performSegue(withIdentifier: "todo_info_segue", sender: sender)
+		performSegue(withIdentifier: "todo_info_segue", sender: sender)
 	}
 	
 	@IBAction func new_todo_btn(_ sender: Any) {
@@ -314,6 +314,14 @@ class MyTodosViewController: UIViewController {
 			}
 		} else {
 			performSegue(withIdentifier: "new_todo_segue", sender: self)
+		}
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.destination is TodoInfoViewController {
+			let v = segue.destination as! TodoInfoViewController
+			let tid = sender as? UIButton
+			v.sent_tid = tid!.tag
 		}
 	}
 	

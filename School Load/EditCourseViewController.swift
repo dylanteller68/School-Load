@@ -199,7 +199,7 @@ class EditCourseViewController: UIViewController {
 			self.delete_btn.isHidden = false
 			self.delete_progress_spinner.stopAnimating()
 		}))
-		
+		alert.popoverPresentationController?.sourceView = delete_btn
 		present(alert, animated: true)
 	}
 	

@@ -124,10 +124,12 @@ class NewCourseViewController: UIViewController {
 		
 		course_color_btn.backgroundColor = user.colors[i]
 		
-		if UIDevice().model == "iPad" {
-			txtbx_constraint.constant += 80
+		if didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint.constant += 80
+			}
+			didTapTxtbx = false
 		}
-		didTapTxtbx = false
 		course_name_txtbx.resignFirstResponder()
 
 	}

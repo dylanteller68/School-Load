@@ -20,6 +20,9 @@ class EditTodoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 	@IBOutlet weak var editTodo_lbl: UIStackView!
 	@IBOutlet weak var delete_btn: UIButton!
 	@IBOutlet weak var delete_progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint: NSLayoutConstraint!
 	
 	var sent_tID = 0
 	var tID = ""
@@ -49,6 +52,12 @@ class EditTodoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 				}
 				break
 			}
+		}
+		
+		if UIDevice().model == "iPad" {
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+			txtbx_constraint.constant -= 20
 		}
     }
 

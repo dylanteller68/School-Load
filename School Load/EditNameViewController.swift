@@ -15,14 +15,21 @@ class EditNameViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
 	
 	var sent_name = ""
+	var didTapTxtbx = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		name_txtbx.text = "\(user.fname) \(user.lname)"
 		editName_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +101,20 @@ class EditNameViewController: UIViewController {
 	
 	@IBAction func txtbx_done(_ sender: Any) {
 		name_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 		edit_name_tapped(self)
+	}
+	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

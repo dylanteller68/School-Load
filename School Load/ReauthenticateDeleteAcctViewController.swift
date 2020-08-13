@@ -18,11 +18,19 @@ class ReauthenticateDeleteAcctViewController: UIViewController {
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var verify_btn: UIButton!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
+	
+	var didTapEmailTxtbx = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		verify_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +96,11 @@ class ReauthenticateDeleteAcctViewController: UIViewController {
 	
 	@IBAction func password_done(_ sender: Any) {
 		password_txtbx.resignFirstResponder()
+		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 100
+		}
+		didTapEmailTxtbx = false
 		verify_tapped(self)
 	}
 	
@@ -98,6 +111,28 @@ class ReauthenticateDeleteAcctViewController: UIViewController {
 	
 	@IBAction func email_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 100
+		}
+		didTapEmailTxtbx = false
+	}
+	
+	@IBAction func email_txtbx_tapped(_ sender: Any) {
+		if !didTapEmailTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 100
+			}
+			didTapEmailTxtbx = true
+		}
+	}
+	
+	@IBAction func password_txtbx_tapped(_ sender: Any) {
+		if !didTapEmailTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 100
+			}
+			didTapEmailTxtbx = true
+		}
 	}
 	
 	func alert_delete() {

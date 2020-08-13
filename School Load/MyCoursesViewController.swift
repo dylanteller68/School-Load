@@ -116,6 +116,10 @@ class MyCoursesViewController: UIViewController {
 		}
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		redraw_screen()
+	}
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.destination is CourseTodosViewController {
 			let v = segue.destination as! CourseTodosViewController

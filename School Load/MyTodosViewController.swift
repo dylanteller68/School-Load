@@ -41,7 +41,6 @@ class MyTodosViewController: UIViewController {
 					let userFName = data!["first name"] as! String
 					let userLName = data!["last name"] as? String ?? ""
 					let userEmail = currentUser?.email
-					let numCourses = data!["numCourses"] as! Int
 					let notificationHour = data!["notificationHour"] as! Int
 					let notificationMinute = data!["notificationMinute"] as! Int
 					
@@ -49,7 +48,6 @@ class MyTodosViewController: UIViewController {
 					user.fname = userFName
 					user.lname = userLName
 					user.email = userEmail!
-					user.numCourses = numCourses
 					user.notificationHour = notificationHour
 					user.notificationMinute = notificationMinute
 				} else {

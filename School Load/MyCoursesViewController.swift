@@ -22,7 +22,7 @@ class MyCoursesViewController: UIViewController {
 		self.progress_spinner.startAnimating()
 		self.progress_spinner.isHidden = false
 		
-		if user.numCourses == 0 {
+		if user.courses.count == 0 {
 			no_courses_lbl.isHidden = false
 			progress_spinner.stopAnimating()
 		}
@@ -53,7 +53,6 @@ class MyCoursesViewController: UIViewController {
 							user.courses.append(course)
 						}
 						
-						user.numCourses = user.courses.count
 						
 						self.redraw_screen()
 					}
@@ -98,26 +97,20 @@ class MyCoursesViewController: UIViewController {
 							}
 						}
 						
-						user.numCourses = user.courses.count
-
 						self.redraw_screen()
 						
 					}
 					if (diff.type == .removed) {
 						user.courses.removeAll(where: {$0.ID == diff.document.documentID})
-						user.numCourses = user.courses.count
 						self.redraw_screen()
 					}
-					if user.numCourses != 0 {
+					if user.courses.count != 0 {
 						self.no_courses_lbl.isHidden = true
 					} else {
 						self.no_courses_lbl.isHidden = false
 					}
 				}
 			}
-			db.collection("users").document(user.ID).updateData([
-				"numCourses" : user.numCourses
-			])
 			if user.courses.count == 0 {
 				self.no_courses_lbl.isHidden = false
 			}

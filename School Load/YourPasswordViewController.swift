@@ -80,7 +80,6 @@ class YourPasswordViewController: UIViewController {
 							if self.lname == "" {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
-									"numCourses" : 0,
 									"notificationHour" : self.hour,
 									"notificationMinute" : self.minute
 								])
@@ -88,7 +87,6 @@ class YourPasswordViewController: UIViewController {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
 									"last name" : self.lname,
-									"numCourses" : 0,
 									"notificationHour" : self.hour,
 									"notificationMinute" : self.minute
 								])

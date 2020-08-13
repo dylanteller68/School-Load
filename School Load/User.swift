@@ -17,7 +17,6 @@ public class User {
 	var fname: String = ""
 	var lname: String = ""
 	var email: String = ""
-	var numCourses: Int = 0
 	var numTodosToday: Int = 0
 	var courses: [Course] = []
 	var todos: [Todo] = []

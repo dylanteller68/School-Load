@@ -212,6 +212,11 @@ class CompletedTodosViewController: UIViewController {
 					}
 				}
 			}
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+				if user.completed.count == 0 {
+					self.dismiss(animated: true, completion: nil)
+				}
+			}
 		}
 	}
 	

@@ -12,15 +12,23 @@ class YourEmailViewController: UIViewController {
 	
 	@IBOutlet weak var email_txtbx: UITextField!
 	@IBOutlet weak var next_btn: UIButton!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_constraint_Y: NSLayoutConstraint!
 	
 	var fname = ""
 	var lname = ""
 	var email = ""
+	var didTapTxtbx = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		next_btn.layer.cornerRadius = 25
+		if UIDevice().model == "iPad" {
+			txtbx_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +59,15 @@ class YourEmailViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				SV_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
 	}
@@ -66,6 +83,10 @@ class YourEmailViewController: UIViewController {
 	
 	@IBAction func txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			SV_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 		next_tapped(self)
 	}
 }

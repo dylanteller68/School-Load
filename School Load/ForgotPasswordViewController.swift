@@ -15,21 +15,22 @@ class ForgotPasswordViewController: UIViewController {
 	@IBOutlet weak var email_txtbx: UITextField!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var cancel_btn: UIButton!
 	
 	var sent_email = ""
+	var didTapTxtbx = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		send_reset_btn.layer.cornerRadius = 25
+		email_txtbx.text = sent_email
 		
 		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
 		}
-		
-		email_txtbx.text = sent_email
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -86,10 +87,20 @@ class ForgotPasswordViewController: UIViewController {
 	@IBAction func text_changed(_ sender: Any) {
 		send_reset_btn.isEnabled = true
 		send_reset_btn.setTitle("Send Reset Email", for: .normal)
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
 	}
 	
 	@IBAction func email_txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 		send_reset_email_tapped(self)
 	}
 }

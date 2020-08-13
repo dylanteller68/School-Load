@@ -34,65 +34,33 @@ class MeViewController: UIViewController {
 		change_password_btn.layer.cornerRadius = 25
 		change_password_btn.titleLabel?.numberOfLines = 2
 		change_password_btn.titleLabel?.textAlignment = .center
-		change_password_btn.setTitle("Change\nPassword", for: .normal)
+		if UIDevice().model == "iPad" {
+			change_password_btn.setTitle("Change Password", for: .normal)
+			rate_btn.setTitle("Rate Us", for: .normal)
+		} else {
+			change_password_btn.setTitle("Change\nPassword", for: .normal)
+			rate_btn.setTitle("Rate\nUs", for: .normal)
+		}
 //		notifications_btn.layer.cornerRadius = 25
 		contact_btn.layer.cornerRadius = 25
 		help_btn.layer.cornerRadius = 25
 		rate_btn.layer.cornerRadius = 25
 		rate_btn.titleLabel?.numberOfLines = 2
 		rate_btn.titleLabel?.textAlignment = .center
-		rate_btn.setTitle("Rate\nUs", for: .normal)
 		logout_btn.layer.cornerRadius = 25
 		
 		let name = "\(user.fname) \(user.lname)"
 		let email = Auth.auth().currentUser!.email!
 		
-		switch UIDevice().model {
-		case "iPad":
-			switch UIDevice().orientation {
-			case .landscapeLeft:
-				name_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				email_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				change_password_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-//				notifications_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				contact_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				help_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				rate_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				logout_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				break
-			case .landscapeRight:
-				name_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				email_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				change_password_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-//				notifications_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				contact_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				help_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				rate_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				logout_btn.titleLabel?.font = .systemFont(ofSize: 24, weight: .thin)
-				break
-			default:
-				name_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				email_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				change_password_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-//				notifications_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				contact_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				help_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				rate_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				logout_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-				break
-			}
-		default:
-			name_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			email_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			change_password_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-//			notifications_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
-			contact_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			help_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			rate_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			logout_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
-			break
-		}
-		
+		name_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+		email_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+		change_password_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+//		notifications_btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .thin)
+		contact_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+		help_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+		rate_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+		logout_btn.titleLabel?.font = .systemFont(ofSize: 30, weight: .thin)
+			
 		name_btn.setTitle("Name:\n\(name)", for: .normal)
 		email_btn.setTitle("Email:\n\(email)", for: .normal)
 		

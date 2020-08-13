@@ -19,9 +19,11 @@ class EditCourseViewController: UIViewController {
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var delete_progress_spinner: UIActivityIndicatorView!
+	@IBOutlet weak var txtbx_constraint: NSLayoutConstraint!
 	
 	var sent_cID = 0
 	var i = 0
+	var didTapTxtbx = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,8 @@ class EditCourseViewController: UIViewController {
 		}
 		
 		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
 		}
 	}
     
@@ -128,6 +130,10 @@ class EditCourseViewController: UIViewController {
 	}
 	
 	@IBAction func txtbx_done(_ sender: Any) {
+		if UIDevice().model == "iPad" {
+			txtbx_constraint.constant += 80
+		}
+		didTapTxtbx = false
 		course_name_txtbx.resignFirstResponder()
 	}
 	
@@ -143,11 +149,26 @@ class EditCourseViewController: UIViewController {
 		
 		color_btn.backgroundColor = user.colors[i]
 		
+		if didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint.constant += 80
+			}
+			didTapTxtbx = false
+		}
 		course_name_txtbx.resignFirstResponder()
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint.constant -= 80
+			}
+			didTapTxtbx = true
+		}
 	}
 	
 	func alert_delete() {
@@ -204,7 +225,7 @@ class EditCourseViewController: UIViewController {
 			self.delete_btn.isHidden = false
 			self.delete_progress_spinner.stopAnimating()
 		}))
-		
+		alert.popoverPresentationController?.sourceView = delete_btn
 		present(alert, animated: true)
 	}
 	

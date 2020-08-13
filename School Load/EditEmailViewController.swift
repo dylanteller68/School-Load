@@ -16,7 +16,10 @@ class EditEmailViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var SV_constraint_Y: NSLayoutConstraint!
 	
+	var didTapTxtbx = false
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +27,8 @@ class EditEmailViewController: UIViewController {
 		email_txtbx.text = user.email
 		
 		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
 		}
     }
 	
@@ -55,7 +58,7 @@ class EditEmailViewController: UIViewController {
 
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						user.needsToGoToMe = true
-						self.performSegue(withIdentifier: "edit_email_to_me_segue", sender: self)
+						self.dismiss(animated: true, completion: nil)
 					}
 				} else {
 					// error
@@ -88,8 +91,21 @@ class EditEmailViewController: UIViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				SV_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func email_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			SV_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 		edit_email_tapped(self)
 	}
 }

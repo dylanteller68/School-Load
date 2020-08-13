@@ -12,14 +12,22 @@ class YourNameViewController: UIViewController {
 	
 	@IBOutlet weak var next_btn: UIButton!
 	@IBOutlet weak var name_txtbx: UITextField!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	
 	var fname = ""
 	var lname = ""
+	var didTapTxtbx = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		next_btn.layer.cornerRadius = 25
+		if UIDevice().model == "iPad" {
+			txtbx_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -70,8 +78,21 @@ class YourNameViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func txtbx_done(_ sender: Any) {
 		name_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 		next_tapped(self)
 	}
 }

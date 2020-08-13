@@ -41,7 +41,6 @@ class MyTodosViewController: UIViewController {
 					let userFName = data!["first name"] as! String
 					let userLName = data!["last name"] as? String ?? ""
 					let userEmail = currentUser?.email
-					let numCourses = data!["numCourses"] as! Int
 					let notificationHour = data!["notificationHour"] as! Int
 					let notificationMinute = data!["notificationMinute"] as! Int
 					
@@ -49,7 +48,6 @@ class MyTodosViewController: UIViewController {
 					user.fname = userFName
 					user.lname = userLName
 					user.email = userEmail!
-					user.numCourses = numCourses
 					user.notificationHour = notificationHour
 					user.notificationMinute = notificationMinute
 				} else {
@@ -65,10 +63,9 @@ class MyTodosViewController: UIViewController {
 						let cName = data["name"] as! String
 						let cColor = data["color"] as! Int
 						let cID = document.documentID
-						let numTodos = 0
 						let time = data["time"] as! Timestamp
 						
-						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos, time: time.dateValue())
+						let course = Course(name: cName, color: cColor, ID: cID, numTodos: 0, time: time.dateValue())
 						
 						user.courses.append(course)
 						
@@ -185,9 +182,6 @@ class MyTodosViewController: UIViewController {
 									c.numTodos += 1
 								}
 							}
-							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-								"numTodos" : c.numTodos
-							])
 						}
 												
 						if user.todos.count == 0 {
@@ -202,8 +196,6 @@ class MyTodosViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		NotificationCenter.default.addObserver(self, selector: #selector(self.drawScreen), name: UIApplication.willEnterForegroundNotification, object: nil)
-
 		if Auth.auth().currentUser == nil {
 			performSegue(withIdentifier: "not_logged_in", sender: self)
 		} else if user.needsToGoToCourses {
@@ -482,9 +474,5 @@ class MyTodosViewController: UIViewController {
 			self.btn_SV.addArrangedSubview(todo_SV)
 
 		}
-	}
-	
-	@objc func drawScreen() {
-		redraw_screen()
 	}
 }

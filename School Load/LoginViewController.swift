@@ -19,7 +19,10 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var error_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	
+	var didTapEmailTxtbx = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +30,8 @@ class LoginViewController: UIViewController {
 		login_btn.layer.cornerRadius = 25
 		
 		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
 		}
 	}
 	
@@ -44,11 +47,38 @@ class LoginViewController: UIViewController {
 
 	@IBAction func email_txtbx_done(_ sender: Any) {
 		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapEmailTxtbx = false
 	}
 	
 	@IBAction func password_txtbx_done(_ sender: Any) {
 		password_txtbx.resignFirstResponder()
+		email_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapEmailTxtbx = false
 		login_tapped(self)
+	}
+	
+	@IBAction func email_txtbx_tapped(_ sender: Any) {
+		if !didTapEmailTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapEmailTxtbx = true
+		}
+	}
+	
+	@IBAction func password_txtbx_tapped(_ sender: Any) {
+		if !didTapEmailTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapEmailTxtbx = true
+		}
 	}
 	
 	@IBAction func login_tapped(_ sender: Any) {

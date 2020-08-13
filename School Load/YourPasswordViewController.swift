@@ -15,18 +15,26 @@ class YourPasswordViewController: UIViewController {
 	@IBOutlet weak var create_acct_btn: UIButton!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var error_lbl: UILabel!
+	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var cancel_btn: UIButton!
+	@IBOutlet weak var txtbx_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
 	
 	var fname = ""
 	var lname = ""
 	var email = ""
 	var hour = 0
 	var minute = 0
+	var didTapTxtbx = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		create_acct_btn.layer.cornerRadius = 25
+		if UIDevice().model == "iPad" {
+			txtbx_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +80,6 @@ class YourPasswordViewController: UIViewController {
 							if self.lname == "" {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
-									"numCourses" : 0,
 									"notificationHour" : self.hour,
 									"notificationMinute" : self.minute
 								])
@@ -80,7 +87,6 @@ class YourPasswordViewController: UIViewController {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
 									"last name" : self.lname,
-									"numCourses" : 0,
 									"notificationHour" : self.hour,
 									"notificationMinute" : self.minute
 								])
@@ -123,8 +129,21 @@ class YourPasswordViewController: UIViewController {
 		cancel_btn.isEnabled = true
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func txtbx_done(_ sender: Any) {
 		pswd_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {

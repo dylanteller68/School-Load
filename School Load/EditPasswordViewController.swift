@@ -17,15 +17,18 @@ class EditPasswordViewController: UIViewController {
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint_Y: NSLayoutConstraint!
 	
+	var didTapTxtbx = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		edit_password_btn.layer.cornerRadius = 25
 		
 		if UIDevice().model == "iPad" {
-			btn_width_constraint.constant += 225
-			SV_width_constraint.constant += 225
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
 		}
     }
 	
@@ -57,7 +60,7 @@ class EditPasswordViewController: UIViewController {
 
 							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 								user.needsToGoToMe = true
-								self.performSegue(withIdentifier: "edit_password_to_me_segue", sender: self)
+								self.dismiss(animated: true, completion: nil)
 							}
 						}
 					})
@@ -92,8 +95,21 @@ class EditPasswordViewController: UIViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint_Y.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func password_done(_ sender: Any) {
 		password_txtbx.resignFirstResponder()
+		if UIDevice().model == "iPad" {
+			txtbx_constraint_Y.constant += 80
+		}
+		didTapTxtbx = false
 	}
 	
 	@IBAction func forgot_password_tapped(_ sender: Any) {

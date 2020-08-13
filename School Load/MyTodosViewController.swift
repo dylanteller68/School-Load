@@ -202,8 +202,6 @@ class MyTodosViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		NotificationCenter.default.addObserver(self, selector: #selector(self.drawScreen), name: UIApplication.willEnterForegroundNotification, object: nil)
-
 		if Auth.auth().currentUser == nil {
 			performSegue(withIdentifier: "not_logged_in", sender: self)
 		} else if user.needsToGoToCourses {
@@ -482,9 +480,5 @@ class MyTodosViewController: UIViewController {
 			self.btn_SV.addArrangedSubview(todo_SV)
 
 		}
-	}
-	
-	@objc func drawScreen() {
-		redraw_screen()
 	}
 }

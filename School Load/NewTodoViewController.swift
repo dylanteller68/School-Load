@@ -34,6 +34,11 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.course_picker.dataSource = self
 		
 		add_todo_btn.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

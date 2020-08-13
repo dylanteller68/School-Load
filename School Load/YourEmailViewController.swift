@@ -25,8 +25,10 @@ class YourEmailViewController: UIViewController {
         super.viewDidLoad()
 
 		next_btn.layer.cornerRadius = 25
-		txtbx_width_constraint.constant += 100
-		btn_width_constraint.constant += 100
+		if UIDevice().model == "iPad" {
+			txtbx_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

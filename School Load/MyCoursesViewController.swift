@@ -40,10 +40,9 @@ class MyCoursesViewController: UIViewController {
 						let courseName = data["name"] as! String
 						let courseColor = data["color"] as! Int
 						let courseID = diff.document.documentID
-						let numTodos = data["numTodos"] as! Int
 						let time = data["time"] as! Timestamp
 						
-						let course = Course(name: courseName, color: courseColor, ID: courseID, numTodos: numTodos, time: time.dateValue())
+						let course = Course(name: courseName, color: courseColor, ID: courseID, numTodos: 0, time: time.dateValue())
 
 						if user.courses.count != 0 {
 							if user.courses[user.courses.count-1].ID != course.ID {
@@ -61,14 +60,13 @@ class MyCoursesViewController: UIViewController {
 						
 						let courseName = data["name"] as! String
 						let courseColor = data["color"] as! Int
-						let numTodos = data["numTodos"] as! Int
 						let time = data["time"] as! Timestamp
 
 						for course in user.courses {
 							if course.ID == diff.document.documentID {
 								course.name = courseName
 								course.color = courseColor
-								course.numTodos = numTodos
+								course.numTodos = 0
 								course.time = time.dateValue()
 							}
 						}
@@ -142,6 +140,13 @@ class MyCoursesViewController: UIViewController {
 		user.sortCourses()
 		
 		for c in user.courses {
+			c.numTodos = 0
+			for t in user.todos {
+				if t.course == c.ID {
+					c.numTodos += 1
+				}
+			}
+			
 			if UIDevice().model != "iPad" {
 				let btn1 = UIButton(type: .system)
 				btn1.setAttributedTitle(NSAttributedString(string: "\(c.name)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[c.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin)]), for: .normal)

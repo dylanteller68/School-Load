@@ -63,10 +63,9 @@ class MyTodosViewController: UIViewController {
 						let cName = data["name"] as! String
 						let cColor = data["color"] as! Int
 						let cID = document.documentID
-						let numTodos = 0
 						let time = data["time"] as! Timestamp
 						
-						let course = Course(name: cName, color: cColor, ID: cID, numTodos: numTodos, time: time.dateValue())
+						let course = Course(name: cName, color: cColor, ID: cID, numTodos: 0, time: time.dateValue())
 						
 						user.courses.append(course)
 						
@@ -183,9 +182,6 @@ class MyTodosViewController: UIViewController {
 									c.numTodos += 1
 								}
 							}
-							db.collection("users").document(user.ID).collection("courses").document(c.ID).updateData([
-								"numTodos" : c.numTodos
-							])
 						}
 												
 						if user.todos.count == 0 {

@@ -38,6 +38,9 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 		if UIDevice().model == "iPad" {
 			SV_width_constraint.constant += 100
 			btn_width_constraint.constant += 100
+			date_picker.isHidden = false
+			add_todo_btn.isHidden = false
+			txtbx_constraint.constant -= 100
 		}
     }
 	
@@ -113,7 +116,7 @@ class NewTodoViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 			let cIndex = course_picker.selectedRow(inComponent: 0)
 			let color = user.colors[user.courses[cIndex].color]
 			todo_txtbx.textColor = color
-			if date_picker.isHidden && add_todo_btn.isHidden {
+			if date_picker.isHidden && add_todo_btn.isHidden && UIDevice().model != "iPad" {
 				UIView.animate(withDuration: 0.5) {
 					self.txtbx_constraint.constant -= 80
 					self.view.layoutIfNeeded()

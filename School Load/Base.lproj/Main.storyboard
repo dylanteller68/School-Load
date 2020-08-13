@@ -852,6 +852,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                                 <connections>
                                                     <action selector="course_name_txtbx_done:" destination="9Y1-9b-vJf" eventType="primaryActionTriggered" id="9OL-d6-pAP"/>
+                                                    <action selector="txtbx_tapped:" destination="9Y1-9b-vJf" eventType="editingDidBegin" id="mxE-nu-JvA"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-6o-fww">
@@ -952,6 +953,7 @@
                         <outlet property="course_color_btn" destination="yT2-6o-fww" id="V9q-TX-tYk"/>
                         <outlet property="course_name_txtbx" destination="OSD-fL-309" id="npc-GD-kb7"/>
                         <outlet property="progress_spinner" destination="JW6-n5-3Pp" id="9H8-WL-wtB"/>
+                        <outlet property="txtbx_constraint" destination="HcJ-Ah-9jN" id="lWb-Iy-gKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ7-Ae-wng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

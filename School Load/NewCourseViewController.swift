@@ -17,7 +17,10 @@ class NewCourseViewController: UIViewController {
 	@IBOutlet weak var add_course_btn: UIButton!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
 	@IBOutlet weak var SV_width_constraint: NSLayoutConstraint!
+	@IBOutlet weak var txtbx_constraint: NSLayoutConstraint!
 	@IBOutlet weak var btn_width_constraint: NSLayoutConstraint!
+	
+	var didTapTxtbx = false
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,11 @@ class NewCourseViewController: UIViewController {
 		course_color_btn.layer.cornerRadius = 10
 		add_course_btn.layer.cornerRadius = 25
 		course_name_txtbx.layer.cornerRadius = 25
+		
+		if UIDevice().model == "iPad" {
+			SV_width_constraint.constant += 100
+			btn_width_constraint.constant += 100
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -116,6 +124,10 @@ class NewCourseViewController: UIViewController {
 		
 		course_color_btn.backgroundColor = user.colors[i]
 		
+		if UIDevice().model == "iPad" {
+			txtbx_constraint.constant += 80
+		}
+		didTapTxtbx = false
 		course_name_txtbx.resignFirstResponder()
 
 	}
@@ -124,7 +136,20 @@ class NewCourseViewController: UIViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	
+	@IBAction func txtbx_tapped(_ sender: Any) {
+		if !didTapTxtbx {
+			if UIDevice().model == "iPad" {
+				txtbx_constraint.constant -= 80
+			}
+			didTapTxtbx = true
+		}
+	}
+	
 	@IBAction func course_name_txtbx_done(_ sender: Any) {
+		if UIDevice().model == "iPad" {
+			txtbx_constraint.constant += 80
+		}
+		didTapTxtbx = false
 		course_name_txtbx.resignFirstResponder()
 	}
 	

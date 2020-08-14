@@ -13,9 +13,12 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	@IBOutlet weak var note_txtfield: UITextView!
 	@IBOutlet weak var todoName_lbl: UILabel!
 	@IBOutlet weak var todoDate_lbl: UILabel!
+	@IBOutlet weak var cancel_btn: UIButton!
+	@IBOutlet weak var txtfield_constraint: NSLayoutConstraint!
 	
 	var sent_tid = 0
 	var todoID = ""
+	var keyboardHeight = CGFloat()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,13 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 		}
 		note_txtfield.layer.cornerRadius = 10
 		note_txtfield.delegate = self
+		
+		NotificationCenter.default.addObserver(
+			self,
+			selector: #selector(keyboardWillShow),
+			name: UIResponder.keyboardWillShowNotification,
+			object: nil
+		)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -68,41 +78,17 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func textViewDidBeginEditing(_ textView: UITextView) {
-		note_txtfield.backgroundColor = .systemGray5
-		
 		if note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines) == "Add note..." {
 			note_txtfield.text = ""
 		}
+		
+		cancel_btn.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+		
+		txtfield_constraint.constant += keyboardHeight - 75
 	}
 	
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-	
 	func textViewDidEndEditing(_ textView: UITextView) {
-		note_txtfield.backgroundColor = .systemGray6
-		
-		var note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
-		
-		if note == "" {
-			note = "Add note..."
-			note_txtfield.text = note
-		}
-		
-		for t in user.todos {
-			if t.ID == todoID {
-				if note != t.note {
-					db.collection("users").document(user.ID).collection("to-dos").document(todoID).updateData([
-						"note" : note
-					])
-				}
-				break
-			}
-		}
+		txtfield_constraint.constant -= keyboardHeight - 75
 	}
 
 	@IBAction func more_tapped(_ sender: Any) {
@@ -110,21 +96,23 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	@IBAction func cancel_tapped(_ sender: Any) {
-		var note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
-		
-		if note == "" {
-			note = "Add note..."
-			note_txtfield.text = note
-		}
-		
-		for t in user.todos {
-			if t.ID == todoID {
-				if note != t.note {
-					db.collection("users").document(user.ID).collection("to-dos").document(todoID).updateData([
-						"note" : note
-					])
+		if cancel_btn.currentBackgroundImage == UIImage(systemName: "checkmark.circle") {
+			var note = note_txtfield.text.trimmingCharacters(in: .whitespacesAndNewlines)
+			
+			if note == "" {
+				note = "Add note..."
+				note_txtfield.text = note
+			}
+			
+			for t in user.todos {
+				if t.ID == todoID {
+					if note != t.note {
+						db.collection("users").document(user.ID).collection("to-dos").document(todoID).updateData([
+							"note" : note
+						])
+					}
+					break
 				}
-				break
 			}
 		}
 		
@@ -136,6 +124,13 @@ class TodoInfoViewController: UIViewController, UITextViewDelegate {
 			let v = segue.destination as! EditTodoViewController
 			let tid = sender as? Int
 			v.sent_tID = tid!
+		}
+	}
+	
+	@objc func keyboardWillShow(_ notification: Notification) {
+		if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+			let keyboardRectangle = keyboardFrame.cgRectValue
+			keyboardHeight = keyboardRectangle.height
 		}
 	}
 }

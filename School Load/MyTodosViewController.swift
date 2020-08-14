@@ -450,7 +450,9 @@ class MyTodosViewController: UIViewController {
 			numTodosPerDate_lbl.text = "\(numTodosPerDate)"
 			
 			let date_SV = UIStackView(arrangedSubviews: [date_lbl, numTodosPerDate_lbl])
-			
+			if UIDevice().model != "iPad" {
+				date_SV.distribution = .fillProportionally
+			}
 			let view = UIView()
 			view.heightAnchor.constraint(equalToConstant: 1).isActive = true
 			view.backgroundColor = .systemGray4

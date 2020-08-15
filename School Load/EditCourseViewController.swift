@@ -61,12 +61,10 @@ class EditCourseViewController: UIViewController {
 			progress_spinner.startAnimating()
 			progress_spinner.isHidden = false
 			
-			var numTodos = 0
 			var id = ""
 			
 			for c in user.courses {
 				if c.ID.hashValue == sent_cID {
-					numTodos = c.numTodos
 					id = c.ID
 				}
 			}
@@ -74,7 +72,6 @@ class EditCourseViewController: UIViewController {
 			db.collection("users").document(user.ID).collection("courses").document(id).updateData([
 				"name" : cName,
 				"color" : numColor,
-				"numTodos": numTodos,
 				"time" : Timestamp()
 			]) { (error) in
 				if error != nil {

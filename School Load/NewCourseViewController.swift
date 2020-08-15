@@ -60,7 +60,6 @@ class NewCourseViewController: UIViewController {
 				"name" : cName,
 				"color" : numColor,
 				"time" : Timestamp(date: Date()),
-				"numTodos" : 0
 			]) { (error) in
 				if error == nil {
 					self.progress_spinner.stopAnimating()

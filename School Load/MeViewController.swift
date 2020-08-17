@@ -66,7 +66,17 @@ class MeViewController: UIViewController {
 		
 		name_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 		email_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-
+		
+		if user.isGuest {
+			name_btn.isEnabled = false
+			email_btn.isEnabled = false
+			change_password_btn.isEnabled = false
+			email_btn.setTitle("Email:\nGuest Mode", for: .normal)
+		} else {
+			name_btn.isEnabled = true
+			email_btn.isEnabled = true
+			change_password_btn.isEnabled = true
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +102,11 @@ class MeViewController: UIViewController {
 		name_btn.setTitle("Name:\n\(name)", for: .normal)
 		
 		let email = Auth.auth().currentUser!.email!
-		email_btn.setTitle("Email:\n\(email)", for: .normal)
+		if user.isGuest {
+			email_btn.setTitle("Email:\nGuest Mode", for: .normal)
+		} else {
+			email_btn.setTitle("Email:\n\(email)", for: .normal)
+		}
 	}
 	
 	@IBAction func name_tapped(_ sender: Any) {

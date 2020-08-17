@@ -81,14 +81,16 @@ class YourPasswordViewController: UIViewController {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
 									"notificationHour" : self.hour,
-									"notificationMinute" : self.minute
+									"notificationMinute" : self.minute,
+									"isGuest" : false
 								])
 							} else {
 								db.collection("users").document(id).setData([
 									"first name" : self.fname,
 									"last name" : self.lname,
 									"notificationHour" : self.hour,
-									"notificationMinute" : self.minute
+									"notificationMinute" : self.minute,
+									"isGuest" : false
 								])
 							}
 							

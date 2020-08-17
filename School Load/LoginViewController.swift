@@ -187,7 +187,8 @@ class LoginViewController: UIViewController {
 				db.collection("users").document(id).setData([
 					"first name" : "Guest",
 					"notificationHour" : 0,
-					"notificationMinute" : 0
+					"notificationMinute" : 0,
+					"isGuest" : true
 				])
 				
 				Auth.auth().currentUser?.updateEmail(to: "\(id)@SchoolLoad.com", completion: { (error) in })

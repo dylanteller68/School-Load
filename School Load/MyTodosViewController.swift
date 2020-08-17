@@ -43,6 +43,7 @@ class MyTodosViewController: UIViewController {
 					let userEmail = currentUser?.email
 					let notificationHour = data!["notificationHour"] as! Int
 					let notificationMinute = data!["notificationMinute"] as! Int
+					let isGuest = data!["isGuest"] as! Bool
 					
 					// populate user object
 					user.fname = userFName
@@ -50,6 +51,7 @@ class MyTodosViewController: UIViewController {
 					user.email = userEmail!
 					user.notificationHour = notificationHour
 					user.notificationMinute = notificationMinute
+					user.isGuest = isGuest
 				} else {
 					// error
 				}

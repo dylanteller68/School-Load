@@ -72,10 +72,14 @@ class MeViewController: UIViewController {
 			email_btn.isEnabled = false
 			change_password_btn.isEnabled = false
 			email_btn.setTitle("Email:\nGuest Mode", for: .normal)
+			logout_btn.setTitle("Create Account", for: .normal)
+			logout_btn.setTitleColor(.systemGreen, for: .normal)
 		} else {
 			name_btn.isEnabled = true
 			email_btn.isEnabled = true
 			change_password_btn.isEnabled = true
+			logout_btn.setTitle("Logout", for: .normal)
+			logout_btn.setTitleColor(.systemRed, for: .normal)
 		}
     }
 	

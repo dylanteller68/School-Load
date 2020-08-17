@@ -338,7 +338,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="S8X-3z-nKu"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                                 <connections>
                                                     <action selector="email_txtbx_done:" destination="Sez-yX-niQ" eventType="primaryActionTriggered" id="7OT-TL-oNO"/>
                                                     <action selector="email_txtbx_tapped:" destination="Sez-yX-niQ" eventType="editingDidBegin" id="iqT-Dx-0rF"/>

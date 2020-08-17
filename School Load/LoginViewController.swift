@@ -181,12 +181,20 @@ class LoginViewController: UIViewController {
 		let alert = UIAlertController(title: "Continue as Guest", message: "Without creating an account, you will not be able to access your data on another device.", preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in }))
 		alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
-			db.collection("users").document().setData([
-				"first name" : "Guest",
-				"notificationHour" : 0,
-				"notificationMinute" : 0
-			])
-			self.performSegue(withIdentifier: "login_segue", sender: self)
+			let docID = db.collection("users").document().documentID
+			Auth.auth().createUser(withEmail: "\(docID)@SchoolLoad.com", password: "Password1") { authResult, error in
+				let id = authResult?.user.uid ?? ""
+				db.collection("users").document(id).setData([
+					"first name" : "Guest",
+					"notificationHour" : 0,
+					"notificationMinute" : 0
+				])
+				
+				Auth.auth().currentUser?.updateEmail(to: "\(id)@SchoolLoad.com", completion: { (error) in })
+				db.collection("users").document(docID).delete()
+				
+				self.performSegue(withIdentifier: "login_segue", sender: self)
+			}
 		}))
 		alert.popoverPresentationController?.sourceView = guest_btn
 		present(alert, animated: true)

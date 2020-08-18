@@ -845,6 +845,7 @@
                         <outlet property="rate_btn" destination="utc-w6-Ld5" id="eqf-hD-IgB"/>
                         <segue destination="Sez-yX-niQ" kind="show" identifier="logout_segue" id="0Nm-Za-2py"/>
                         <segue destination="MfQ-t3-O86" kind="show" identifier="contact_segue" id="LU6-Z5-BcM"/>
+                        <segue destination="3MP-mR-xbz" kind="show" identifier="create_acct_segue" id="93e-7g-Ce8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ff-fA-CY2" sceneMemberID="firstResponder"/>
@@ -3737,9 +3738,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="nln-Zt-HrC"/>
         <segue reference="mjY-Ie-3dP"/>
+        <segue reference="93e-7g-Ce8"/>
         <segue reference="qQq-fv-xBw"/>
         <segue reference="3gF-lC-h5J"/>
-        <segue reference="q39-Mu-kBR"/>
+        <segue reference="0Nm-Za-2py"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.circle" catalog="system" width="128" height="121"/>

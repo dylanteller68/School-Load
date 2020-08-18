@@ -155,12 +155,16 @@ class MeViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		do {
-			try Auth.auth().signOut()
-			user.todos = []
-			performSegue(withIdentifier: "logout_segue", sender: self)
-		} catch {
-			// error
+		if !user.isGuest {
+			do {
+				try Auth.auth().signOut()
+				user.todos = []
+				performSegue(withIdentifier: "logout_segue", sender: self)
+			} catch {
+				// error
+			}
+		} else {
+			performSegue(withIdentifier: "create_acct_segue", sender: self)
 		}
 	}
 	

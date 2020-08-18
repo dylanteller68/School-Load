@@ -483,6 +483,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BSTSM484M8;
 				INFOPLIST_FILE = "School Load/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -508,6 +509,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BSTSM484M8;
 				INFOPLIST_FILE = "School Load/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

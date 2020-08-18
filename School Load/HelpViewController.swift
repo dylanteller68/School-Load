@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HelpViewController: UIViewController {
 	
@@ -24,7 +25,25 @@ class HelpViewController: UIViewController {
     }
 	
 	@IBAction func delete_acct_tapped(_ sender: Any) {
-		
+		if user.isGuest {
+			let alert = UIAlertController(title: "Delete Account", message: "Your account and all data will be permanently deleted. This cannot be undone.", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in	}))
+			alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+				for t in user.todos {
+					db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
+				}
+				for c in user.courses {
+					db.collection("users").document(user.ID).collection("courses").document(c.ID).delete()
+				}
+				db.collection("users").document(user.ID).delete()
+				Auth.auth().currentUser?.delete()
+				self.performSegue(withIdentifier: "delete_acct_segue", sender: nil)
+			}))
+			
+			present(alert, animated: true)
+		} else {
+			performSegue(withIdentifier: "delete_acct_reauth_segue", sender: nil)
+		}
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

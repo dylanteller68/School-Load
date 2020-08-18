@@ -670,17 +670,17 @@
             <objects>
                 <viewController title="me" id="CsA-qq-WdE" customClass="MeViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLa-BY-CsS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7za-KC-MuX">
-                                <rect key="frame" x="10" y="108" width="394" height="585"/>
+                                <rect key="frame" x="10" y="64" width="394" height="575"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1gY-Tj-8hv">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="188.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="185"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYc-AI-ZsU">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Name">
@@ -692,7 +692,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0A-MQ-7Yn">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="188.5"/>
+                                                <rect key="frame" x="202" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Email">
@@ -706,10 +706,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="458-U4-AGY">
-                                        <rect key="frame" x="0.0" y="198.5" width="394" height="188"/>
+                                        <rect key="frame" x="0.0" y="195" width="394" height="185"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-Fx-nYa">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Change Password">
@@ -721,7 +721,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-w6-Ld5">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="188"/>
+                                                <rect key="frame" x="202" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Rate Us">
@@ -734,10 +734,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-Mv-WrQ">
-                                        <rect key="frame" x="0.0" y="396.5" width="394" height="188.5"/>
+                                        <rect key="frame" x="0.0" y="390" width="394" height="185"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lum-tT-Pmj">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="188.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Help">
@@ -749,7 +749,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svG-4l-sOH">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="188.5"/>
+                                                <rect key="frame" x="202" y="0.0" width="192" height="185"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                                 <state key="normal" title="Contact">
@@ -764,7 +764,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-Yc-XWL">
-                                <rect key="frame" x="10" y="703" width="394" height="100"/>
+                                <rect key="frame" x="10" y="649" width="394" height="100"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="hxL-x3-e6P"/>
@@ -778,7 +778,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-dn-YBk" userLabel="school load lbl SV">
-                                <rect key="frame" x="163" y="51" width="88" height="36"/>
+                                <rect key="frame" x="163" y="7" width="88" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeP-Wo-8Qz">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="36"/>
@@ -795,7 +795,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyZ-jw-tFY">
-                                <rect key="frame" x="0.0" y="97" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="53" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="3vF-FE-zz2"/>
@@ -803,7 +803,7 @@
                                 <viewLayoutGuide key="safeArea" id="1dG-fV-J0m"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-c4-Xxb">
-                                <rect key="frame" x="15" y="54" width="30" height="30"/>
+                                <rect key="frame" x="15" y="10" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="0Yj-t6-VDL"/>
                                     <constraint firstAttribute="height" constant="30" id="ZWP-iU-WUJ"/>
@@ -2740,10 +2740,10 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="798"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSR-vg-UMK">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="3237.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="3437"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-px-zck">
-                                                <rect key="frame" x="10" y="10" width="394" height="3207.5"/>
+                                                <rect key="frame" x="10" y="10" width="394" height="3407"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting Started:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUl-n6-WI3">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="36"/>
@@ -3008,26 +3008,38 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can I access my data from another device if I'm in guest mode?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQv-8z-Tf7">
+                                                        <rect key="frame" x="0.0" y="3019.5" width="394" height="107.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yes, just go to the Me tab and tap Create Account to make your account so you can sign in on another device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkL-hV-XU7">
+                                                        <rect key="frame" x="0.0" y="3137" width="394" height="72"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmD-Er-ow2">
-                                                        <rect key="frame" x="0.0" y="3019.5" width="394" height="36"/>
+                                                        <rect key="frame" x="0.0" y="3219" width="394" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For questions, comments, concerns, or just to say hi, email us at:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpa-Me-6Kb">
-                                                        <rect key="frame" x="0.0" y="3065.5" width="394" height="48"/>
+                                                        <rect key="frame" x="0.0" y="3265" width="394" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help.SchoolLoad@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP6-M3-PJS">
-                                                        <rect key="frame" x="0.0" y="3123.5" width="394" height="24"/>
+                                                        <rect key="frame" x="0.0" y="3323" width="394" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diq-vW-sNt">
-                                                        <rect key="frame" x="0.0" y="3157.5" width="394" height="50"/>
+                                                        <rect key="frame" x="0.0" y="3357" width="394" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="345" id="aNk-n6-l3h"/>
@@ -3041,7 +3053,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="delete_acct_tapped:" destination="MfQ-t3-O86" eventType="touchUpInside" id="0Dc-ob-aqo"/>
-                                                            <segue destination="oeD-Nk-8qK" kind="show" id="DgM-ed-N90"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3087,6 +3098,8 @@
                     <connections>
                         <outlet property="delete_acct_btn" destination="diq-vW-sNt" id="prx-gn-adM"/>
                         <outlet property="scrollview" destination="isk-Ba-0Cd" id="sIE-BB-Rl8"/>
+                        <segue destination="Sez-yX-niQ" kind="show" identifier="delete_acct_segue" id="q0N-Vy-ofg"/>
+                        <segue destination="oeD-Nk-8qK" kind="show" identifier="delete_acct_reauth_segue" id="xUq-Fv-ayY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkY-0g-zpk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3737,11 +3750,11 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nln-Zt-HrC"/>
-        <segue reference="mjY-Ie-3dP"/>
+        <segue reference="IfQ-gY-3PO"/>
         <segue reference="93e-7g-Ce8"/>
-        <segue reference="qQq-fv-xBw"/>
-        <segue reference="3gF-lC-h5J"/>
-        <segue reference="0Nm-Za-2py"/>
+        <segue reference="UDt-oY-Pwp"/>
+        <segue reference="M35-uz-owP"/>
+        <segue reference="q0N-Vy-ofg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.down.circle" catalog="system" width="128" height="121"/>

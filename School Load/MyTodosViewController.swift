@@ -43,15 +43,20 @@ class MyTodosViewController: UIViewController {
 					let userEmail = currentUser?.email
 					let notificationHour = data!["notificationHour"] as! Int
 					let notificationMinute = data!["notificationMinute"] as! Int
+					let isGuest = data!["isGuest"] as! Bool
 					
-					// populate user object
-					user.fname = userFName
-					user.lname = userLName
-					user.email = userEmail!
+					if isGuest {
+						user.fname = "Guest"
+						user.lname = ""
+						user.email = "Guest Mode"
+					} else {
+						user.fname = userFName
+						user.lname = userLName
+						user.email = userEmail!
+					}
+					user.isGuest = isGuest
 					user.notificationHour = notificationHour
 					user.notificationMinute = notificationMinute
-				} else {
-					// error
 				}
 			}
 

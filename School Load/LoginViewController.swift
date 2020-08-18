@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var password_txtbx: UITextField!
 	@IBOutlet weak var login_btn: UIButton!
 	@IBOutlet weak var create_acct_btn: UIButton!
+	@IBOutlet weak var guest_btn: UIButton!
 	@IBOutlet weak var forgot_pswd_btn: UIButton!
 	@IBOutlet weak var error_lbl: UILabel!
 	@IBOutlet weak var progress_spinner: UIActivityIndicatorView!
@@ -41,7 +42,7 @@ class LoginViewController: UIViewController {
 		forgot_pswd_btn.isEnabled = true
 		create_acct_btn.isEnabled = true
 		login_btn.isEnabled = true
-		
+		guest_btn.isEnabled = true
 		password_txtbx.text = ""
 	}
 
@@ -86,6 +87,7 @@ class LoginViewController: UIViewController {
 		forgot_pswd_btn.isEnabled = false
 		create_acct_btn.isEnabled = false
 		login_btn.isEnabled = false
+		guest_btn.isEnabled = false
 		
 		email_txtbx.resignFirstResponder()
 		password_txtbx.resignFirstResponder()
@@ -149,12 +151,14 @@ class LoginViewController: UIViewController {
 		forgot_pswd_btn.isEnabled = true
 		create_acct_btn.isEnabled = true
 		login_btn.isEnabled = true
+		guest_btn.isEnabled = true
 	}
 	
 	@IBAction func forgot_password_tapped(_ sender: Any) {
 		forgot_pswd_btn.isEnabled = false
 		create_acct_btn.isEnabled = false
 		login_btn.isEnabled = false
+		guest_btn.isEnabled = false
 		
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
@@ -164,9 +168,37 @@ class LoginViewController: UIViewController {
 		forgot_pswd_btn.isEnabled = false
 		create_acct_btn.isEnabled = false
 		login_btn.isEnabled = false
+		guest_btn.isEnabled = false
 		
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
+	}
+	
+	@IBAction func continue_as_guest_tapped(_ sender: Any) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+		let alert = UIAlertController(title: "Continue as Guest", message: "Without creating an account, you will not be able to access your data on another device.", preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in }))
+		alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
+			let docID = db.collection("users").document().documentID
+			Auth.auth().createUser(withEmail: "\(docID)@SchoolLoad.com", password: "Password1") { authResult, error in
+				let id = authResult?.user.uid ?? ""
+				db.collection("users").document(id).setData([
+					"first name" : "Guest",
+					"notificationHour" : 0,
+					"notificationMinute" : 0,
+					"isGuest" : true
+				])
+				
+				Auth.auth().currentUser?.updateEmail(to: "\(id)@SchoolLoad.com", completion: { (error) in })
+				db.collection("users").document(docID).delete()
+				
+				self.performSegue(withIdentifier: "login_segue", sender: self)
+			}
+		}))
+		alert.popoverPresentationController?.sourceView = guest_btn
+		present(alert, animated: true)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

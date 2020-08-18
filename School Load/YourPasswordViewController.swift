@@ -60,52 +60,101 @@ class YourPasswordViewController: UIViewController {
 					progress_spinner.startAnimating()
 					progress_spinner.isHidden = false
 					
-					Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-						if error != nil {
-							self.progress_spinner.stopAnimating()
-							
-							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-							notificationFeedbackGenerator.prepare()
-							notificationFeedbackGenerator.notificationOccurred(.error)
-							
-							if error!.localizedDescription == "The email address is badly formatted." {
-								self.create_acct_btn.setTitle("Invalid email", for: .normal)
-							} else if error!.localizedDescription == "The email address is already in use by another account." {
-								self.create_acct_btn.setTitle("Invalid email", for: .normal)
+					if !user.isGuest {
+						Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+							if error != nil {
+								self.progress_spinner.stopAnimating()
+								
+								let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+								notificationFeedbackGenerator.prepare()
+								notificationFeedbackGenerator.notificationOccurred(.error)
+								
+								if error!.localizedDescription == "The email address is badly formatted." {
+									self.create_acct_btn.setTitle("Invalid email", for: .normal)
+								} else if error!.localizedDescription == "The email address is already in use by another account." {
+									self.create_acct_btn.setTitle("Invalid email", for: .normal)
+								} else {
+									self.create_acct_btn.setTitle("Oops, try again", for: .normal)
+								}
 							} else {
-								self.create_acct_btn.setTitle("Oops, try again", for: .normal)
-							}
-						} else {
-							let id = authResult?.user.uid ?? ""
-							if self.lname == "" {
-								db.collection("users").document(id).setData([
-									"first name" : self.fname,
-									"notificationHour" : self.hour,
-									"notificationMinute" : self.minute
-								])
-							} else {
-								db.collection("users").document(id).setData([
-									"first name" : self.fname,
-									"last name" : self.lname,
-									"notificationHour" : self.hour,
-									"notificationMinute" : self.minute
-								])
-							}
-							
-							Auth.auth().currentUser?.sendEmailVerification()
-														
-							self.progress_spinner.stopAnimating()
-							
-							let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-							notificationFeedbackGenerator.prepare()
-							notificationFeedbackGenerator.notificationOccurred(.success)
-							
-							self.create_acct_btn.setTitle("Welcome \(self.fname)", for: .normal)
+								let id = authResult?.user.uid ?? ""
+								if self.lname == "" {
+									db.collection("users").document(id).setData([
+										"first name" : self.fname,
+										"notificationHour" : self.hour,
+										"notificationMinute" : self.minute,
+										"isGuest" : false
+									])
+								} else {
+									db.collection("users").document(id).setData([
+										"first name" : self.fname,
+										"last name" : self.lname,
+										"notificationHour" : self.hour,
+										"notificationMinute" : self.minute,
+										"isGuest" : false
+									])
+								}
+								
+								Auth.auth().currentUser?.sendEmailVerification()
+															
+								self.progress_spinner.stopAnimating()
+								
+								let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+								notificationFeedbackGenerator.prepare()
+								notificationFeedbackGenerator.notificationOccurred(.success)
+								
+								self.create_acct_btn.setTitle("Welcome \(self.fname)", for: .normal)
 
-							DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-								self.performSegue(withIdentifier: "create_acct_segue", sender: self)
+								DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+									self.performSegue(withIdentifier: "create_acct_segue", sender: self)
+								}
 							}
 						}
+					} else /* isGuest */ {
+						// reauthenticate
+						let cred = EmailAuthProvider.credential(withEmail: "\(user.ID)@SchoolLoad.com", password: "Password1")
+						Auth.auth().currentUser?.reauthenticate(with: cred, completion: { (authresult, error) in
+							if error == nil {
+								Auth.auth().currentUser?.updateEmail(to: self.email, completion: { (error) in
+									if error == nil {
+										Auth.auth().currentUser?.updatePassword(to: password, completion: { (error) in
+											if error == nil {
+												if self.lname == "" {
+													db.collection("users").document(user.ID).setData([
+														"first name" : self.fname,
+														"notificationHour" : self.hour,
+														"notificationMinute" : self.minute,
+														"isGuest" : false
+													])
+												} else {
+													db.collection("users").document(user.ID).setData([
+														"first name" : self.fname,
+														"last name" : self.lname,
+														"notificationHour" : self.hour,
+														"notificationMinute" : self.minute,
+														"isGuest" : false
+													])
+												}
+												
+												Auth.auth().currentUser?.sendEmailVerification()
+																			
+												self.progress_spinner.stopAnimating()
+												
+												let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+												notificationFeedbackGenerator.prepare()
+												notificationFeedbackGenerator.notificationOccurred(.success)
+												
+												self.create_acct_btn.setTitle("Welcome \(self.fname)", for: .normal)
+
+												DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+													self.performSegue(withIdentifier: "create_acct_segue", sender: self)
+												}
+											}
+										})
+									}
+								})
+							}
+						})
 					}
 				} else {
 					let notificationFeedbackGenerator = UINotificationFeedbackGenerator()

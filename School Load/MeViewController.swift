@@ -66,7 +66,21 @@ class MeViewController: UIViewController {
 		
 		name_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
 		email_btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-
+		
+		if user.isGuest {
+			name_btn.isEnabled = false
+			email_btn.isEnabled = false
+			change_password_btn.isEnabled = false
+			email_btn.setTitle("Email:\nGuest Mode", for: .normal)
+			logout_btn.setTitle("Create Account", for: .normal)
+			logout_btn.setTitleColor(.systemGreen, for: .normal)
+		} else {
+			name_btn.isEnabled = true
+			email_btn.isEnabled = true
+			change_password_btn.isEnabled = true
+			logout_btn.setTitle("Logout", for: .normal)
+			logout_btn.setTitleColor(.systemRed, for: .normal)
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +106,11 @@ class MeViewController: UIViewController {
 		name_btn.setTitle("Name:\n\(name)", for: .normal)
 		
 		let email = Auth.auth().currentUser!.email!
-		email_btn.setTitle("Email:\n\(email)", for: .normal)
+		if user.isGuest {
+			email_btn.setTitle("Email:\nGuest Mode", for: .normal)
+		} else {
+			email_btn.setTitle("Email:\n\(email)", for: .normal)
+		}
 	}
 	
 	@IBAction func name_tapped(_ sender: Any) {
@@ -137,12 +155,16 @@ class MeViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-		do {
-			try Auth.auth().signOut()
-			user.todos = []
-			performSegue(withIdentifier: "logout_segue", sender: self)
-		} catch {
-			// error
+		if !user.isGuest {
+			do {
+				try Auth.auth().signOut()
+				user.todos = []
+				performSegue(withIdentifier: "logout_segue", sender: self)
+			} catch {
+				// error
+			}
+		} else {
+			performSegue(withIdentifier: "create_acct_segue", sender: self)
 		}
 	}
 	

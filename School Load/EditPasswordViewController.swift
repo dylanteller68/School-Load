@@ -85,6 +85,13 @@ class EditPasswordViewController: UIViewController {
 			notificationFeedbackGenerator.prepare()
 			notificationFeedbackGenerator.notificationOccurred(.error)
 			
+			if didTapTxtbx {
+				if UIDevice().model == "iPad" {
+					txtbx_constraint_Y.constant += 80
+				}
+				didTapTxtbx = false
+			}
+			
 			error_lbl.text = "Password required"
 			error_lbl.isHidden = false
 		}

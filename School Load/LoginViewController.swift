@@ -144,6 +144,13 @@ class LoginViewController: UIViewController {
 			notificationFeedbackGenerator.prepare()
 			notificationFeedbackGenerator.notificationOccurred(.error)
 			
+			if didTapEmailTxtbx {
+				if UIDevice().model == "iPad" {
+					txtbx_constraint_Y.constant += 80
+				}
+				didTapEmailTxtbx = false
+			}
+			
 			error_lbl.text = "Email & Password required"
 			error_lbl.isHidden = false
 		}

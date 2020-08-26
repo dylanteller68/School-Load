@@ -27,6 +27,7 @@ public class User {
 	var notificationMinute = 0
 	var needsToGoToTodos = false
 	var isGuest = false
+	var coursesShouldUpdate = false
 	
 	let colors: [UIColor] = [UIColor.systemBlue, UIColor.systemGreen, UIColor.systemIndigo, UIColor.systemOrange, UIColor.systemPink, UIColor.systemPurple, UIColor.systemRed, UIColor.systemTeal, UIColor.systemYellow]
 	

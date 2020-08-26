@@ -118,7 +118,7 @@ class MyTodosViewController: UIViewController {
 										}
 									}
 								}
-								
+								user.coursesShouldUpdate = true
 							}
 							if (diff.type == .modified) {
 								
@@ -157,7 +157,7 @@ class MyTodosViewController: UIViewController {
 										}
 									}
 								}
-
+								user.coursesShouldUpdate = true
 							}
 							if (diff.type == .removed) {
 								
@@ -176,7 +176,7 @@ class MyTodosViewController: UIViewController {
 										}
 									}
 								}
-														
+								user.coursesShouldUpdate = true
 							}
 						}
 						
@@ -221,6 +221,7 @@ class MyTodosViewController: UIViewController {
 			
 			if openDateFormatted != thisDateFormatted {
 				redraw_screen()
+				OPEN_DATE = Date()
 			}
 			
 		}

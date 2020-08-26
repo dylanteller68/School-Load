@@ -117,7 +117,10 @@ class MyCoursesViewController: UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		redraw_screen()
+		if user.coursesShouldUpdate {
+			redraw_screen()
+			user.coursesShouldUpdate = false
+		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

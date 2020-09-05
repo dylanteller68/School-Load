@@ -91,14 +91,6 @@ class EditNameViewController: UIViewController {
 			
 			name_txtbx.text = "Name"
 			name_txtbx.textColor = .systemRed
-			
-			if didTapTxtbx {
-				if UIDevice().model == "iPad" {
-					txtbx_constraint_Y.constant += 80
-				}
-				didTapTxtbx = false
-			}
-			
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self.name_txtbx.text = ""
 				self.name_txtbx.textColor = .label

@@ -79,13 +79,6 @@ class ForgotPasswordViewController: UIViewController {
 					}
 				}
 			}
-		} else {
-			if didTapTxtbx {
-				if UIDevice().model == "iPad" {
-					txtbx_constraint_Y.constant += 80
-				}
-				didTapTxtbx = false
-			}
 		}
 
 		cancel_btn.isEnabled = true

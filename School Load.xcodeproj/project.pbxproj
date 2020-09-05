@@ -40,7 +40,7 @@
 		4CEFCC9124BBC0190039776F /* YourEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */; };
 		4CEFCC9324BBC0350039776F /* YourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */; };
 		4CF81550246F003A0020DF98 /* EditCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF8154F246F003A0020DF98 /* EditCourseViewController.swift */; };
-		5AB984B90C623E729163FDCA /* Pods_School_Load.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA4DACC7DE1711A62F79433 /* Pods_School_Load.framework */; };
+		7A23B45B8AEF1E4EDA2E6D84 /* Pods_School_Load.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482CD9E178C802558DB1C0E2 /* Pods_School_Load.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,8 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0AA4DACC7DE1711A62F79433 /* Pods_School_Load.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_School_Load.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		38286C12826C0F13FD0BFE6D /* Pods-School Load.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-School Load.debug.xcconfig"; path = "Target Support Files/Pods-School Load/Pods-School Load.debug.xcconfig"; sourceTree = "<group>"; };
+		482CD9E178C802558DB1C0E2 /* Pods_School_Load.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_School_Load.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C067B3724319A4B00654077 /* School Load.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "School Load.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C067B3A24319A4B00654077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C067B3C24319A4B00654077 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +95,8 @@
 		4CEFCC9024BBC0190039776F /* YourEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourEmailViewController.swift; sourceTree = "<group>"; };
 		4CEFCC9224BBC0350039776F /* YourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPasswordViewController.swift; sourceTree = "<group>"; };
 		4CF8154F246F003A0020DF98 /* EditCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseViewController.swift; sourceTree = "<group>"; };
-		EE7B0320DED3A340D7DFCCE2 /* Pods-School Load.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-School Load.release.xcconfig"; path = "Target Support Files/Pods-School Load/Pods-School Load.release.xcconfig"; sourceTree = "<group>"; };
+		51CAA17D48F276A3DE693B6D /* Pods-School Load.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-School Load.debug.xcconfig"; path = "Target Support Files/Pods-School Load/Pods-School Load.debug.xcconfig"; sourceTree = "<group>"; };
+		D6BCC1A877E97421A8BDB18D /* Pods-School Load.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-School Load.release.xcconfig"; path = "Target Support Files/Pods-School Load/Pods-School Load.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AB984B90C623E729163FDCA /* Pods_School_Load.framework in Frameworks */,
+				7A23B45B8AEF1E4EDA2E6D84 /* Pods_School_Load.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4C3C9AD02463C5960030A363 /* NotificationCenter.framework */,
-				0AA4DACC7DE1711A62F79433 /* Pods_School_Load.framework */,
+				482CD9E178C802558DB1C0E2 /* Pods_School_Load.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,8 +183,8 @@
 		9655218FDD1935A3A50B0C1D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				38286C12826C0F13FD0BFE6D /* Pods-School Load.debug.xcconfig */,
-				EE7B0320DED3A340D7DFCCE2 /* Pods-School Load.release.xcconfig */,
+				51CAA17D48F276A3DE693B6D /* Pods-School Load.debug.xcconfig */,
+				D6BCC1A877E97421A8BDB18D /* Pods-School Load.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,12 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C067B4D24319A4C00654077 /* Build configuration list for PBXNativeTarget "School Load" */;
 			buildPhases = (
-				76A14DCA55085975EF6DE87A /* [CP] Check Pods Manifest.lock */,
+				11BCE87A81EC1B684FE5CB6F /* [CP] Check Pods Manifest.lock */,
 				4C067B3324319A4B00654077 /* Sources */,
 				4C067B3424319A4B00654077 /* Frameworks */,
 				4C067B3524319A4B00654077 /* Resources */,
 				4C3C9ADF2463C5960030A363 /* Embed App Extensions */,
-				19C29C4285580E88EAE1CF26 /* [CP] Embed Pods Frameworks */,
+				58402569BB5CAF877742DB64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Dylan Teller";
 				TargetAttributes = {
 					4C067B3624319A4B00654077 = {
@@ -260,24 +260,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19C29C4285580E88EAE1CF26 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76A14DCA55085975EF6DE87A /* [CP] Check Pods Manifest.lock */ = {
+		11BCE87A81EC1B684FE5CB6F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -297,6 +280,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58402569BB5CAF877742DB64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-School Load/Pods-School Load-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -386,6 +386,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -446,6 +447,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -476,7 +478,7 @@
 		};
 		4C067B4E24319A4C00654077 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38286C12826C0F13FD0BFE6D /* Pods-School Load.debug.xcconfig */;
+			baseConfigurationReference = 51CAA17D48F276A3DE693B6D /* Pods-School Load.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "School Load/school load.entitlements";
@@ -502,7 +504,7 @@
 		};
 		4C067B4F24319A4C00654077 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE7B0320DED3A340D7DFCCE2 /* Pods-School Load.release.xcconfig */;
+			baseConfigurationReference = D6BCC1A877E97421A8BDB18D /* Pods-School Load.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "School Load/school load.entitlements";

@@ -193,10 +193,7 @@ class MyTodosViewController: UIViewController {
 							self.no_todos_lbl.isHidden = false
 						}
 						self.progress_spinner.stopAnimating()
-						UIView.animate(withDuration: 0.5) {
-							self.redraw_screen()
-							self.view.layoutIfNeeded()
-						}
+						self.redraw_screen()
 					}
 				}
 			}
@@ -223,10 +220,8 @@ class MyTodosViewController: UIViewController {
 			let thisDateFormatted = df2.string(from: Date())
 			
 			if openDateFormatted != thisDateFormatted {
-				UIView.animate(withDuration: 0.5) {
-					self.redraw_screen()
-					self.view.layoutIfNeeded()
-				}
+				redraw_screen()
+				OPEN_DATE = Date()
 			}
 			
 		}
@@ -263,8 +258,7 @@ class MyTodosViewController: UIViewController {
 				let v1 = sv?.arrangedSubviews[1] as? UIStackView
 				let v2 = sv?.arrangedSubviews[2] as? UIButton
 				let ats = NSAttributedString(string: "Done!", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
-				let doneStr = !user.isGuest ? "Nice job, \(user.fname)" : "Nice job"
-				let ats2 = NSAttributedString(string: doneStr, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
+				let ats2 = NSAttributedString(string: "Nice job, \(user.fname)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
 				let subv1 = v1?.arrangedSubviews[0] as? UIButton
 				let subv2 = v1?.arrangedSubviews[1] as? UIButton
 				subv1?.setAttributedTitle(ats, for: .normal)
@@ -276,6 +270,18 @@ class MyTodosViewController: UIViewController {
 		}
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			UIView.animate(withDuration: 0.5) {
+				for v in self.btn_SV.arrangedSubviews {
+					if v.tag == sender.tag {
+						self.btn_SV.removeArrangedSubview(v)
+						v.removeFromSuperview()
+						self.view.layoutIfNeeded()
+					}
+				}
+			}
+		}
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 			for t in user.todos {
 				if t.ID.hashValue == sender.tag {
 					db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()

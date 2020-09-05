@@ -51,6 +51,9 @@ class MyCoursesViewController: UIViewController {
 						} else {
 							user.courses.append(course)
 						}
+						
+						
+						self.redraw_screen()
 					}
 					if (diff.type == .modified) {
 						let data = diff.document.data()
@@ -91,13 +94,13 @@ class MyCoursesViewController: UIViewController {
 								t.course = diff.document.documentID
 							}
 						}
+						
+						self.redraw_screen()
+						
 					}
 					if (diff.type == .removed) {
 						user.courses.removeAll(where: {$0.ID == diff.document.documentID})
-					}
-					UIView.animate(withDuration: 0.5) {
 						self.redraw_screen()
-						self.view.layoutIfNeeded()
 					}
 					if user.courses.count != 0 {
 						self.no_courses_lbl.isHidden = true
@@ -115,10 +118,7 @@ class MyCoursesViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		if user.coursesShouldUpdate {
-			UIView.animate(withDuration: 0.5) {
-				self.redraw_screen()
-				self.view.layoutIfNeeded()
-			}
+			redraw_screen()
 			user.coursesShouldUpdate = false
 		}
 	}

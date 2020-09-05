@@ -483,7 +483,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BSTSM484M8;
 				INFOPLIST_FILE = "School Load/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -491,7 +491,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dylan-Teller.School-Load";
 				PRODUCT_NAME = "School Load";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -510,7 +509,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BSTSM484M8;
 				INFOPLIST_FILE = "School Load/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -518,7 +517,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dylan-Teller.School-Load";
 				PRODUCT_NAME = "School Load";
 				PROVISIONING_PROFILE_SPECIFIER = "";

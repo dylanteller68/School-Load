@@ -113,14 +113,6 @@ class EditCourseViewController: UIViewController {
 			
 			course_name_txtbx.text = "Course Name"
 			course_name_txtbx.textColor = .systemRed
-			
-			if didTapTxtbx {
-				if UIDevice().model == "iPad" {
-					txtbx_constraint.constant += 80
-				}
-				didTapTxtbx = false
-			}
-			
 			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 				self.course_name_txtbx.text = ""
 				self.course_name_txtbx.textColor = .white

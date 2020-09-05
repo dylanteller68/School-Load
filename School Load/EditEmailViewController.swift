@@ -80,13 +80,6 @@ class EditEmailViewController: UIViewController {
 				}
 			})
 		} else {
-			if didTapTxtbx {
-				if UIDevice().model == "iPad" {
-					SV_constraint_Y.constant += 80
-				}
-				didTapTxtbx = false
-			}
-			
 			let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
 			notificationFeedbackGenerator.prepare()
 			notificationFeedbackGenerator.notificationOccurred(.error)

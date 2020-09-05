@@ -48,79 +48,78 @@ class CompletedTodosViewController: UIViewController {
 					
 				}
 				
-				UIView.animate(withDuration: 0.5) {
-					for v in self.btn_SV.arrangedSubviews {
-						self.btn_SV.removeArrangedSubview(v)
-						v.removeFromSuperview()
-					}
-					
-					if user.completed.count > 0 {
-						self.v.isHidden = false
-						self.no_completed_lbl.isHidden = true
-						self.clear_btn.isHidden = false
-					} else {
-						self.v.isHidden = true
-						self.no_completed_lbl.isHidden = false
-					}
-					self.progress_spinner.stopAnimating()
-
-					
-					user.sortCompleted()
-					
-					for t in user.completed {
-						var tCourseName = ""
-						for c in user.courses {
-							if c.ID == t.course {
-								tCourseName = c.name
-							}
-						}
-						
-						let bullet_btn = UIButton(type: .system)
-						bullet_btn.setTitle("", for: .normal)
-						bullet_btn.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
-						bullet_btn.widthAnchor.constraint(equalToConstant: 5).isActive = true
-						bullet_btn.tintColor = user.colors[t.color]
-						bullet_btn.tag = t.ID.hashValue
-						
-						let done_btn = UIButton(type: .system)
-						done_btn.setTitle("", for: .normal)
-						done_btn.setBackgroundImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
-						done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
-						done_btn.tintColor = .label
-						done_btn.tag = t.ID.hashValue
-						done_btn.addTarget(self, action: #selector(self.add_btn_tapped), for: .touchUpInside)
-						
-						let btn1 = UIButton(type: .system)
-						let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
-						btn1.setAttributedTitle(title, for: .normal)
-						btn1.contentHorizontalAlignment = .leading
-						btn1.titleLabel?.lineBreakMode = .byTruncatingTail
-						btn1.tag = t.ID.hashValue
-						
-						let btn2 = UIButton(type: .system)
-						let title2 = NSMutableAttributedString(string: "\(tCourseName)", attributes: [
-							NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: user.colors[t.color]])
-						btn2.setAttributedTitle(title2, for: .normal)
-						btn2.contentHorizontalAlignment = .leading
-						btn2.titleLabel?.lineBreakMode = .byTruncatingTail
-						btn2.tag = t.ID.hashValue
-						
-						let btn = UIStackView(arrangedSubviews: [btn1, btn2])
-						btn.axis = .vertical
-						btn.distribution = .fillEqually
-						btn.spacing = 10
-
-						// individual todo SV
-						let todo_SV = UIStackView(arrangedSubviews: [bullet_btn, btn, done_btn])
-						todo_SV.axis = .horizontal
-						todo_SV.spacing = 15
-						todo_SV.tag = btn1.tag
-						todo_SV.heightAnchor.constraint(equalToConstant: 40).isActive = true
-									
-						self.btn_SV.addArrangedSubview(todo_SV)
-						self.view.layoutIfNeeded()
-					}
+				for v in self.btn_SV.arrangedSubviews {
+					self.btn_SV.removeArrangedSubview(v)
+					v.removeFromSuperview()
 				}
+				
+				if user.completed.count > 0 {
+					self.v.isHidden = false
+					self.no_completed_lbl.isHidden = true
+					self.clear_btn.isHidden = false
+				} else {
+					self.v.isHidden = true
+					self.no_completed_lbl.isHidden = false
+				}
+				self.progress_spinner.stopAnimating()
+
+				
+				user.sortCompleted()
+				
+				for t in user.completed {
+					var tCourseName = ""
+					for c in user.courses {
+						if c.ID == t.course {
+							tCourseName = c.name
+						}
+					}
+					
+					let bullet_btn = UIButton(type: .system)
+					bullet_btn.setTitle("", for: .normal)
+					bullet_btn.setBackgroundImage(UIImage(systemName: "circle.fill"), for: .normal)
+					bullet_btn.widthAnchor.constraint(equalToConstant: 5).isActive = true
+					bullet_btn.tintColor = user.colors[t.color]
+					bullet_btn.tag = t.ID.hashValue
+					
+					let done_btn = UIButton(type: .system)
+					done_btn.setTitle("", for: .normal)
+					done_btn.setBackgroundImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
+					done_btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
+					done_btn.tintColor = .label
+					done_btn.tag = t.ID.hashValue
+					done_btn.addTarget(self, action: #selector(self.add_btn_tapped), for: .touchUpInside)
+					
+					let btn1 = UIButton(type: .system)
+					let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
+					btn1.setAttributedTitle(title, for: .normal)
+					btn1.contentHorizontalAlignment = .leading
+					btn1.titleLabel?.lineBreakMode = .byTruncatingTail
+					btn1.tag = t.ID.hashValue
+					
+					let btn2 = UIButton(type: .system)
+					let title2 = NSMutableAttributedString(string: "\(tCourseName)", attributes: [
+						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: user.colors[t.color]])
+					btn2.setAttributedTitle(title2, for: .normal)
+					btn2.contentHorizontalAlignment = .leading
+					btn2.titleLabel?.lineBreakMode = .byTruncatingTail
+					btn2.tag = t.ID.hashValue
+					
+					let btn = UIStackView(arrangedSubviews: [btn1, btn2])
+					btn.axis = .vertical
+					btn.distribution = .fillEqually
+					btn.spacing = 10
+
+					// individual todo SV
+					let todo_SV = UIStackView(arrangedSubviews: [bullet_btn, btn, done_btn])
+					todo_SV.axis = .horizontal
+					todo_SV.spacing = 15
+					todo_SV.tag = btn1.tag
+					todo_SV.heightAnchor.constraint(equalToConstant: 40).isActive = true
+								
+					self.btn_SV.addArrangedSubview(todo_SV)
+
+				}
+				
 			} else {
 				// error
 			}

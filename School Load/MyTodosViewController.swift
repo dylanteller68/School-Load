@@ -221,6 +221,7 @@ class MyTodosViewController: UIViewController {
 			
 			if openDateFormatted != thisDateFormatted {
 				redraw_screen()
+				OPEN_DATE = Date()
 			}
 			
 		}

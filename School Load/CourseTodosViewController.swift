@@ -256,13 +256,15 @@ class CourseTodosViewController: UIViewController {
 			}
 		}
 		
+		let doneStr = !user.isGuest ? "Nice job, \(user.fname)" : "Nice job"
+
 		for v in self.btn_SV.arrangedSubviews {
 			if v.tag == sender.tag {
 				let sv = v as? UIStackView
 				let v1 = sv?.arrangedSubviews[1] as? UIStackView
 				let v2 = sv?.arrangedSubviews[2] as? UIButton
 				let ats = NSAttributedString(string: "Done!", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
-				let ats2 = NSAttributedString(string: "Nice job, \(user.fname)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
+				let ats2 = NSAttributedString(string: doneStr, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .thin)])
 				let subv1 = v1?.arrangedSubviews[0] as? UIButton
 				let subv2 = v1?.arrangedSubviews[1] as? UIButton
 				subv1?.setAttributedTitle(ats, for: .normal)

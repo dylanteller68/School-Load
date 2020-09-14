@@ -194,6 +194,7 @@ class MyTodosViewController: UIViewController {
 						}
 						self.progress_spinner.stopAnimating()
 						self.redraw_screen()
+						user.coursesShouldUpdate = true
 					}
 				}
 			}

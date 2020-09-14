@@ -82,8 +82,15 @@ class CourseTodosViewController: UIViewController {
 					done_btn.tag = t.ID.hashValue
 					done_btn.addTarget(self, action: #selector(self.done_btn_tapped), for: .touchUpInside)
 					
+					var btnColor: UIColor
+					if self.traitCollection.userInterfaceStyle == .dark {
+						btnColor = .white
+					} else {
+						btnColor = .black
+					}
+					
 					let btn1 = UIButton(type: .system)
-					let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
+					let title = NSMutableAttributedString(string: "\(t.name)", attributes: [NSAttributedString.Key.foregroundColor: btnColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .thin)])
 					btn1.setAttributedTitle(title, for: .normal)
 					btn1.contentHorizontalAlignment = .leading
 					btn1.titleLabel?.lineBreakMode = .byTruncatingTail
@@ -92,7 +99,7 @@ class CourseTodosViewController: UIViewController {
 					
 					let btn2 = UIButton(type: .system)
 					let title2 = NSMutableAttributedString(string: "\(tDate)", attributes: [
-						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: UIColor.label])
+						NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .thin), NSAttributedString.Key.foregroundColor: btnColor])
 					btn2.setAttributedTitle(title2, for: .normal)
 					btn2.contentHorizontalAlignment = .leading
 					btn2.titleLabel?.lineBreakMode = .byTruncatingTail

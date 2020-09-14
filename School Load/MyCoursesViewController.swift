@@ -154,6 +154,13 @@ class MyCoursesViewController: UIViewController {
 				}
 			}
 			
+			var btnColor: UIColor
+			if self.traitCollection.userInterfaceStyle == .dark {
+				btnColor = .white
+			} else {
+				btnColor = .black
+			}
+			
 			if UIDevice().model != "iPad" {
 				let btn1 = UIButton(type: .system)
 				btn1.setAttributedTitle(NSAttributedString(string: "\(c.name)", attributes: [NSAttributedString.Key.foregroundColor: user.colors[c.color], NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .thin)]), for: .normal)
@@ -164,9 +171,9 @@ class MyCoursesViewController: UIViewController {
 				
 				let btn2 = UIButton(type: .system)
 				if c.numTodos != 1 {
-				btn2.setAttributedTitle(NSAttributedString(string: "\(c.numTodos) To-dos", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
+				btn2.setAttributedTitle(NSAttributedString(string: "\(c.numTodos) To-dos", attributes: [NSAttributedString.Key.foregroundColor: btnColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
 				} else {
-					btn2.setAttributedTitle(NSAttributedString(string: "\(c.numTodos) To-do", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
+					btn2.setAttributedTitle(NSAttributedString(string: "\(c.numTodos) To-do", attributes: [NSAttributedString.Key.foregroundColor: btnColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
 				}
 				btn2.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
 				btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
@@ -211,7 +218,7 @@ class MyCoursesViewController: UIViewController {
 							let formatter1 = DateFormatter()
 							formatter1.timeStyle = .short
 							let tDate = formatter1.string(from: t.date)
-							btn2.setAttributedTitle(NSAttributedString(string: "\(t.name) • \(tdDate), \(tDate)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
+							btn2.setAttributedTitle(NSAttributedString(string: "\(t.name) • \(tdDate), \(tDate)", attributes: [NSAttributedString.Key.foregroundColor: btnColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
 							btn2.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
 							btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 							btn2.tag = c.ID.hashValue
@@ -219,7 +226,7 @@ class MyCoursesViewController: UIViewController {
 							course_btn_SV.addArrangedSubview(btn2)
 						} else {
 							let btn2 = UIButton(type: .system)
-							btn2.setAttributedTitle(NSAttributedString(string: "...", attributes: [NSAttributedString.Key.foregroundColor: UIColor.label, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
+							btn2.setAttributedTitle(NSAttributedString(string: "...", attributes: [NSAttributedString.Key.foregroundColor: btnColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .thin)]), for: .normal)
 							btn2.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 10, right: 15)
 							btn2.addTarget(self, action: #selector(self.btn_tapped), for: .touchUpInside)
 							btn2.tag = c.ID.hashValue

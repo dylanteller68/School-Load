@@ -247,6 +247,7 @@ class MyTodosViewController: UIViewController {
 					"dateAdded" : t.dateAdded,
 					"note" : t.note
 				])
+				user.completed.append(todo)
 				break
 			}
 		}

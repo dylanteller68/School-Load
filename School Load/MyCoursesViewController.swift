@@ -30,7 +30,7 @@ class MyCoursesViewController: UIViewController {
 		user.courses = []
 		
 		// get courses
-		db.collection("users").document(user.ID).collection("courses").order(by: "time", descending: true)
+		db.collection("users").document(user.ID).collection("courses").order(by: "time", descending: false)
 			.addSnapshotListener { (snapshot, error) in
 			if error == nil {
 				snapshot!.documentChanges.forEach { diff in
@@ -60,14 +60,12 @@ class MyCoursesViewController: UIViewController {
 						
 						let courseName = data["name"] as! String
 						let courseColor = data["color"] as! Int
-						let time = data["time"] as! Timestamp
 
 						for course in user.courses {
 							if course.ID == diff.document.documentID {
 								course.name = courseName
 								course.color = courseColor
 								course.numTodos = 0
-								course.time = time.dateValue()
 							}
 						}
 						

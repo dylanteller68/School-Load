@@ -61,7 +61,7 @@ class MyTodosViewController: UIViewController {
 				}
 			}
 
-			db.collection("users").document(user.ID).collection("courses").order(by: "time").getDocuments { (querySnapshot, error) in
+			db.collection("users").document(user.ID).collection("courses").order(by: "time", descending: false).getDocuments { (querySnapshot, error) in
 				if error == nil {
 					for document in querySnapshot!.documents {
 						let data = document.data()

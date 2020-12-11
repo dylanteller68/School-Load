@@ -24,7 +24,7 @@
 		4C545B8C24E1FA2F005DA083 /* EditNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */; };
 		4C6042AE24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */; };
 		4C71734324E04210003E3D83 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C71734224E04210003E3D83 /* HelpViewController.swift */; };
-		4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7177C9243AE91500FAC248 /* MeViewController.swift */; };
+		4C7177CA243AE91500FAC248 /* ToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7177C9243AE91500FAC248 /* ToolsViewController.swift */; };
 		4C7E98ED2437B6CA0058DFD8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */; };
 		4C866D1F247E157A0090A0BB /* EditEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C866D1E247E157A0090A0BB /* EditEmailViewController.swift */; };
 		4C866D21247E16F30090A0BB /* ReauthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C866D20247E16F30090A0BB /* ReauthenticateViewController.swift */; };
@@ -79,7 +79,7 @@
 		4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotificationViewController.swift; sourceTree = "<group>"; };
 		4C6042AD24E068BF00150ECB /* ReauthenticateDeleteAcctViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticateDeleteAcctViewController.swift; sourceTree = "<group>"; };
 		4C71734224E04210003E3D83 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		4C7177C9243AE91500FAC248 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		4C7177C9243AE91500FAC248 /* ToolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4C866D1E247E157A0090A0BB /* EditEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailViewController.swift; sourceTree = "<group>"; };
 		4C866D20247E16F30090A0BB /* ReauthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticateViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				4CDB68FE24453B570052ACE0 /* Course.swift */,
 				4C4E70D124330CB6005AB60C /* LoginViewController.swift */,
 				4C7E98EC2437B6CA0058DFD8 /* ForgotPasswordViewController.swift */,
-				4C7177C9243AE91500FAC248 /* MeViewController.swift */,
+				4C7177C9243AE91500FAC248 /* ToolsViewController.swift */,
 				4CCAB4532479898D0079BB0F /* EditNameViewController.swift */,
 				4C866D20247E16F30090A0BB /* ReauthenticateViewController.swift */,
 				4C866D1E247E157A0090A0BB /* EditEmailViewController.swift */,
@@ -313,7 +313,7 @@
 				4C7E98ED2437B6CA0058DFD8 /* ForgotPasswordViewController.swift in Sources */,
 				4CEFCC8F24BBBCB00039776F /* YourNameViewController.swift in Sources */,
 				4C866D23247E25810090A0BB /* ReauthenticatePswdViewController.swift in Sources */,
-				4C7177CA243AE91500FAC248 /* MeViewController.swift in Sources */,
+				4C7177CA243AE91500FAC248 /* ToolsViewController.swift in Sources */,
 				4C51C2AF2442279D00988081 /* NewTodoViewController.swift in Sources */,
 				4C866D25247E293E0090A0BB /* EditPasswordViewController.swift in Sources */,
 				4C067B4124319A4B00654077 /* MyCoursesViewController.swift in Sources */,

@@ -93,7 +93,7 @@ public class User {
 		if self.courses.count > 0 {
 			for i in 0..<self.courses.count-1 {
 				for k in i+1..<self.courses.count {
-					if self.courses[i].time < self.courses[k].time {
+					if self.courses[i].time > self.courses[k].time {
 						let tmp = self.courses[i]
 						self.courses[i] = self.courses[k]
 						self.courses[k] = tmp

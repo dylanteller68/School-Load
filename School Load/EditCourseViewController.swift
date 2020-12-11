@@ -71,8 +71,7 @@ class EditCourseViewController: UIViewController {
 						
 			db.collection("users").document(user.ID).collection("courses").document(id).updateData([
 				"name" : cName,
-				"color" : numColor,
-				"time" : Timestamp()
+				"color" : numColor
 			]) { (error) in
 				if error != nil {
 					self.progress_spinner.stopAnimating()

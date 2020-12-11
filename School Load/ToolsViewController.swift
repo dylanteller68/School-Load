@@ -34,8 +34,8 @@ class ToolsViewController: UIViewController {
 		btn1.setTitle("", for: .normal)
 		btn1.setBackgroundImage(UIImage(systemName: "calendar", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn1.tintColor = .label
-		btn1.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn1.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn1.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn1.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn1.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
 		btn1.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
 		
@@ -61,10 +61,10 @@ class ToolsViewController: UIViewController {
 		btn3.setTitle("", for: .normal)
 		btn3.setBackgroundImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn3.tintColor = .label
-		btn3.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn3.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn3.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn3.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn3.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-		btn3.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn3.addTarget(self, action: #selector(self.notes_btn_tapped), for: .touchUpInside)
 		
 		let btn4 = UIButton(type: .system)
 		btn4.setTitle("Notes", for: .normal)
@@ -73,7 +73,7 @@ class ToolsViewController: UIViewController {
 		btn4.titleLabel?.numberOfLines = 2
 		btn4.titleLabel?.textAlignment = .center
 		btn4.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-		btn4.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn4.addTarget(self, action: #selector(self.notes_btn_tapped), for: .touchUpInside)
 
 		let notes_btn = UIStackView(arrangedSubviews: [btn3, btn4])
 		notes_btn.axis = .vertical
@@ -82,16 +82,16 @@ class ToolsViewController: UIViewController {
 		notes_btn.spacing = 0
 		notes_btn.addBackground(color: .systemGray5)
 		let subv2 = notes_btn.subviews[0] as? UIButton
-		subv2?.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		subv2?.addTarget(self, action: #selector(self.notes_btn_tapped), for: .touchUpInside)
 		
 		let btn5 = UIButton(type: .system)
 		btn5.setTitle("", for: .normal)
 		btn5.setBackgroundImage(UIImage(systemName: "timer", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn5.tintColor = .label
-		btn5.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn5.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn5.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn5.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn5.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-		btn5.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn5.addTarget(self, action: #selector(self.timer_btn_tapped), for: .touchUpInside)
 		
 		let btn6 = UIButton(type: .system)
 		btn6.setTitle("Study Timer", for: .normal)
@@ -100,7 +100,7 @@ class ToolsViewController: UIViewController {
 		btn6.titleLabel?.numberOfLines = 2
 		btn6.titleLabel?.textAlignment = .center
 		btn6.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-		btn6.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn6.addTarget(self, action: #selector(self.timer_btn_tapped), for: .touchUpInside)
 
 		let timer_btn = UIStackView(arrangedSubviews: [btn5, btn6])
 		timer_btn.axis = .vertical
@@ -109,16 +109,16 @@ class ToolsViewController: UIViewController {
 		timer_btn.spacing = 0
 		timer_btn.addBackground(color: .systemGray5)
 		let subv3 = timer_btn.subviews[0] as? UIButton
-		subv3?.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		subv3?.addTarget(self, action: #selector(self.timer_btn_tapped), for: .touchUpInside)
 		
 		let btn7 = UIButton(type: .system)
 		btn7.setTitle("", for: .normal)
 		btn7.setBackgroundImage(UIImage(systemName: "graduationcap", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn7.tintColor = .label
-		btn7.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn7.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn7.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn7.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn7.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-		btn7.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn7.addTarget(self, action: #selector(self.gpa_btn_tapped), for: .touchUpInside)
 		
 		let btn8 = UIButton(type: .system)
 		btn8.setTitle("GPA Calculator", for: .normal)
@@ -127,7 +127,7 @@ class ToolsViewController: UIViewController {
 		btn8.titleLabel?.numberOfLines = 2
 		btn8.titleLabel?.textAlignment = .center
 		btn8.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-		btn8.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn8.addTarget(self, action: #selector(self.gpa_btn_tapped), for: .touchUpInside)
 
 		let gpa_btn = UIStackView(arrangedSubviews: [btn7, btn8])
 		gpa_btn.axis = .vertical
@@ -136,16 +136,16 @@ class ToolsViewController: UIViewController {
 		gpa_btn.spacing = 0
 		gpa_btn.addBackground(color: .systemGray5)
 		let subv4 = gpa_btn.subviews[0] as? UIButton
-		subv4?.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		subv4?.addTarget(self, action: #selector(self.gpa_btn_tapped), for: .touchUpInside)
 		
 		let btn9 = UIButton(type: .system)
 		btn9.setTitle("", for: .normal)
 		btn9.setBackgroundImage(UIImage(systemName: "person", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn9.tintColor = .label
-		btn9.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn9.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn9.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn9.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn9.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-		btn9.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn9.addTarget(self, action: #selector(self.info_btn_tapped), for: .touchUpInside)
 		
 		let btn10 = UIButton(type: .system)
 		btn10.setTitle("My Info", for: .normal)
@@ -154,7 +154,7 @@ class ToolsViewController: UIViewController {
 		btn10.titleLabel?.numberOfLines = 2
 		btn10.titleLabel?.textAlignment = .center
 		btn10.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-		btn10.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn10.addTarget(self, action: #selector(self.info_btn_tapped), for: .touchUpInside)
 
 		let info_btn = UIStackView(arrangedSubviews: [btn9, btn10])
 		info_btn.axis = .vertical
@@ -163,16 +163,16 @@ class ToolsViewController: UIViewController {
 		info_btn.spacing = 0
 		info_btn.addBackground(color: .systemGray5)
 		let subv5 = info_btn.subviews[0] as? UIButton
-		subv5?.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		subv5?.addTarget(self, action: #selector(self.info_btn_tapped), for: .touchUpInside)
 		
 		let btn11 = UIButton(type: .system)
 		btn11.setTitle("", for: .normal)
 		btn11.setBackgroundImage(UIImage(systemName: "questionmark", withConfiguration: UIImage.SymbolConfiguration(weight: .thin)), for: .normal)
 		btn11.tintColor = .label
-		btn11.widthAnchor.constraint(equalToConstant: 75).isActive = true
-		btn11.heightAnchor.constraint(equalToConstant: 75).isActive = true
+		btn11.widthAnchor.constraint(equalToConstant: 50).isActive = true
+		btn11.heightAnchor.constraint(equalToConstant: 50).isActive = true
 		btn11.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-		btn11.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn11.addTarget(self, action: #selector(self.help_btn_tapped), for: .touchUpInside)
 		
 		let btn12 = UIButton(type: .system)
 		btn12.setTitle("Help", for: .normal)
@@ -181,7 +181,7 @@ class ToolsViewController: UIViewController {
 		btn12.titleLabel?.numberOfLines = 2
 		btn12.titleLabel?.textAlignment = .center
 		btn12.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-		btn12.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		btn12.addTarget(self, action: #selector(self.help_btn_tapped), for: .touchUpInside)
 
 		let help_btn = UIStackView(arrangedSubviews: [btn11, btn12])
 		help_btn.axis = .vertical
@@ -190,7 +190,7 @@ class ToolsViewController: UIViewController {
 		help_btn.spacing = 0
 		help_btn.addBackground(color: .systemGray5)
 		let subv6 = help_btn.subviews[0] as? UIButton
-		subv6?.addTarget(self, action: #selector(self.schedule_btn_tapped), for: .touchUpInside)
+		subv6?.addTarget(self, action: #selector(self.help_btn_tapped), for: .touchUpInside)
 		
 		sv1.addArrangedSubview(schedule_btn)
 		sv1.addArrangedSubview(notes_btn)
@@ -317,6 +317,41 @@ class ToolsViewController: UIViewController {
 //	}
 	
 	@objc func schedule_btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+	}
+	
+	@objc func notes_btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+	}
+	
+	@objc func timer_btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+	}
+	
+	@objc func gpa_btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+	}
+	
+	@objc func info_btn_tapped(sender: UIButton) {
+		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+		selectionFeedbackGenerator.selectionChanged()
+		
+//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+	}
+	
+	@objc func help_btn_tapped(sender: UIButton) {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		

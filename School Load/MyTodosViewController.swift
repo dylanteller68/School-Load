@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import UserNotifications
+import StoreKit
 
 class MyTodosViewController: UIViewController {
 	
@@ -289,6 +290,10 @@ class MyTodosViewController: UIViewController {
 					db.collection("users").document(user.ID).collection("to-dos").document(t.ID).delete()
 				}
 			}
+		}
+		
+		if user.completed.count >= 3 {
+			SKStoreReviewController.requestReview()
 		}
 	}
 	

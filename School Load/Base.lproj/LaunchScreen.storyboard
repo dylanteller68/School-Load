@@ -65,7 +65,7 @@
                                 <items>
                                     <tabBarItem title="To-dos" image="list.bullet" catalog="system" id="D1h-uv-7bJ"/>
                                     <tabBarItem title="Courses" image="book" catalog="system" id="27W-Kz-Vbd"/>
-                                    <tabBarItem title="Tools" image="wrench" catalog="system" id="KUJ-1w-rCV"/>
+                                    <tabBarItem title="Tools" image="square.grid.2x2" catalog="system" id="KUJ-1w-rCV"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -96,8 +96,8 @@
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="text.badge.checkmark" catalog="system" width="128" height="109"/>
-        <image name="wrench" catalog="system" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

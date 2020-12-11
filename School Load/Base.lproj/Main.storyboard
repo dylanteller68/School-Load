@@ -183,14 +183,14 @@
                                     <segue destination="MfQ-t3-O86" kind="show" id="IfQ-gY-3PO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAI-KN-QJz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAI-KN-QJz">
                                 <rect key="frame" x="369" y="54.5" width="30" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="bN2-DJ-gCl"/>
                                     <constraint firstAttribute="width" constant="30" id="pun-mo-93H"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemTealColor"/>
-                                <state key="normal" image="grad" backgroundImage="plus.circle" catalog="system">
+                                <state key="normal" backgroundImage="plus.circle" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                 </state>
                                 <connections>
@@ -753,7 +753,7 @@
                             <constraint firstItem="h7P-dn-YBk" firstAttribute="centerX" secondItem="mLa-BY-CsS" secondAttribute="centerX" id="uJb-ht-Yiq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tools" image="wrench" catalog="system" id="n2f-fS-kMy"/>
+                    <tabBarItem key="tabBarItem" title="Tools" image="square.grid.2x2" catalog="system" id="n2f-fS-kMy"/>
                     <navigationItem key="navigationItem" id="bHv-V2-I4D"/>
                     <connections>
                         <outlet property="logout_btn" destination="MuS-Yc-XWL" id="j4p-ua-isO"/>
@@ -3678,15 +3678,14 @@
         <image name="chevron.up.circle" catalog="system" width="128" height="121"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
-        <image name="grad" width="128" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="text.badge.checkmark" catalog="system" width="128" height="109"/>
         <image name="trash.circle" catalog="system" width="128" height="121"/>
-        <image name="wrench" catalog="system" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

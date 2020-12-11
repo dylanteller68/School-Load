@@ -382,7 +382,6 @@ extension UIStackView {
 		subview.backgroundColor = color
 		subview.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		subview.layer.cornerRadius = 25
-		subview.tag = tag
 		insertSubview(subview, at: 0)
 	}
 }

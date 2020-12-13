@@ -762,6 +762,7 @@
                         <outlet property="sv3" destination="iiV-Mv-WrQ" id="zRo-gp-oaZ"/>
                         <segue destination="Sez-yX-niQ" kind="show" identifier="logout_segue" id="0Nm-Za-2py"/>
                         <segue destination="3MP-mR-xbz" kind="show" identifier="create_acct_segue" id="93e-7g-Ce8"/>
+                        <segue destination="RdB-E8-ddd" kind="show" identifier="course_schedule_segue" id="L2Z-d4-Cet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ff-fA-CY2" sceneMemberID="firstResponder"/>
@@ -3662,6 +3663,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAe-8F-67h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="83" y="-1406"/>
+        </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="Sdc-Nn-FRm">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="RdB-E8-ddd" customClass="ScheduleViewController" customModule="School_Load" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uuy-G2-k1V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhM-s0-X34">
+                                <rect key="frame" x="15" y="54.5" width="30" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="25n-Iv-GLC"/>
+                                    <constraint firstAttribute="height" constant="30" id="dmK-2Z-ea2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <state key="normal" backgroundImage="arrow.down.circle" catalog="system">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_tapped:" destination="RdB-E8-ddd" eventType="touchUpInside" id="7Ym-g0-t5X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="POq-LC-7p3"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="AhM-s0-X34" firstAttribute="leading" secondItem="POq-LC-7p3" secondAttribute="leading" constant="15" id="Z0C-zZ-w7o"/>
+                            <constraint firstItem="AhM-s0-X34" firstAttribute="top" secondItem="POq-LC-7p3" secondAttribute="top" constant="10" id="x6M-Re-VdO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LPx-rC-rAr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Bi-4l-P17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="743"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

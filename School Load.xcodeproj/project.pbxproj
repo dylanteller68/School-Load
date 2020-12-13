@@ -31,6 +31,7 @@
 		4C866D23247E25810090A0BB /* ReauthenticatePswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C866D22247E25810090A0BB /* ReauthenticatePswdViewController.swift */; };
 		4C866D25247E293E0090A0BB /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C866D24247E293E0090A0BB /* EditPasswordViewController.swift */; };
 		4CAA0FCE243D873100C962A8 /* NewCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA0FCD243D873100C962A8 /* NewCourseViewController.swift */; };
+		4CC623B1258688090089D285 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC623B0258688090089D285 /* ScheduleViewController.swift */; };
 		4CCAB4542479898D0079BB0F /* EditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAB4532479898D0079BB0F /* EditNameViewController.swift */; };
 		4CDB68FD24435FBD0052ACE0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB68FC24435FBD0052ACE0 /* User.swift */; };
 		4CDB68FF24453B570052ACE0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB68FE24453B570052ACE0 /* Course.swift */; };
@@ -86,6 +87,7 @@
 		4C866D22247E25810090A0BB /* ReauthenticatePswdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticatePswdViewController.swift; sourceTree = "<group>"; };
 		4C866D24247E293E0090A0BB /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		4CAA0FCD243D873100C962A8 /* NewCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseViewController.swift; sourceTree = "<group>"; };
+		4CC623B0258688090089D285 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		4CCAB4532479898D0079BB0F /* EditNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameViewController.swift; sourceTree = "<group>"; };
 		4CDB68FC24435FBD0052ACE0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CDB68FE24453B570052ACE0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				4C545B8B24E1FA2F005DA083 /* EditNotificationViewController.swift */,
 				4C2A2A7B24E3584700E4DD38 /* TodoInfoViewController.swift */,
 				4C2A2A7D24E388DC00E4DD38 /* EditTodoViewController.swift */,
+				4CC623B0258688090089D285 /* ScheduleViewController.swift */,
 			);
 			path = "School Load";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				4CEFCC9324BBC0350039776F /* YourPasswordViewController.swift in Sources */,
 				4CCAB4542479898D0079BB0F /* EditNameViewController.swift in Sources */,
 				4C067B3F24319A4B00654077 /* MyTodosViewController.swift in Sources */,
+				4CC623B1258688090089D285 /* ScheduleViewController.swift in Sources */,
 				4C067B3B24319A4B00654077 /* AppDelegate.swift in Sources */,
 				4C2A2A7C24E3584700E4DD38 /* TodoInfoViewController.swift in Sources */,
 				4C545B8C24E1FA2F005DA083 /* EditNotificationViewController.swift in Sources */,

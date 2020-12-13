@@ -134,7 +134,7 @@ class ToolsViewController: UIViewController {
 		let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
 		selectionFeedbackGenerator.selectionChanged()
 		
-//		performSegue(withIdentifier: "course_todos_segue", sender: sender)
+		performSegue(withIdentifier: "course_schedule_segue", sender: sender)
 	}
 	
 	@objc func notes_btn_tapped(sender: UIButton) {
